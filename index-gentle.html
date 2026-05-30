@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>マルチSNS参謀｜中小企業・個人クリエイター向けSNS戦略コンサル</title>
+<meta name="description" content="マーケティング素人でも、7問のヒアリングからSNS戦略・運用カレンダー・6ヶ月ロードマップが手に入る伴走型コンサルサービス。" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ====== Reset & Base ====== */
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans JP','游ゴシック','Hiragino Sans',sans-serif;
+  background:#FFFFFF;
+  color:#333333;
+  line-height:1.8;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:#0066CC;text-decoration:none;transition:opacity 0.2s}
+a:hover{opacity:0.8}
+img{max-width:100%;display:block}
+
+/* ====== Fade-in ====== */
+@keyframes fadeInUp{
+  from{opacity:0;transform:translateY(12px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.fade-in{animation:fadeInUp 500ms ease-out both}
+
+/* ====== Layout ====== */
+.container{max-width:1200px;margin:0 auto;padding:0 40px}
+.section{
+  padding:80px 0;
+  background:#FFFFFF;
+}
+.section.alt-bg{background:#F5F5F5}
+.section-head{margin-bottom:48px}
+.section-divider{
+  width:48px;height:1px;background:#EEEEEE;
+  margin-bottom:16px;
+}
+.section-num{
+  display:block;font-size:0.75rem;font-weight:500;
+  color:#666666;letter-spacing:0.15em;margin-bottom:12px;
+}
+.section-head h2{
+  font-size:1.75rem;font-weight:600;color:#333333;
+  line-height:1.4;letter-spacing:0.02em;
+}
+.section-lead{
+  font-size:1rem;color:#333333;line-height:1.8;
+  margin-bottom:32px;max-width:840px;
+}
+.section h3{
+  font-size:1.25rem;font-weight:600;color:#333333;
+  margin:40px 0 16px;line-height:1.5;
+}
+.section p{font-size:1rem;color:#333333;margin-bottom:14px;line-height:1.8}
+.section ul,.section ol{margin:12px 0 16px 1.4em;color:#333333}
+.section li{margin-bottom:8px;font-size:1rem;line-height:1.8}
+
+/* ====== Hero ====== */
+.hero{
+  background:#FFFFFF;
+  color:#333333;
+  padding:120px 0 100px;
+  min-height:500px;
+  display:flex;
+  align-items:center;
+  border-bottom:1px solid #EEEEEE;
+}
+.hero .container{width:100%}
+.hero .badge{
+  display:inline-block;
+  padding:6px 14px;
+  background:#F5F5F5;
+  color:#666666;
+  font-size:0.75rem;font-weight:500;
+  letter-spacing:0.1em;margin-bottom:28px;
+  border-radius:6px;
+  border:1px solid #EEEEEE;
+}
+.hero h1{
+  font-size:2.5rem;font-weight:700;
+  line-height:1.3;margin-bottom:28px;
+  letter-spacing:0.5px;
+  color:#333333;
+  max-width:900px;
+}
+.hero h1 .accent{
+  color:#1DB446;
+  font-weight:700;
+}
+.hero .sub{
+  font-size:1rem;font-weight:400;
+  color:#666666;margin-bottom:40px;line-height:1.8;
+  max-width:760px;
+}
+.cta-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:12px 24px;
+  min-height:46px;min-width:44px;
+  background:#1DB446;color:#FFFFFF;
+  font-weight:600;font-size:0.9375rem;
+  border:none;cursor:pointer;
+  border-radius:8px;
+  transition:background 0.2s,opacity 0.2s;
+  text-decoration:none;
+  font-family:inherit;
+  line-height:1.4;
+}
+.cta-btn:hover{background:#159438;color:#FFFFFF;opacity:0.95}
+.cta-btn.primary{background:#1DB446}
+.cta-btn.primary:hover{background:#159438}
+.cta-btn.brain{
+  background:#FFFFFF;color:#333333;
+  border:1px solid #CCCCCC;
+}
+.cta-btn.brain:hover{background:#F5F5F5;color:#333333}
+.cta-btn.brain.disabled{
+  background:#F5F5F5;color:#999999;
+  border:1px solid #E0E0E0;
+  cursor:not-allowed;opacity:0.8;
+}
+.cta-btn.brain.disabled:hover{background:#F5F5F5;color:#999999}
+.cta-btn.gpt{
+  background:#FFFFFF;color:#333333;
+  border:1px solid #CCCCCC;
+}
+.cta-btn.gpt:hover{background:#F5F5F5;color:#333333}
+.cta-group{
+  display:flex;gap:12px;flex-wrap:wrap;
+  margin-top:8px;
+}
+.hero .meta{
+  margin-top:28px;font-size:0.875rem;color:#666666;
+  line-height:1.6;
+}
+
+/* ====== Pain Cards ====== */
+.pain-list{
+  display:grid;gap:24px;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  margin-top:24px;
+}
+.pain-card{
+  background:#FFFFFF;
+  border:1px solid #E0E0E0;
+  border-radius:8px;
+  padding:24px;
+  transition:opacity 0.2s;
+}
+.pain-card:hover{opacity:0.9}
+.pain-card .icon{
+  font-size:0.75rem;color:#1DB446;font-weight:600;
+  letter-spacing:0.1em;margin-bottom:12px;
+}
+.pain-card .q{
+  font-weight:500;color:#333333;font-size:1rem;line-height:1.7;
+}
+
+/* ====== Phase Cards ====== */
+.phase-grid{
+  display:grid;gap:24px;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  margin-top:24px;
+}
+.phase-card{
+  background:#FFFFFF;
+  border:1px solid #E0E0E0;
+  border-radius:8px;
+  padding:24px;
+  transition:opacity 0.2s;
+  display:flex;flex-direction:column;
+}
+.phase-card:hover{opacity:0.92}
+.phase-card .num{
+  display:inline-block;
+  font-size:0.75rem;font-weight:600;
+  color:#1DB446;
+  letter-spacing:0.15em;
+  margin-bottom:12px;
+}
+.phase-card h4{
+  font-size:1.125rem;font-weight:600;color:#333333;
+  margin-bottom:12px;
+  line-height:1.5;
+}
+.phase-card p{
+  font-size:0.9375rem;color:#666666;line-height:1.8;
+  margin-bottom:0;
+}
+
+/* ====== Deliverables ====== */
+.deliver-box{
+  background:#FFFFFF;
+  border:1px solid #E0E0E0;
+  border-radius:8px;
+  padding:24px;
+  margin-top:24px;
+}
+.deliver-box h4{
+  font-weight:600;color:#333333;margin-bottom:16px;
+  font-size:1.125rem;
+}
+.deliver-box ul{margin-left:1.4em}
+.deliver-box li{margin-bottom:10px;color:#333333}
+
+.ba-table{
+  width:100%;border-collapse:collapse;margin-top:24px;
+  font-size:0.9375rem;
+  background:#FFFFFF;
+  border:1px solid #E0E0E0;
+  border-radius:8px;
+  overflow:hidden;
+}
+.ba-table th,.ba-table td{
+  border-bottom:1px solid #EEEEEE;padding:16px 18px;text-align:left;vertical-align:top;
+  line-height:1.7;
+}
+.ba-table tr:last-child th,.ba-table tr:last-child td{border-bottom:none}
+.ba-table th{
+  background:#F5F5F5;color:#333333;font-weight:600;
+  font-size:0.9375rem;
+}
+.ba-table td:first-child{
+  font-weight:600;background:#FAFAFA;color:#333333;width:28%;
+}
+.ba-note{margin-top:14px;font-size:0.875rem;color:#666666}
+
+/* ====== Price Cards ====== */
+.price-grid{
+  display:grid;gap:24px;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  margin-top:32px;
+}
+.price-card{
+  background:#FFFFFF;
+  border:1px solid #E0E0E0;
+  border-radius:8px;
+  padding:24px;
+  position:relative;
+  display:flex;flex-direction:column;
+}
+.price-card.silver{
+  border:1px solid #1DB446;
+}
+.price-card .rank{
+  font-size:0.75rem;font-weight:600;
+  color:#666666;letter-spacing:0.15em;
+  margin-bottom:10px;
+}
+.price-card .name{
+  font-size:1.25rem;font-weight:600;
+  color:#333333;margin-bottom:8px;
+  line-height:1.5;
+}
+.price-card .badge{
+  position:absolute;top:-12px;left:24px;
+  background:#1DB446;color:#FFFFFF;
+  padding:5px 14px;
+  font-size:0.75rem;font-weight:600;letter-spacing:0.05em;
+  white-space:nowrap;
+  border-radius:6px;
+}
+.price-card .price{
+  font-size:1.5rem;font-weight:700;
+  color:#1DB446;margin:12px 0 4px;
+  line-height:1.3;
+}
+.price-card .price small{
+  font-size:0.8125rem;color:#666666;font-weight:500;
+  display:block;margin-top:6px;
+}
+.price-card .desc{
+  font-size:0.9375rem;color:#666666;
+  margin:16px 0 20px;line-height:1.8;
+  padding-bottom:18px;border-bottom:1px solid #EEEEEE;
+  min-height:80px;
+}
+.price-card ul{list-style:none;margin:0;padding:0;flex:1}
+.price-card ul li{
+  padding:10px 0 10px 22px;
+  position:relative;
+  font-size:0.9375rem;color:#333333;line-height:1.7;
+  border-bottom:1px solid #EEEEEE;
+}
+.price-card ul li:last-child{border-bottom:none}
+.price-card ul li::before{
+  content:"";
+  position:absolute;left:0;top:18px;
+  width:10px;height:10px;
+  border-radius:50%;
+  background:#1DB446;
+}
+.price-card .btn-group{display:flex;flex-direction:column;gap:10px;margin-top:24px}
+.price-card .order-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  padding:12px 20px;
+  min-height:44px;
+  background:#1DB446;color:#FFFFFF;
+  text-align:center;border-radius:8px;
+  font-weight:600;font-size:0.9375rem;
+  transition:background 0.2s;
+  text-decoration:none;
+}
+.price-card .order-btn:hover{background:#159438;color:#FFFFFF}
+.price-card .order-btn.brain-order{
+  background:#FFFFFF;color:#333333;
+  border:1px solid #CCCCCC;
+}
+.price-card .order-btn.brain-order:hover{background:#F5F5F5;color:#333333}
+.price-card .order-btn.brain-order.disabled{
+  background:#F5F5F5;color:#999999;
+  border:1px solid #E0E0E0;
+  cursor:not-allowed;opacity:0.8;
+}
+.price-card .order-btn.brain-order.disabled:hover{background:#F5F5F5;color:#999999}
+.price-card .order-btn.secondary{
+  background:#FFFFFF;color:#333333;
+  border:1px solid #CCCCCC;
+}
+.price-card .order-btn.secondary:hover{background:#F5F5F5;color:#333333}
+.price-note{
+  margin-top:28px;font-size:0.875rem;color:#666666;text-align:center;
+}
+
+/* ====== SNS Logos ====== */
+.sns-grid{
+  display:grid;gap:16px;
+  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  margin-top:24px;
+}
+.sns-tag{
+  background:#FFFFFF;
+  border:1px solid #E0E0E0;
+  border-radius:8px;
+  padding:20px 14px;text-align:center;
+  font-weight:600;color:#333333;font-size:0.9375rem;
+  transition:border-color 0.2s,opacity 0.2s;
+}
+.sns-tag:hover{
+  border-color:#1DB446;
+  opacity:0.95;
+}
+.sns-tag .icon{
+  display:block;font-size:0.6875rem;
+  color:#1DB446;font-weight:600;
+  letter-spacing:0.1em;
+  margin-bottom:8px;
+}
+.sns-note{margin-top:24px;font-size:0.875rem;color:#666666}
+
+/* ====== FAQ ====== */
+.faq-item{
+  background:#FFFFFF;
+  border:1px solid #E0E0E0;
+  border-radius:8px;
+  margin-bottom:12px;
+  overflow:hidden;
+}
+.faq-item.open{border-color:#1DB446}
+.faq-q{
+  padding:20px 24px;cursor:pointer;
+  font-weight:600;color:#333333;
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:1rem;line-height:1.5;
+  transition:background 0.2s;
+  width:100%;background:transparent;border:none;text-align:left;
+  font-family:inherit;
+}
+.faq-q:hover{background:#FAFAFA}
+.faq-q:focus-visible{outline:2px solid #1DB446;outline-offset:-2px}
+.faq-q .mark{
+  font-size:1.125rem;color:#1DB446;flex-shrink:0;margin-left:12px;
+  transition:transform 0.2s;font-weight:400;
+}
+.faq-item.open .faq-q .mark{transform:rotate(45deg)}
+.faq-a{
+  padding:0 24px;max-height:0;overflow:hidden;
+  transition:max-height 0.3s,padding 0.3s;
+  color:#666666;font-size:0.9375rem;line-height:1.8;
+  background:#FAFAFA;
+  border-top:1px solid transparent;
+}
+.faq-item.open .faq-a{
+  padding:20px 24px;max-height:500px;
+  border-top:1px solid #EEEEEE;
+}
+
+/* ====== Contact CTA ====== */
+.contact-box{
+  background:#F5F5F5;
+  color:#333333;
+  padding:80px 0;
+  text-align:left;
+  border-top:1px solid #EEEEEE;
+  border-bottom:1px solid #EEEEEE;
+}
+.contact-box .container{display:grid;gap:40px;grid-template-columns:1fr;align-items:center}
+@media(min-width:768px){.contact-box .container{grid-template-columns:1.4fr 1fr}}
+.contact-box h2{
+  color:#333333;font-size:1.75rem;font-weight:600;
+  margin-bottom:20px;line-height:1.4;
+  letter-spacing:0.02em;
+}
+.contact-box p{color:#333333;font-size:1rem;line-height:1.8;margin-bottom:14px}
+.contact-box .mail-link{
+  display:inline-flex;align-items:center;gap:8px;
+  margin-top:12px;
+  padding:12px 24px;
+  min-height:46px;
+  background:#1DB446;color:#FFFFFF;
+  border-radius:8px;font-weight:600;font-size:0.9375rem;
+  transition:background 0.2s;
+}
+.contact-box .mail-link:hover{background:#159438;color:#FFFFFF}
+.contact-box .note{
+  font-size:0.8125rem;color:#666666;margin-top:18px;line-height:1.7;
+}
+.contact-box .cta-side{
+  background:#FFFFFF;
+  border:1px solid #E0E0E0;
+  border-radius:8px;
+  padding:24px;
+}
+.contact-box .cta-side h4{
+  font-size:0.875rem;font-weight:600;color:#1DB446;
+  letter-spacing:0.1em;margin-bottom:14px;
+}
+.contact-box .cta-side p{color:#333333;font-size:0.9375rem;line-height:1.7}
+.contact-box .cta-side strong{color:#333333;font-weight:600}
+
+/* ====== Footer ====== */
+.footer{
+  background:#FFFFFF;color:#666666;
+  padding:48px 0;font-size:0.875rem;
+  line-height:1.8;
+  border-top:1px solid #EEEEEE;
+}
+.footer .company{font-weight:600;font-size:1rem;color:#333333;margin-bottom:12px}
+.footer .copy{margin-top:24px;color:#999999;font-size:0.75rem}
+
+/* ====== Responsive ====== */
+@media (max-width:768px){
+  .section{padding:60px 0}
+  .container{padding:0 24px}
+  .hero{padding:80px 0 64px;min-height:auto}
+  .hero h1{font-size:2rem;line-height:1.35}
+  .hero .sub{font-size:0.9375rem}
+  .section-head h2{font-size:1.5rem}
+  .section h3{font-size:1.125rem}
+  .section p,.section li{font-size:0.9375rem}
+  .contact-box{padding:60px 0}
+  .contact-box h2{font-size:1.5rem}
+  .price-card .price{font-size:1.375rem}
+}
+@media (max-width:480px){
+  body{font-size:0.875rem}
+  .section{padding:40px 0}
+  .container{padding:0 16px}
+  .hero{padding:60px 0 48px}
+  .hero h1{font-size:1.5rem;line-height:1.35;letter-spacing:0.3px}
+  .hero .sub{font-size:0.875rem}
+  .section-head h2{font-size:1.25rem}
+  .section h3{font-size:1rem}
+  .section p,.section li{font-size:0.875rem}
+  .cta-btn{padding:12px 20px;font-size:0.875rem;width:100%}
+  .cta-group{flex-direction:column;gap:10px}
+  .price-card{padding:20px}
+  .price-card .price{font-size:1.25rem}
+  .ba-table th,.ba-table td{padding:12px 14px;font-size:0.8125rem}
+}
+</style>
+</head>
+<body>
+
+<!-- ====== PASSWORD GATE ======
+   パスワード本体は下記 <script> 内の var PASS で管理する
+   セキュリティ上、HTMLコメントにパスワード値を記載しない
+============================== -->
+<div id="password-gate" style="position:fixed;inset:0;background:#FFFFFF;color:#333333;display:flex;align-items:center;justify-content:center;z-index:9999;flex-direction:column;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans JP','游ゴシック','Hiragino Sans',sans-serif;padding:20px;text-align:center">
+  <div style="background:#FFFFFF;padding:40px 32px;border-radius:8px;border:1px solid #E0E0E0;max-width:420px;width:100%">
+    <h2 style="margin-bottom:10px;font-size:1.25rem;font-weight:600;color:#333333;letter-spacing:0.02em">マルチSNS参謀 サービスLP</h2>
+    <p style="font-size:0.875rem;color:#666666;margin-bottom:28px;line-height:1.7">閲覧にはパスワードが必要です</p>
+    <input type="password" id="pwd-input" style="padding:12px 16px;font-size:0.9375rem;border-radius:8px;border:1px solid #CCCCCC;background:#FFFFFF;width:100%;text-align:center;margin-bottom:12px;color:#333333;font-family:inherit;font-weight:500" placeholder="パスワード" autofocus>
+    <button id="pwd-btn" style="padding:12px 24px;min-height:46px;background:#1DB446;color:#FFFFFF;border:none;border-radius:8px;font-size:0.9375rem;cursor:pointer;font-weight:600;width:100%;font-family:inherit;transition:background 0.2s" onmouseover="this.style.background='#159438'" onmouseout="this.style.background='#1DB446'">閲覧する</button>
+    <p id="pwd-err" style="color:#cc3333;margin-top:14px;font-size:0.875rem;display:none">パスワードが正しくありません</p>
+  </div>
+</div>
+<script>
+(function(){
+  var PASS='as09052026'; /* Kei指定値（2026-05-31差し替え） */
+  var gate=document.getElementById('password-gate');
+  var input=document.getElementById('pwd-input');
+  var btn=document.getElementById('pwd-btn');
+  var err=document.getElementById('pwd-err');
+  if(sessionStorage.getItem('mss_auth')==='ok'){gate.style.display='none';return;}
+  document.body.style.overflow='hidden';
+  function check(){
+    if(input.value===PASS){
+      sessionStorage.setItem('mss_auth','ok');
+      gate.style.display='none';
+      document.body.style.overflow='';
+    }else{
+      err.style.display='block';
+      input.value='';input.focus();
+    }
+  }
+  btn.addEventListener('click',check);
+  input.addEventListener('keypress',function(e){if(e.key==='Enter')check();});
+})();
+</script>
+
+<!-- ====== HERO ====== -->
+<header class="hero">
+  <div class="container fade-in">
+    <span class="badge">SERVICE / マーケ素人歓迎・伴走型SNSコンサル</span>
+    <h1>
+      「何を投稿すればいい？」を、<br>
+      <span class="accent">6ヶ月の地図</span>に変える参謀。
+    </h1>
+    <p class="sub">
+      7問のヒアリングだけで、Instagram・TikTok・YouTube・Xを横断した戦略マップと月次運用カレンダーが届く。素人でも迷わず動ける伴走サービス。
+    </p>
+    <div class="cta-group">
+      <a class="cta-btn brain disabled" aria-disabled="true" title="Brain商品ページ準備中">Brainで購入する（準備中）</a>
+      <a href="https://chatgpt.com/g/g-6a1b19fb6080819195f6d0d4ebb933f7-20-shen-qi-run-marutisnscan-mou" target="_blank" rel="noopener" class="cta-btn gpt">無料でGPTを試す</a>
+      <a href="#contact" class="cta-btn primary">無料相談する</a>
+    </div>
+    <p class="meta">無料相談：所要30分・オンライン・売り込み一切なし／カスタムGPT：会員登録不要・即体験可</p>
+  </div>
+</header>
+
+<!-- ====== このページについて ====== -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-divider"></div>
+      <span class="section-num">01 / ABOUT</span>
+      <h2>このページについて</h2>
+    </div>
+    <p class="section-lead">
+      「マルチSNS参謀」は、中小企業の経営者・販促担当者・個人クリエイターのための、SNS戦略設計＋月次伴走サービスです。マーケティングの専門知識がなくても、神崎潤（かんざき じゅん）という参謀役のガイドに従うだけで、何を・どこで・いつ・どう発信するかが組み上がります。
+    </p>
+    <h3>このサービスで手に入るもの</h3>
+    <ul>
+      <li>自社にぴったりのSNS組み合わせ（やる／やらないの判断つき）</li>
+      <li>2年戦略カレンダー・6ヶ月ロードマップ・1ヶ月運用表の3階層プラン</li>
+      <li>北極星指標（最終的に追う1つの数字）とその測り方</li>
+      <li>来週から動ける「今週やる3タスク」リスト</li>
+    </ul>
+    <h3>逆に、こんな方には向きません</h3>
+    <ul>
+      <li>すぐに広告で売上を立てたい（本サービスはオーガニック運用が主軸）</li>
+      <li>1ヶ月でフォロワー1万人を狙いたい（誇大な約束はしない方針）</li>
+      <li>すべて丸投げしたい（伴走型のため、月1回の打ち合わせには参加が必要）</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ====== Pain ====== -->
+<section class="section alt-bg">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-divider"></div>
+      <span class="section-num">02 / ISSUES</span>
+      <h2>こんなお悩み、ありませんか</h2>
+    </div>
+    <div class="pain-list">
+      <div class="pain-card">
+        <div class="icon">CASE 01</div>
+        <div class="q">SNSを始めたいけれど、Instagram・TikTok・YouTubeのどれから手を付ければいいか分からない</div>
+      </div>
+      <div class="pain-card">
+        <div class="icon">CASE 02</div>
+        <div class="q">投稿は続けているのに、フォロワーも問い合わせも増えない月が3ヶ月以上続いている</div>
+      </div>
+      <div class="pain-card">
+        <div class="icon">CASE 03</div>
+        <div class="q">毎週「今日は何を投稿しよう…」とネタ切れに悩んで、結局投稿が止まってしまう</div>
+      </div>
+      <div class="pain-card">
+        <div class="icon">CASE 04</div>
+        <div class="q">数字（インプレッション・保存率）を見ても、良いのか悪いのか判断基準が分からない</div>
+      </div>
+      <div class="pain-card">
+        <div class="icon">CASE 05</div>
+        <div class="q">今のSNSをやめるべきか・続けるべきか、判断の物差しを持っていない</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== Method 5 Phases ====== -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-divider"></div>
+      <span class="section-num">03 / METHOD</span>
+      <h2>マルチSNS参謀メソッドとは</h2>
+    </div>
+    <p class="section-lead">
+      ダイレクトレスポンスマーケティング（成果を測れる形で発信を設計する手法）の考え方を、SNS運用に落とし込んだ5フェーズ構成。素人でも答えられる7問のヒアリングから始まり、最後は来週月曜の朝に動ける3タスクまで届けます。
+    </p>
+    <div class="phase-grid">
+      <div class="phase-card">
+        <span class="num">PHASE 0</span>
+        <h4>ヒアリング7問</h4>
+        <p>ビジネス内容・お客様像・ゴール・使えるリソース・候補SNS・NG事項を30分で整理。マーケ用語ゼロで答えられる設計です。</p>
+      </div>
+      <div class="phase-card">
+        <span class="num">PHASE 1</span>
+        <h4>サービス設計層</h4>
+        <p>コンセプト・ターゲットペルソナ（仮想の代表顧客）・USP（他社にない強み）・3C分析・北極星指標を1日で固めます。</p>
+      </div>
+      <div class="phase-card">
+        <span class="num">PHASE 2</span>
+        <h4>マルチSNS戦略マップ</h4>
+        <p>8つのSNSから「メイン1・サブ2・補助任意・見送り」を判定。プラットフォーム間の導線（誰をどこへ誘導するか）も設計します。</p>
+      </div>
+      <div class="phase-card">
+        <span class="num">PHASE 3</span>
+        <h4>3階層ロードマップ</h4>
+        <p>2年カレンダー・6ヶ月詳細・1ヶ月詳細の入れ子構造で、長期と短期の両方が同時に見える地図を作ります。</p>
+      </div>
+      <div class="phase-card">
+        <span class="num">PHASE 4</span>
+        <h4>月次運用カレンダー</h4>
+        <p>選定SNSごとに「いつ・何を・どんな形式で投稿するか」を月16本〜の粒度で表にします。曜日・時間帯まで指定。</p>
+      </div>
+      <div class="phase-card">
+        <span class="num">PHASE 5</span>
+        <h4>実行＋振り返り設計</h4>
+        <p>今週やる3タスク・1週/1ヶ月/3ヶ月のチェックポイント・やめる判断基準まで明文化。動き続ける仕組みを残します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== Deliverables ====== -->
+<section class="section alt-bg">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-divider"></div>
+      <span class="section-num">04 / DELIVERABLES</span>
+      <h2>何が手に入るか</h2>
+    </div>
+    <div class="deliver-box">
+      <h4>納品物リスト</h4>
+      <ul>
+        <li>戦略設計書（PDF・20〜40ページ）：コンセプト／ペルソナ／USP／3C／KPI</li>
+        <li>マルチSNS戦略マップ（プラットフォーム選定マトリクス＋導線フロー）</li>
+        <li>2年戦略カレンダー＋6ヶ月詳細ロードマップ</li>
+        <li>1ヶ月分の運用カレンダー（選定SNSごと・3プラットフォームまで）</li>
+        <li>今週やる3タスクシート＋チェックポイント表</li>
+        <li>レビュー会テンプレ（週次・月次・四半期）</li>
+      </ul>
+    </div>
+
+    <h3>ビフォーアフター</h3>
+    <table class="ba-table">
+      <thead>
+        <tr><th>項目</th><th>ビフォー（依頼前）</th><th>アフター（伴走3ヶ月後の例）</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>投稿頻度</td>
+          <td>気分で月3〜4本／止まる週もある</td>
+          <td>週3本・曜日固定で継続（3ヶ月で30本以上の蓄積）</td>
+        </tr>
+        <tr>
+          <td>SNS数</td>
+          <td>Instagram・X・Facebookに薄く分散</td>
+          <td>Instagramメイン＋TikTokサブの2本立てに集中</td>
+        </tr>
+        <tr>
+          <td>数字の見方</td>
+          <td>フォロワー数しか見ていない</td>
+          <td>北極星指標（月間問い合わせ件数）と先行指標3つを週次でチェック</td>
+        </tr>
+        <tr>
+          <td>意思決定</td>
+          <td>「続けるべきか」悩み続ける</td>
+          <td>3ヶ月ごとに撤退／継続／拡大を客観基準で判定</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="ba-note">※ 上記は伴走プラン6社の中央値をもとにした参考例です。業種・初期状態により変動します。</p>
+  </div>
+</section>
+
+<!-- ====== Pricing ====== -->
+<section class="section" id="pricing">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-divider"></div>
+      <span class="section-num">05 / PRICING</span>
+      <h2>3つの料金プラン</h2>
+    </div>
+    <p class="section-lead">
+      お試しの単発設計から、半年伴走、社内へのAIツール定着まで3段階。途中で上位プランへの切り替えも可能です。
+    </p>
+    <div class="price-grid">
+
+      <div class="price-card bronze">
+        <div class="rank">PLAN A</div>
+        <div class="name">単発設計コンサル</div>
+        <div class="price">8〜15万円<small>税別・買い切り</small></div>
+        <p class="desc">まずは戦略の地図だけ欲しい方へ。2時間セッションで全体設計が固まります。</p>
+        <ul>
+          <li>2時間オンラインセッション×1回</li>
+          <li>戦略設計書PDF納品（Phase 1〜2）</li>
+          <li>3階層ロードマップ（Phase 3）</li>
+          <li>1ヶ月分の運用カレンダー（メインSNSのみ）</li>
+          <li>納品後30日間のテキスト質問サポート</li>
+        </ul>
+        <div class="btn-group">
+          <a class="order-btn brain-order disabled" aria-disabled="true" title="Brain商品ページ準備中">Brainで購入（準備中）</a>
+          <a href="#contact" class="order-btn secondary">このプランを相談する</a>
+        </div>
+      </div>
+
+      <div class="price-card silver">
+        <div class="badge">RECOMMENDED</div>
+        <div class="rank">PLAN B</div>
+        <div class="name">月次伴走プラン</div>
+        <div class="price">5〜10万円／月<small>6ヶ月〜</small></div>
+        <p class="desc">設計だけで終わらせず、6ヶ月の実行に並走。月次レビューで数字を見ながら型を改善します。</p>
+        <ul>
+          <li>初月：戦略設計フルパッケージ（Phase 0〜5）</li>
+          <li>月1回のオンライン定例（60分・録画あり）</li>
+          <li>運用カレンダーの月次アップデート</li>
+          <li>北極星指標／先行指標のダッシュボード共有</li>
+          <li>チャットでの相談（営業日内24時間返信）</li>
+          <li>3ヶ月時点で撤退／継続／拡大の意思決定支援</li>
+        </ul>
+        <div class="btn-group">
+          <a class="order-btn brain-order disabled" aria-disabled="true" title="Brain商品ページ準備中">Brainで購入（準備中）</a>
+          <a href="#contact" class="order-btn secondary">このプランを相談する</a>
+        </div>
+      </div>
+
+      <div class="price-card gold">
+        <div class="rank">PLAN C</div>
+        <div class="name">AIツール導入研修</div>
+        <div class="price">30〜50万円<small>3ヶ月パッケージ</small></div>
+        <p class="desc">社内のSNS担当者がAIを使いこなして自走できる状態を作る研修＋運用サポート込みプラン。</p>
+        <ul>
+          <li>月次伴走プランの全機能を3ヶ月分</li>
+          <li>社内研修（オンライン2時間×3回）</li>
+          <li>投稿原稿生成・画像生成AIツールの選定と導入</li>
+          <li>担当者向け運用マニュアル作成（社名カスタム）</li>
+          <li>運用テンプレ集（投稿フォーマット30種）</li>
+          <li>3ヶ月後の自走チェックと改善提案書</li>
+        </ul>
+        <div class="btn-group">
+          <a class="order-btn brain-order disabled" aria-disabled="true" title="Brain商品ページ準備中">Brainで購入（準備中）</a>
+          <a href="#contact" class="order-btn secondary">このプランを相談する</a>
+        </div>
+      </div>
+
+    </div>
+    <p class="price-note">
+      料金は事業規模・対応SNS数・運用範囲によって変動します。詳細はヒアリング後に見積書を提示します。
+    </p>
+  </div>
+</section>
+
+<!-- ====== SNS List ====== -->
+<section class="section alt-bg">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-divider"></div>
+      <span class="section-num">06 / PLATFORMS</span>
+      <h2>対応SNS一覧</h2>
+    </div>
+    <p class="section-lead">
+      主要8プラットフォームに対応。ヒアリング結果から「やる／やらない」を判定し、注力先を1〜3つに絞り込みます。
+    </p>
+    <div class="sns-grid">
+      <div class="sns-tag"><span class="icon">PHOTO</span>Instagram</div>
+      <div class="sns-tag"><span class="icon">SHORT</span>TikTok</div>
+      <div class="sns-tag"><span class="icon">VIDEO</span>YouTube</div>
+      <div class="sns-tag"><span class="icon">SOCIAL</span>Facebook</div>
+      <div class="sns-tag"><span class="icon">BIZ</span>LinkedIn</div>
+      <div class="sns-tag"><span class="icon">TEXT</span>Threads</div>
+      <div class="sns-tag"><span class="icon">POST</span>X（旧Twitter）</div>
+      <div class="sns-tag"><span class="icon">PIN</span>Pinterest</div>
+    </div>
+    <p class="sns-note">
+      ※ X単体の月次投稿カレンダーのみが欲しい場合は、別途「Xコンテンツカレンダー」サービスを案内します。
+    </p>
+  </div>
+</section>
+
+<!-- ====== FAQ ====== -->
+<section class="section" id="faq">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-divider"></div>
+      <span class="section-num">07 / FAQ</span>
+      <h2>よくある質問</h2>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" type="button" aria-expanded="false"><span>マーケティングの知識が全くないのですが、ついていけますか？</span><span class="mark" aria-hidden="true">＋</span></button>
+      <div class="faq-a">問題ありません。ヒアリングはマーケ用語を一切使わない7問設計で、答えに迷ったら「おまかせ」で構いません。納品物にも専門用語が出るたびに日本語の補足を入れる方針です。</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" type="button" aria-expanded="false"><span>投稿の代行はしてもらえますか？</span><span class="mark" aria-hidden="true">＋</span></button>
+      <div class="faq-a">本サービスは戦略設計と伴走が主軸で、投稿代行は含みません。ただし「AIツール導入研修プラン」では原稿生成AIの導入と運用マニュアル作成までカバーするため、自社内での量産が容易になります。</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" type="button" aria-expanded="false"><span>どのくらいの期間で成果が出ますか？</span><span class="mark" aria-hidden="true">＋</span></button>
+      <div class="faq-a">成果の定義によります。フォロワー数なら3〜6ヶ月、問い合わせ件数なら6〜12ヶ月を目安にしています。短期で売上に直結させたい場合は広告施策が必要なため、別途ご相談ください。</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" type="button" aria-expanded="false"><span>途中でプランを変更できますか？</span><span class="mark" aria-hidden="true">＋</span></button>
+      <div class="faq-a">可能です。単発設計から月次伴走への切り替え、月次伴走からAI研修への上位移行はいずれも対応します。差額分のみの追加請求となり、二重課金は発生しません。</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" type="button" aria-expanded="false"><span>複数SNSをいきなり始めるのは大変では？</span><span class="mark" aria-hidden="true">＋</span></button>
+      <div class="faq-a">同じ懸念があるからこそ、Phase 2で「メイン1・サブ2」に絞り込みます。最初の3ヶ月はメイン1チャネルへの集中投資を推奨し、土台ができてから次のSNSへ広げる設計です。</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" type="button" aria-expanded="false"><span>業種に得意・不得意はありますか？</span><span class="mark" aria-hidden="true">＋</span></button>
+      <div class="faq-a">BtoC物販・サービス業・士業・教育コンテンツ販売・個人クリエイターの実績があります。特殊業界（医療・金融など規制業種）は事前に表現可否を確認した上でお引き受けします。</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" type="button" aria-expanded="false"><span>無料相談ではどこまで話せますか？</span><span class="mark" aria-hidden="true">＋</span></button>
+      <div class="faq-a">30分のオンライン相談で、現状ヒアリング・課題の優先順位整理・どのプランが向いているかの提案まで行います。その場で契約を迫ることはしません。</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ====== Contact CTA ====== -->
+<section class="contact-box" id="contact">
+  <div class="container">
+    <div>
+      <h2>まずは無料相談から</h2>
+      <p>
+        30分のオンライン相談で、現状の整理とおすすめプランの提案までお伝えします。強引な売り込みはしません。話を聞くだけでも歓迎です。
+      </p>
+      <a href="mailto:uemura@artsoul.jp?subject=【マルチSNS参謀】無料相談申込&body=会社名／お名前／ご相談したい内容を一言でご記入ください。" class="mail-link">uemura@artsoul.jp へ相談する</a>
+      <p class="note">
+        メール本文に「会社名・お名前・相談したい内容（一言）」をご記入ください。営業日48時間以内に折り返しの日程候補をお送りします。
+      </p>
+    </div>
+    <div class="cta-side">
+      <h4>CONTACT INFO</h4>
+      <p style="margin-bottom:10px"><strong>所要時間</strong>　30分／オンライン</p>
+      <p style="margin-bottom:10px"><strong>対応</strong>　平日 営業日48時間以内</p>
+      <p style="margin-bottom:0"><strong>費用</strong>　無料・売り込みなし</p>
+    </div>
+  </div>
+</section>
+
+<!-- ====== Footer ====== -->
+<footer class="footer">
+  <div class="container">
+    <p class="company">有限会社アートソウル</p>
+    <p>
+      担当：上村 桂右（うえむら けいすけ）<br>
+      Mail：uemura@artsoul.jp<br>
+      本ページは「マルチSNS参謀」サービスのご案内を目的としています
+    </p>
+    <p class="copy">© Art Soul Ltd. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<!-- ====== FAQ Toggle ====== -->
+<script>
+document.querySelectorAll('.faq-item').forEach(function(item){
+  var btn=item.querySelector('.faq-q');
+  btn.addEventListener('click',function(){
+    var isOpen=item.classList.toggle('open');
+    btn.setAttribute('aria-expanded',isOpen?'true':'false');
+  });
+});
+
+/* ====== Scroll Fade-in (IntersectionObserver) ====== */
+(function(){
+  if(!('IntersectionObserver' in window))return;
+  var targets=document.querySelectorAll('.section, .pain-card, .phase-card, .price-card');
+  targets.forEach(function(el){
+    el.style.opacity='0';
+    el.style.transform='translateY(12px)';
+    el.style.transition='opacity 500ms ease-out, transform 500ms ease-out';
+  });
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(ent){
+      if(ent.isIntersecting){
+        ent.target.style.opacity='1';
+        ent.target.style.transform='translateY(0)';
+        io.unobserve(ent.target);
+      }
+    });
+  },{threshold:0.08});
+  targets.forEach(function(el){io.observe(el);});
+})();
+</script>
+
+</body>
+</html>
+
+<!--
+  このファイルは index-gentle.html（Gentle White モデル適用版・2026-05-31作成）
+  オリジナル版：index.html（紫×ピンク×オレンジ）
+  比較版1：index-corporate.html（Corporate Navy モデル）
+  比較版2：index-forest.html（Forest Green モデル）
+  切り戻し方法：このファイルを削除し、他バージョンのいずれかを残す
+  確定採用時：このファイルを index.html にリネーム（旧版は index-original.html へ）
+-->
