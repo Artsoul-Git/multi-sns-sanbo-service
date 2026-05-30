@@ -341,8 +341,8 @@ img{max-width:100%;display:block}
 <body>
 
 <!-- ====== PASSWORD GATE ======
-   仮設定パスワード：123456（本番公開時にKei指定値で差し替える前提）
-   差し替え時は下記 var PASS の値を変更する
+   パスワード本体は下記 <script> 内の var PASS で管理する
+   セキュリティ上、HTMLコメントにパスワード値を記載しない
 ============================== -->
 <div id="password-gate" style="position:fixed;inset:0;background:linear-gradient(135deg,#3b1d6e 0%,#7c3aed 50%,#ec4899 100%);color:#fff;display:flex;align-items:center;justify-content:center;z-index:9999;flex-direction:column;font-family:'Noto Sans JP',sans-serif;padding:20px;text-align:center">
   <div style="background:rgba(255,255,255,0.08);padding:40px 32px;border-radius:20px;border:1px solid rgba(255,255,255,0.2);max-width:420px;width:100%;backdrop-filter:blur(10px)">
