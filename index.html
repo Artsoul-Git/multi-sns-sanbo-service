@@ -7,124 +7,168 @@
 <meta name="description" content="マーケティング素人でも、7問のヒアリングからSNS戦略・運用カレンダー・6ヶ月ロードマップが手に入る伴走型コンサルサービス。" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 /* ====== Reset & Base ====== */
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{
-  font-family:'Noto Sans JP',sans-serif;
-  background:linear-gradient(135deg,#3b1d6e 0%,#7c3aed 35%,#ec4899 70%,#f97316 100%);
-  background-attachment:fixed;
-  min-height:100vh;color:#1a1a1a;line-height:1.75;
+  font-family:'Noto Sans JP','Yu Gothic','Meiryo',sans-serif;
+  background:#ffffff;
+  color:#333333;
+  line-height:1.7;
+  font-size:16px;
   -webkit-font-smoothing:antialiased;
 }
-a{color:inherit;text-decoration:none}
+a{color:#228B48;text-decoration:none;transition:color 0.2s}
+a:hover{color:#1A6D39}
 img{max-width:100%;display:block}
 
 /* ====== Layout ====== */
-.wrap{max-width:1080px;margin:0 auto;padding:clamp(20px,4vw,40px)}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
 .section{
-  background:#fff;border-radius:24px;
-  padding:clamp(28px,5vw,56px);
-  margin-bottom:clamp(20px,3vw,32px);
-  box-shadow:0 12px 40px rgba(0,0,0,0.18);
+  padding:80px 0;
+  border-bottom:1px solid #e5e5e5;
 }
-.section h2{
-  font-size:clamp(1.4rem,3vw,2rem);font-weight:900;
-  color:#3b1d6e;line-height:1.4;margin-bottom:24px;
-  padding-bottom:16px;
-  border-bottom:4px solid transparent;
-  border-image:linear-gradient(90deg,#7c3aed,#ec4899,#f97316) 1;
+.section.alt-bg{background:#f5f5f5}
+.section-head{margin-bottom:48px}
+.section-num{
+  display:block;font-size:13px;font-weight:600;
+  color:#888;letter-spacing:0.18em;margin-bottom:10px;
+  font-family:'Helvetica Neue',Arial,sans-serif;
+}
+.section-head h2{
+  font-size:30px;font-weight:700;color:#000000;
+  line-height:1.4;padding-bottom:12px;
+  position:relative;
   display:inline-block;
 }
-.section h3{
-  font-size:clamp(1.1rem,2vw,1.3rem);font-weight:700;
-  color:#7c3aed;margin:24px 0 12px;
+.section-head h2::after{
+  content:"";
+  position:absolute;left:0;bottom:0;
+  width:56px;height:3px;background:#228B48;
 }
-.section p{font-size:clamp(0.95rem,1.6vw,1.05rem);color:#333;margin-bottom:14px}
-.section ul,.section ol{margin:12px 0 16px 1.4em;color:#333;font-size:clamp(0.95rem,1.6vw,1.05rem)}
-.section li{margin-bottom:8px}
-.lead{font-size:clamp(1rem,1.8vw,1.15rem);color:#444;line-height:1.9}
+.section-lead{
+  font-size:16px;color:#555;line-height:1.9;
+  margin:24px 0 32px;max-width:840px;
+}
+.section h3{
+  font-size:18px;font-weight:600;color:#000000;
+  margin:32px 0 16px;padding-bottom:8px;
+  border-bottom:1px solid #ddd;
+}
+.section p{font-size:15px;color:#444;margin-bottom:14px;line-height:1.8}
+.section ul,.section ol{margin:12px 0 16px 1.4em;color:#444}
+.section li{margin-bottom:8px;font-size:15px;line-height:1.8}
 
 /* ====== Hero ====== */
 .hero{
-  text-align:center;color:#fff;
-  padding:clamp(60px,10vw,120px) clamp(20px,4vw,40px) clamp(40px,8vw,80px);
+  background:#ffffff;
+  color:#000000;
+  padding:96px 0 80px;
+  position:relative;
+  overflow:hidden;
+  border-top:6px solid #228B48;
 }
+.hero::before{
+  content:"";position:absolute;
+  top:0;left:0;right:0;height:280px;
+  background:linear-gradient(180deg,rgba(34,139,72,0.06) 0%,rgba(255,255,255,0) 100%);
+  pointer-events:none;
+}
+.hero .container{position:relative;z-index:1}
 .hero .badge{
   display:inline-block;
-  padding:6px 18px;border-radius:999px;
-  background:rgba(255,255,255,0.18);
-  border:1px solid rgba(255,255,255,0.4);
-  font-size:0.85rem;font-weight:700;
-  margin-bottom:24px;letter-spacing:0.05em;
+  padding:6px 14px;
+  background:#ffffff;
+  border:1px solid #228B48;
+  color:#228B48;
+  font-size:12px;font-weight:600;
+  letter-spacing:0.1em;margin-bottom:24px;
+  border-radius:4px;
 }
 .hero h1{
-  font-size:clamp(1.8rem,5vw,3.2rem);font-weight:900;
-  line-height:1.3;margin-bottom:20px;
-  text-shadow:0 2px 20px rgba(0,0,0,0.25);
+  font-size:48px;font-weight:700;
+  line-height:1.3;margin-bottom:24px;
+  letter-spacing:0.01em;
+  max-width:900px;
+  color:#000000;
 }
 .hero h1 .accent{
-  background:linear-gradient(90deg,#fef3c7,#fde68a);
-  -webkit-background-clip:text;background-clip:text;color:transparent;
+  color:#228B48;
+  border-bottom:3px solid #228B48;
+  padding-bottom:2px;
 }
 .hero .sub{
-  font-size:clamp(1rem,2vw,1.25rem);font-weight:500;
-  opacity:0.95;margin-bottom:36px;line-height:1.7;
+  font-size:17px;font-weight:400;
+  color:#666666;
+  margin-bottom:40px;line-height:1.8;
+  max-width:760px;
 }
 .cta-btn{
-  display:inline-block;
-  padding:18px 40px;border-radius:999px;
-  background:#fff;color:#7c3aed;
-  font-weight:900;font-size:clamp(1rem,1.8vw,1.15rem);
-  box-shadow:0 8px 24px rgba(0,0,0,0.25);
-  transition:transform 0.2s,box-shadow 0.2s;
+  display:inline-flex;align-items:center;gap:8px;
+  padding:14px 28px;
+  background:#228B48;color:#fff;
+  font-weight:600;font-size:15px;
   border:none;cursor:pointer;
+  border-radius:4px;
+  transition:background 0.2s,box-shadow 0.2s,transform 0.2s;
+  text-decoration:none;
+  font-family:inherit;
 }
-.cta-btn:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,0,0,0.35)}
-.cta-btn.primary{
-  background:linear-gradient(90deg,#f97316,#ec4899);color:#fff;
+.cta-btn:hover{
+  background:#1A6D39;
+  box-shadow:0 4px 12px rgba(26,109,57,0.2);
+  transform:scale(1.02);
+  color:#fff;
 }
-.cta-btn.brain{
-  background:linear-gradient(90deg,#ec4899,#7c3aed);color:#fff;
-  position:relative;
-}
+.cta-btn.primary{background:#228B48}
+.cta-btn.primary:hover{background:#1A6D39}
+.cta-btn.brain{background:#1A6D39}
+.cta-btn.brain:hover{background:#125028}
 .cta-btn.brain.disabled{
-  opacity:0.7;cursor:not-allowed;
+  background:#9aa7a0;opacity:0.85;cursor:not-allowed;
 }
-.cta-btn.brain.disabled:hover{transform:none;box-shadow:0 8px 24px rgba(0,0,0,0.25)}
+.cta-btn.brain.disabled:hover{
+  background:#9aa7a0;box-shadow:none;transform:none;
+}
 .cta-btn.gpt{
-  background:rgba(255,255,255,0.12);color:#fff;
-  border:2px solid rgba(255,255,255,0.6);
-  backdrop-filter:blur(8px);
+  background:#ffffff;color:#228B48;
+  border:1.5px solid #228B48;
 }
-.cta-btn.gpt:hover{background:rgba(255,255,255,0.22);border-color:#fff}
+.cta-btn.gpt:hover{
+  background:#f0f8f3;color:#1A6D39;border-color:#1A6D39;
+}
 .cta-group{
-  display:flex;gap:14px;flex-wrap:wrap;justify-content:center;
-  margin-top:24px;
+  display:flex;gap:12px;flex-wrap:wrap;
+  margin-top:8px;
 }
-.cta-group .cta-btn{margin:0}
 .hero .meta{
-  margin-top:24px;font-size:0.85rem;opacity:0.95;
+  margin-top:24px;font-size:13px;color:#666;
+  line-height:1.7;
 }
 
 /* ====== Pain Cards ====== */
 .pain-list{
   display:grid;gap:16px;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
   margin-top:24px;
 }
 .pain-card{
-  background:linear-gradient(135deg,#faf5ff 0%,#fff 100%);
-  border-left:5px solid #ec4899;
-  border-radius:12px;padding:20px 22px;
+  background:#fff;
+  border:1px solid #e5e5e5;
+  border-left:3px solid #228B48;
+  border-radius:6px;
+  padding:24px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.06);
 }
 .pain-card .icon{
-  font-size:1.6rem;margin-bottom:8px;
+  font-size:13px;color:#228B48;font-weight:700;
+  letter-spacing:0.12em;margin-bottom:10px;
+  font-family:'Helvetica Neue',Arial,sans-serif;
 }
 .pain-card .q{
-  font-weight:700;color:#3b1d6e;font-size:0.98rem;line-height:1.6;
+  font-weight:500;color:#000000;font-size:15px;line-height:1.7;
 }
 
 /* ====== Phase Cards ====== */
@@ -134,207 +178,312 @@ img{max-width:100%;display:block}
   margin-top:24px;
 }
 .phase-card{
-  background:#fff;border-radius:16px;
-  padding:24px 22px;
-  border-top:6px solid #7c3aed;
-  box-shadow:0 4px 16px rgba(124,58,237,0.12);
-  transition:transform 0.2s,box-shadow 0.2s;
+  background:#fff;
+  border:1px solid #e5e5e5;
+  border-radius:6px;
+  padding:28px 24px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.06);
+  transition:box-shadow 0.2s,transform 0.2s;
+  display:flex;flex-direction:column;
 }
-.phase-card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(124,58,237,0.2)}
-.phase-card:nth-child(2){border-top-color:#a855f7}
-.phase-card:nth-child(3){border-top-color:#d946ef}
-.phase-card:nth-child(4){border-top-color:#ec4899}
-.phase-card:nth-child(5){border-top-color:#f97316}
+.phase-card:hover{
+  box-shadow:0 6px 20px rgba(34,139,72,0.12);
+  transform:translateY(-2px);
+  border-color:#34a85a;
+}
 .phase-card .num{
   display:inline-block;
-  width:36px;height:36px;line-height:36px;text-align:center;
-  background:linear-gradient(135deg,#7c3aed,#ec4899);color:#fff;
-  border-radius:50%;font-weight:900;
+  font-size:13px;font-weight:700;
+  color:#228B48;
+  letter-spacing:0.15em;
   margin-bottom:12px;
+  font-family:'Helvetica Neue',Arial,sans-serif;
 }
 .phase-card h4{
-  font-size:1.05rem;font-weight:900;color:#3b1d6e;margin-bottom:10px;
+  font-size:17px;font-weight:600;color:#000000;
+  margin-bottom:12px;
+  padding-bottom:10px;
+  border-bottom:2px solid #228B48;
 }
 .phase-card p{
-  font-size:0.9rem;color:#555;line-height:1.7;
+  font-size:14px;color:#555;line-height:1.8;
+  margin-bottom:0;
 }
 
 /* ====== Deliverables ====== */
 .deliver-box{
-  background:linear-gradient(135deg,#fef3c7 0%,#fed7aa 100%);
-  border-radius:16px;padding:24px;margin-top:20px;
+  background:#fff;
+  border:1px solid #e5e5e5;
+  border-top:3px solid #228B48;
+  border-radius:6px;
+  padding:32px;
+  margin-top:24px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.06);
 }
-.deliver-box h4{font-weight:900;color:#3b1d6e;margin-bottom:12px;font-size:1.05rem}
+.deliver-box h4{
+  font-weight:600;color:#000000;margin-bottom:16px;
+  font-size:17px;
+  padding-bottom:8px;border-bottom:1px solid #ddd;
+}
 .deliver-box ul{margin-left:1.4em}
-.deliver-box li{margin-bottom:6px;color:#3b1d6e}
+.deliver-box li{margin-bottom:8px;color:#444}
 
 .ba-table{
   width:100%;border-collapse:collapse;margin-top:20px;
-  font-size:0.95rem;
+  font-size:14px;
+  background:#fff;
+  border:1px solid #ddd;
 }
 .ba-table th,.ba-table td{
-  border:1px solid #e5e7eb;padding:12px;text-align:left;vertical-align:top;
+  border:1px solid #e5e5e5;padding:14px 16px;text-align:left;vertical-align:top;
+  line-height:1.7;
 }
-.ba-table th{background:#faf5ff;color:#3b1d6e;font-weight:700}
-.ba-table td:first-child{font-weight:700;background:#fef3c7;color:#7c2d12;width:30%}
+.ba-table th{
+  background:#228B48;color:#fff;font-weight:600;
+  font-size:14px;
+}
+.ba-table td:first-child{
+  font-weight:600;background:#f0f8f3;color:#1A6D39;width:28%;
+}
+.ba-note{margin-top:12px;font-size:13px;color:#777}
 
 /* ====== Price Cards ====== */
 .price-grid{
   display:grid;gap:24px;
   grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  margin-top:28px;
+  margin-top:32px;
 }
 .price-card{
-  background:#fff;border-radius:20px;padding:28px 24px;
-  border:2px solid #e5e7eb;
+  background:#fff;
+  border:1px solid #e5e5e5;
+  border-radius:6px;
+  padding:32px 28px;
   position:relative;
   display:flex;flex-direction:column;
+  box-shadow:0 2px 8px rgba(0,0,0,0.06);
 }
-.price-card.bronze{border-top:8px solid #ca8a04}
+.price-card.bronze{border-top:3px solid #6c7a89}
 .price-card.silver{
-  border:3px solid #ec4899;
-  background:linear-gradient(180deg,#fdf2f8 0%,#fff 30%);
-  transform:scale(1.02);
+  border-top:3px solid #228B48;
+  border:2px solid #228B48;
+  box-shadow:0 6px 20px rgba(34,139,72,0.15);
 }
-.price-card.gold{border-top:8px solid #f97316}
+.price-card.gold{border-top:3px solid #1A6D39}
 .price-card .rank{
-  font-size:1.8rem;text-align:center;margin-bottom:8px;
+  font-size:12px;font-weight:700;
+  color:#666;letter-spacing:0.15em;
+  margin-bottom:8px;
+  font-family:'Helvetica Neue',Arial,sans-serif;
 }
 .price-card .name{
-  font-size:1.15rem;font-weight:900;text-align:center;
-  color:#3b1d6e;margin-bottom:6px;
+  font-size:18px;font-weight:700;
+  color:#000000;margin-bottom:8px;
 }
 .price-card .badge{
-  position:absolute;top:-14px;left:50%;transform:translateX(-50%);
-  background:linear-gradient(90deg,#ec4899,#f97316);color:#fff;
-  padding:5px 18px;border-radius:999px;
-  font-size:0.78rem;font-weight:700;letter-spacing:0.05em;
+  position:absolute;top:-12px;left:24px;
+  background:#228B48;color:#fff;
+  padding:5px 14px;
+  font-size:12px;font-weight:600;letter-spacing:0.05em;
   white-space:nowrap;
+  border-radius:4px;
 }
 .price-card .price{
-  text-align:center;font-size:1.6rem;font-weight:900;
-  color:#7c3aed;margin:12px 0 6px;
+  font-size:24px;font-weight:700;
+  color:#228B48;margin:8px 0 4px;
 }
-.price-card .price small{font-size:0.85rem;color:#666;font-weight:500;display:block;margin-top:4px}
+.price-card .price small{
+  font-size:13px;color:#777;font-weight:500;
+  display:block;margin-top:4px;
+}
 .price-card .desc{
-  font-size:0.88rem;color:#555;text-align:center;
-  margin-bottom:16px;line-height:1.7;min-height:60px;
+  font-size:14px;color:#555;
+  margin:16px 0 20px;line-height:1.7;
+  padding-bottom:16px;border-bottom:1px solid #eee;
+  min-height:80px;
 }
 .price-card ul{list-style:none;margin:0;padding:0;flex:1}
 .price-card ul li{
-  padding:8px 0;border-bottom:1px dashed #e5e7eb;
-  font-size:0.9rem;color:#333;line-height:1.6;
+  padding:10px 0 10px 22px;
+  position:relative;
+  font-size:14px;color:#444;line-height:1.6;
+  border-bottom:1px dashed #eee;
 }
 .price-card ul li::before{
-  content:"✓ ";color:#10b981;font-weight:900;margin-right:4px;
+  content:"";
+  position:absolute;left:0;top:16px;
+  width:12px;height:2px;background:#228B48;
 }
+.price-card .btn-group{display:flex;flex-direction:column;gap:10px;margin-top:24px}
 .price-card .order-btn{
-  display:block;margin-top:20px;padding:14px;
-  background:linear-gradient(90deg,#7c3aed,#ec4899);color:#fff;
-  text-align:center;border-radius:10px;font-weight:700;
-  transition:opacity 0.2s;
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  padding:13px 20px;
+  background:#228B48;color:#fff;
+  text-align:center;border-radius:4px;
+  font-weight:600;font-size:14px;
+  transition:background 0.2s,transform 0.2s;
+  text-decoration:none;
 }
-.price-card.gold .order-btn{background:linear-gradient(90deg,#f97316,#ec4899)}
-.price-card .order-btn:hover{opacity:0.9}
-.price-card .order-btn.brain-order{
-  background:linear-gradient(90deg,#ec4899,#7c3aed);
-  margin-bottom:10px;
-}
+.price-card .order-btn:hover{background:#1A6D39;color:#fff;transform:scale(1.02)}
+.price-card .order-btn.brain-order{background:#1A6D39}
+.price-card .order-btn.brain-order:hover{background:#125028}
 .price-card .order-btn.brain-order.disabled{
-  opacity:0.7;cursor:not-allowed;
+  background:#9aa7a0;opacity:0.85;cursor:not-allowed;
 }
-.price-card .order-btn.brain-order.disabled:hover{opacity:0.7}
+.price-card .order-btn.brain-order.disabled:hover{
+  background:#9aa7a0;transform:none;
+}
 .price-card .order-btn.secondary{
-  background:#fff;color:#7c3aed;border:2px solid #7c3aed;
+  background:#fff;color:#228B48;
+  border:1.5px solid #228B48;
 }
-.price-card.gold .order-btn.secondary{
-  background:#fff;color:#f97316;border:2px solid #f97316;
+.price-card .order-btn.secondary:hover{
+  background:#f0f8f3;color:#1A6D39;border-color:#1A6D39;
 }
-.price-card .btn-group{display:flex;flex-direction:column;gap:8px}
+.price-note{
+  margin-top:24px;font-size:13px;color:#777;text-align:center;
+}
 
 /* ====== SNS Logos ====== */
 .sns-grid{
-  display:grid;gap:14px;
+  display:grid;gap:12px;
   grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
   margin-top:24px;
 }
 .sns-tag{
-  background:linear-gradient(135deg,#faf5ff 0%,#fdf2f8 100%);
-  border:1.5px solid #e9d5ff;border-radius:12px;
-  padding:18px 14px;text-align:center;
-  font-weight:700;color:#3b1d6e;font-size:0.95rem;
-  transition:transform 0.2s,border-color 0.2s;
+  background:#fff;
+  border:1px solid #e5e5e5;
+  border-radius:6px;
+  padding:20px 14px;text-align:center;
+  font-weight:600;color:#000000;font-size:14px;
+  transition:border-color 0.2s,box-shadow 0.2s;
 }
-.sns-tag:hover{transform:translateY(-2px);border-color:#ec4899}
-.sns-tag .icon{display:block;font-size:1.8rem;margin-bottom:6px}
+.sns-tag:hover{
+  border-color:#228B48;
+  box-shadow:0 2px 8px rgba(34,139,72,0.1);
+}
+.sns-tag .icon{
+  display:block;font-size:11px;
+  color:#228B48;font-weight:700;
+  letter-spacing:0.1em;
+  margin-bottom:8px;
+  font-family:'Helvetica Neue',Arial,sans-serif;
+}
+.sns-note{margin-top:20px;font-size:13px;color:#777}
 
 /* ====== FAQ ====== */
 .faq-item{
-  background:#faf5ff;border-radius:12px;
-  margin-bottom:12px;overflow:hidden;
-  border:1px solid #e9d5ff;
+  background:#fff;
+  border:1px solid #e5e5e5;
+  border-radius:6px;
+  margin-bottom:8px;
+  overflow:hidden;
 }
+.faq-item.open{border-color:#228B48}
 .faq-q{
-  padding:16px 20px;cursor:pointer;
-  font-weight:700;color:#3b1d6e;
+  padding:18px 24px;cursor:pointer;
+  font-weight:600;color:#000000;
   display:flex;justify-content:space-between;align-items:center;
-  font-size:0.98rem;line-height:1.5;
+  font-size:15px;line-height:1.5;
   transition:background 0.2s;
   width:100%;background:transparent;border:none;text-align:left;
   font-family:inherit;
 }
-.faq-q:hover{background:#f3e8ff}
-.faq-q:focus-visible{outline:2px solid #7c3aed;outline-offset:-2px}
+.faq-q:hover{background:#f0f8f3}
+.faq-q:focus-visible{outline:2px solid #228B48;outline-offset:-2px}
 .faq-q .mark{
-  font-size:1.4rem;color:#ec4899;flex-shrink:0;margin-left:12px;
-  transition:transform 0.2s;
+  font-size:18px;color:#228B48;flex-shrink:0;margin-left:12px;
+  transition:transform 0.2s;font-weight:400;
 }
 .faq-item.open .faq-q .mark{transform:rotate(45deg)}
 .faq-a{
-  padding:0 20px;max-height:0;overflow:hidden;
+  padding:0 24px;max-height:0;overflow:hidden;
   transition:max-height 0.3s,padding 0.3s;
-  color:#444;font-size:0.92rem;line-height:1.8;
-  background:#fff;
+  color:#555;font-size:14px;line-height:1.9;
+  background:#fafafa;
+  border-top:1px solid transparent;
 }
 .faq-item.open .faq-a{
-  padding:16px 20px;max-height:500px;
+  padding:18px 24px;max-height:500px;
+  border-top:1px solid #e5e5e5;
 }
 
 /* ====== Contact CTA ====== */
 .contact-box{
-  background:linear-gradient(135deg,#3b1d6e 0%,#7c3aed 50%,#ec4899 100%);
-  color:#fff;border-radius:24px;
-  padding:clamp(32px,5vw,56px);text-align:center;
-  margin-bottom:clamp(20px,3vw,32px);
+  background:linear-gradient(135deg,#1A6D39 0%,#228B48 100%);
+  color:#fff;
+  padding:64px 0;
+  text-align:left;
 }
+.contact-box .container{display:grid;gap:32px;grid-template-columns:1fr;align-items:center}
+@media(min-width:768px){.contact-box .container{grid-template-columns:1.4fr 1fr}}
 .contact-box h2{
-  color:#fff;border:none;font-size:clamp(1.4rem,3vw,1.9rem);
-  margin-bottom:16px;
+  color:#fff;font-size:30px;font-weight:700;
+  margin-bottom:20px;line-height:1.4;
+  position:relative;display:inline-block;padding-bottom:12px;
 }
-.contact-box p{color:rgba(255,255,255,0.92);font-size:clamp(0.95rem,1.6vw,1.1rem)}
+.contact-box h2::after{
+  content:"";position:absolute;left:0;bottom:0;
+  width:56px;height:3px;background:#ffffff;
+}
+.contact-box p{color:rgba(255,255,255,0.92);font-size:15px;line-height:1.8;margin-bottom:12px}
 .contact-box .mail-link{
-  display:inline-block;margin-top:20px;
-  padding:16px 32px;background:#fff;color:#7c3aed;
-  border-radius:999px;font-weight:900;font-size:1.05rem;
-  transition:transform 0.2s;
+  display:inline-flex;align-items:center;gap:8px;
+  margin-top:8px;
+  padding:14px 28px;background:#fff;color:#1A6D39;
+  border-radius:4px;font-weight:600;font-size:15px;
+  transition:background 0.2s,color 0.2s,transform 0.2s;
 }
-.contact-box .mail-link:hover{transform:translateY(-2px)}
+.contact-box .mail-link:hover{
+  background:#f0f8f3;color:#228B48;transform:scale(1.02);
+}
 .contact-box .note{
-  font-size:0.82rem;opacity:0.8;margin-top:20px;
+  font-size:12px;opacity:0.85;margin-top:16px;line-height:1.7;
+}
+.contact-box .cta-side{
+  background:rgba(255,255,255,0.1);
+  border:1px solid rgba(255,255,255,0.3);
+  border-radius:6px;
+  padding:24px;
+}
+.contact-box .cta-side h4{
+  font-size:13px;font-weight:700;color:#ffffff;
+  letter-spacing:0.12em;margin-bottom:14px;
+  font-family:'Helvetica Neue',Arial,sans-serif;
+  padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,0.3);
 }
 
 /* ====== Footer ====== */
 .footer{
-  text-align:center;color:#fff;
-  padding:32px 20px;font-size:0.82rem;
-  line-height:1.9;opacity:0.85;
+  background:#1a1a1a;color:#aaa;
+  padding:40px 0;font-size:13px;
+  line-height:1.9;
 }
-.footer .company{font-weight:700;font-size:0.95rem;margin-bottom:8px}
+.footer .company{font-weight:600;font-size:15px;color:#fff;margin-bottom:10px}
+.footer .copy{margin-top:20px;opacity:0.6;font-size:12px}
 
 /* ====== Responsive ====== */
-@media (max-width:600px){
-  .price-card.silver{transform:none}
-  .section{padding:24px 18px}
+@media (max-width:768px){
+  .section{padding:56px 0}
+  .container{padding:0 20px}
+  .hero{padding:72px 0 56px}
+  .hero h1{font-size:34px}
+  .hero .sub{font-size:15px}
+  .section-head h2{font-size:24px}
+  .section h3{font-size:16px}
+  .section p,.section li{font-size:14px}
+  .contact-box{padding:48px 0}
+  .contact-box h2{font-size:24px}
+}
+@media (max-width:480px){
+  .section{padding:40px 0}
+  .hero{padding:56px 0 40px}
+  .hero h1{font-size:26px}
+  .hero .sub{font-size:14px}
+  .section-head h2{font-size:20px}
+  .cta-btn{padding:12px 22px;font-size:14px}
+  .price-card{padding:24px 20px}
+  .price-card .price{font-size:20px}
+  .ba-table th,.ba-table td{padding:10px 12px;font-size:13px}
 }
 </style>
 </head>
@@ -344,13 +493,13 @@ img{max-width:100%;display:block}
    パスワード本体は下記 <script> 内の var PASS で管理する
    セキュリティ上、HTMLコメントにパスワード値を記載しない
 ============================== -->
-<div id="password-gate" style="position:fixed;inset:0;background:linear-gradient(135deg,#3b1d6e 0%,#7c3aed 50%,#ec4899 100%);color:#fff;display:flex;align-items:center;justify-content:center;z-index:9999;flex-direction:column;font-family:'Noto Sans JP',sans-serif;padding:20px;text-align:center">
-  <div style="background:rgba(255,255,255,0.08);padding:40px 32px;border-radius:20px;border:1px solid rgba(255,255,255,0.2);max-width:420px;width:100%;backdrop-filter:blur(10px)">
-    <h2 style="margin-bottom:8px;font-size:1.3rem;font-weight:900">マルチSNS参謀 サービスLP</h2>
-    <p style="font-size:0.85rem;opacity:0.85;margin-bottom:24px">閲覧にはパスワードが必要です</p>
-    <input type="password" id="pwd-input" style="padding:12px 16px;font-size:1rem;border-radius:10px;border:none;width:100%;text-align:center;margin-bottom:12px;color:#3b1d6e;font-family:inherit;font-weight:700" placeholder="パスワード" autofocus>
-    <button id="pwd-btn" style="padding:14px 24px;background:linear-gradient(90deg,#f97316,#ec4899);color:#fff;border:none;border-radius:10px;font-size:1rem;cursor:pointer;font-weight:900;width:100%;font-family:inherit">閲覧する</button>
-    <p id="pwd-err" style="color:#fecaca;margin-top:12px;font-size:0.85rem;display:none">パスワードが正しくありません</p>
+<div id="password-gate" style="position:fixed;inset:0;background:linear-gradient(135deg,#1A6D39 0%,#228B48 100%);color:#fff;display:flex;align-items:center;justify-content:center;z-index:9999;flex-direction:column;font-family:'Noto Sans JP','Yu Gothic','Meiryo',sans-serif;padding:20px;text-align:center">
+  <div style="background:rgba(255,255,255,0.1);padding:40px 32px;border-radius:6px;border:1px solid rgba(255,255,255,0.3);max-width:420px;width:100%">
+    <h2 style="margin-bottom:8px;font-size:20px;font-weight:700;letter-spacing:0.02em">マルチSNS参謀 サービスLP</h2>
+    <p style="font-size:13px;opacity:0.9;margin-bottom:24px;line-height:1.7">閲覧にはパスワードが必要です</p>
+    <input type="password" id="pwd-input" style="padding:12px 16px;font-size:15px;border-radius:4px;border:1px solid rgba(255,255,255,0.3);background:#fff;width:100%;text-align:center;margin-bottom:12px;color:#1a1a1a;font-family:inherit;font-weight:500" placeholder="パスワード" autofocus>
+    <button id="pwd-btn" style="padding:14px 24px;background:#ffffff;color:#1A6D39;border:none;border-radius:4px;font-size:15px;cursor:pointer;font-weight:700;width:100%;font-family:inherit;transition:background 0.2s,color 0.2s" onmouseover="this.style.background='#f0f8f3';this.style.color='#228B48'" onmouseout="this.style.background='#ffffff';this.style.color='#1A6D39'">閲覧する →</button>
+    <p id="pwd-err" style="color:#ffcccc;margin-top:12px;font-size:13px;display:none">パスワードが正しくありません</p>
   </div>
 </div>
 <script>
@@ -379,31 +528,32 @@ img{max-width:100%;display:block}
 
 <!-- ====== HERO ====== -->
 <header class="hero">
-  <div class="wrap">
-    <span class="badge">マーケ素人歓迎・伴走型SNSコンサル</span>
+  <div class="container">
+    <span class="badge">SERVICE / マーケ素人歓迎・伴走型SNSコンサル</span>
     <h1>
       「何を投稿すればいい？」を、<br>
       <span class="accent">6ヶ月の地図</span>に変える参謀。
     </h1>
     <p class="sub">
-      7問のヒアリングだけで、Instagram・TikTok・YouTube・Xを横断した<br class="pc-only">
-      戦略マップと月次運用カレンダーが届く。素人でも迷わず動ける伴走サービス。
+      7問のヒアリングだけで、Instagram・TikTok・YouTube・Xを横断した戦略マップと月次運用カレンダーが届く。素人でも迷わず動ける伴走サービス。
     </p>
     <div class="cta-group">
-      <a class="cta-btn brain disabled" aria-disabled="true" title="Brain商品ページ準備中"><span aria-hidden="true">🛒</span> Brainで購入する（準備中）</a>
-      <a href="https://chatgpt.com/g/g-6a1b19fb6080819195f6d0d4ebb933f7-20-shen-qi-run-marutisnscan-mou" target="_blank" rel="noopener" class="cta-btn gpt"><span aria-hidden="true">🤖</span> 無料でGPTを試す</a>
-      <a href="#contact" class="cta-btn primary"><span aria-hidden="true">💬</span> 無料相談する</a>
+      <a class="cta-btn brain disabled" aria-disabled="true" title="Brain商品ページ準備中">Brainで購入する（準備中）</a>
+      <a href="https://chatgpt.com/g/g-6a1b19fb6080819195f6d0d4ebb933f7-20-shen-qi-run-marutisnscan-mou" target="_blank" rel="noopener" class="cta-btn gpt">無料でGPTを試す</a>
+      <a href="#contact" class="cta-btn primary">無料相談する</a>
     </div>
     <p class="meta">無料相談：所要30分・オンライン・売り込み一切なし／カスタムGPT：会員登録不要・即体験可</p>
   </div>
 </header>
 
-<div class="wrap">
-
-  <!-- ====== このページについて ====== -->
-  <section class="section" id="about">
-    <h2>このページについて</h2>
-    <p class="lead">
+<!-- ====== このページについて ====== -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-num">01 / ABOUT</span>
+      <h2>このページについて</h2>
+    </div>
+    <p class="section-lead">
       「マルチSNS参謀」は、中小企業の経営者・販促担当者・個人クリエイターのための、SNS戦略設計＋月次伴走サービスです。マーケティングの専門知識がなくても、神崎潤（かんざき じゅん）という参謀役のガイドに従うだけで、何を・どこで・いつ・どう発信するかが組み上がります。
     </p>
     <h3>このサービスで手に入るもの</h3>
@@ -419,78 +569,93 @@ img{max-width:100%;display:block}
       <li>1ヶ月でフォロワー1万人を狙いたい（誇大な約束はしない方針）</li>
       <li>すべて丸投げしたい（伴走型のため、月1回の打ち合わせには参加が必要）</li>
     </ul>
-  </section>
+  </div>
+</section>
 
-  <!-- ====== Pain ====== -->
-  <section class="section">
-    <h2>こんなお悩み、ありませんか</h2>
+<!-- ====== Pain ====== -->
+<section class="section alt-bg">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-num">02 / ISSUES</span>
+      <h2>こんなお悩み、ありませんか</h2>
+    </div>
     <div class="pain-list">
       <div class="pain-card">
-        <div class="icon" aria-hidden="true">🌀</div>
+        <div class="icon">CASE 01</div>
         <div class="q">SNSを始めたいけれど、Instagram・TikTok・YouTubeのどれから手を付ければいいか分からない</div>
       </div>
       <div class="pain-card">
-        <div class="icon" aria-hidden="true">📭</div>
+        <div class="icon">CASE 02</div>
         <div class="q">投稿は続けているのに、フォロワーも問い合わせも増えない月が3ヶ月以上続いている</div>
       </div>
       <div class="pain-card">
-        <div class="icon" aria-hidden="true">🗓️</div>
+        <div class="icon">CASE 03</div>
         <div class="q">毎週「今日は何を投稿しよう…」とネタ切れに悩んで、結局投稿が止まってしまう</div>
       </div>
       <div class="pain-card">
-        <div class="icon" aria-hidden="true">📊</div>
+        <div class="icon">CASE 04</div>
         <div class="q">数字（インプレッション・保存率）を見ても、良いのか悪いのか判断基準が分からない</div>
       </div>
       <div class="pain-card">
-        <div class="icon" aria-hidden="true">🛑</div>
+        <div class="icon">CASE 05</div>
         <div class="q">今のSNSをやめるべきか・続けるべきか、判断の物差しを持っていない</div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ====== Method 5 Phases ====== -->
-  <section class="section">
-    <h2>マルチSNS参謀メソッドとは</h2>
-    <p class="lead">
+<!-- ====== Method 5 Phases ====== -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-num">03 / METHOD</span>
+      <h2>マルチSNS参謀メソッドとは</h2>
+    </div>
+    <p class="section-lead">
       ダイレクトレスポンスマーケティング（成果を測れる形で発信を設計する手法）の考え方を、SNS運用に落とし込んだ5フェーズ構成。素人でも答えられる7問のヒアリングから始まり、最後は来週月曜の朝に動ける3タスクまで届けます。
     </p>
     <div class="phase-grid">
       <div class="phase-card">
-        <span class="num">0</span>
+        <span class="num">PHASE 0</span>
         <h4>ヒアリング7問</h4>
         <p>ビジネス内容・お客様像・ゴール・使えるリソース・候補SNS・NG事項を30分で整理。マーケ用語ゼロで答えられる設計です。</p>
       </div>
       <div class="phase-card">
-        <span class="num">1</span>
+        <span class="num">PHASE 1</span>
         <h4>サービス設計層</h4>
         <p>コンセプト・ターゲットペルソナ（仮想の代表顧客）・USP（他社にない強み）・3C分析・北極星指標を1日で固めます。</p>
       </div>
       <div class="phase-card">
-        <span class="num">2</span>
+        <span class="num">PHASE 2</span>
         <h4>マルチSNS戦略マップ</h4>
         <p>8つのSNSから「メイン1・サブ2・補助任意・見送り」を判定。プラットフォーム間の導線（誰をどこへ誘導するか）も設計します。</p>
       </div>
       <div class="phase-card">
-        <span class="num">3</span>
+        <span class="num">PHASE 3</span>
         <h4>3階層ロードマップ</h4>
         <p>2年カレンダー・6ヶ月詳細・1ヶ月詳細の入れ子構造で、長期と短期の両方が同時に見える地図を作ります。</p>
       </div>
       <div class="phase-card">
-        <span class="num">4</span>
+        <span class="num">PHASE 4</span>
         <h4>月次運用カレンダー</h4>
         <p>選定SNSごとに「いつ・何を・どんな形式で投稿するか」を月16本〜の粒度で表にします。曜日・時間帯まで指定。</p>
       </div>
       <div class="phase-card">
-        <span class="num">5</span>
+        <span class="num">PHASE 5</span>
         <h4>実行＋振り返り設計</h4>
         <p>今週やる3タスク・1週/1ヶ月/3ヶ月のチェックポイント・やめる判断基準まで明文化。動き続ける仕組みを残します。</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ====== Deliverables ====== -->
-  <section class="section">
-    <h2>何が手に入るか</h2>
+<!-- ====== Deliverables ====== -->
+<section class="section alt-bg">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-num">04 / DELIVERABLES</span>
+      <h2>何が手に入るか</h2>
+    </div>
     <div class="deliver-box">
       <h4>納品物リスト</h4>
       <ul>
@@ -531,21 +696,26 @@ img{max-width:100%;display:block}
         </tr>
       </tbody>
     </table>
-    <p style="margin-top:16px;font-size:0.85rem;color:#777">※ 上記は伴走プラン6社の中央値をもとにした参考例です。業種・初期状態により変動します。</p>
-  </section>
+    <p class="ba-note">※ 上記は伴走プラン6社の中央値をもとにした参考例です。業種・初期状態により変動します。</p>
+  </div>
+</section>
 
-  <!-- ====== Pricing ====== -->
-  <section class="section" id="pricing">
-    <h2>3つの料金プラン</h2>
-    <p class="lead">
+<!-- ====== Pricing ====== -->
+<section class="section" id="pricing">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-num">05 / PRICING</span>
+      <h2>3つの料金プラン</h2>
+    </div>
+    <p class="section-lead">
       お試しの単発設計から、半年伴走、社内へのAIツール定着まで3段階。途中で上位プランへの切り替えも可能です。
     </p>
     <div class="price-grid">
 
       <div class="price-card bronze">
-        <div class="rank">🥉</div>
+        <div class="rank">PLAN A</div>
         <div class="name">単発設計コンサル</div>
-        <div class="price">8〜15<small>万円（税別・買い切り）</small></div>
+        <div class="price">8〜15万円<small>税別・買い切り</small></div>
         <p class="desc">まずは戦略の地図だけ欲しい方へ。2時間セッションで全体設計が固まります。</p>
         <ul>
           <li>2時間オンラインセッション×1回</li>
@@ -555,16 +725,16 @@ img{max-width:100%;display:block}
           <li>納品後30日間のテキスト質問サポート</li>
         </ul>
         <div class="btn-group">
-          <a class="order-btn brain-order disabled" aria-disabled="true" title="Brain商品ページ準備中"><span aria-hidden="true">🛒</span> Brainで購入（準備中）</a>
+          <a class="order-btn brain-order disabled" aria-disabled="true" title="Brain商品ページ準備中">Brainで購入（準備中）</a>
           <a href="#contact" class="order-btn secondary">このプランを相談する</a>
         </div>
       </div>
 
       <div class="price-card silver">
-        <div class="badge">最推奨</div>
-        <div class="rank">🥈</div>
+        <div class="badge">RECOMMENDED</div>
+        <div class="rank">PLAN B</div>
         <div class="name">月次伴走プラン</div>
-        <div class="price">5〜10<small>万円／月（6ヶ月〜）</small></div>
+        <div class="price">5〜10万円／月<small>6ヶ月〜</small></div>
         <p class="desc">設計だけで終わらせず、6ヶ月の実行に並走。月次レビューで数字を見ながら型を改善します。</p>
         <ul>
           <li>初月：戦略設計フルパッケージ（Phase 0〜5）</li>
@@ -575,15 +745,15 @@ img{max-width:100%;display:block}
           <li>3ヶ月時点で撤退／継続／拡大の意思決定支援</li>
         </ul>
         <div class="btn-group">
-          <a class="order-btn brain-order disabled" aria-disabled="true" title="Brain商品ページ準備中"><span aria-hidden="true">🛒</span> Brainで購入（準備中）</a>
+          <a class="order-btn brain-order disabled" aria-disabled="true" title="Brain商品ページ準備中">Brainで購入（準備中）</a>
           <a href="#contact" class="order-btn secondary">このプランを相談する</a>
         </div>
       </div>
 
       <div class="price-card gold">
-        <div class="rank">🥇</div>
+        <div class="rank">PLAN C</div>
         <div class="name">AIツール導入研修</div>
-        <div class="price">30〜50<small>万円（3ヶ月パッケージ）</small></div>
+        <div class="price">30〜50万円<small>3ヶ月パッケージ</small></div>
         <p class="desc">社内のSNS担当者がAIを使いこなして自走できる状態を作る研修＋運用サポート込みプラン。</p>
         <ul>
           <li>月次伴走プランの全機能を3ヶ月分</li>
@@ -594,41 +764,51 @@ img{max-width:100%;display:block}
           <li>3ヶ月後の自走チェックと改善提案書</li>
         </ul>
         <div class="btn-group">
-          <a class="order-btn brain-order disabled" aria-disabled="true" title="Brain商品ページ準備中"><span aria-hidden="true">🛒</span> Brainで購入（準備中）</a>
+          <a class="order-btn brain-order disabled" aria-disabled="true" title="Brain商品ページ準備中">Brainで購入（準備中）</a>
           <a href="#contact" class="order-btn secondary">このプランを相談する</a>
         </div>
       </div>
 
     </div>
-    <p style="margin-top:24px;font-size:0.88rem;color:#666;text-align:center">
+    <p class="price-note">
       料金は事業規模・対応SNS数・運用範囲によって変動します。詳細はヒアリング後に見積書を提示します。
     </p>
-  </section>
+  </div>
+</section>
 
-  <!-- ====== SNS List ====== -->
-  <section class="section">
-    <h2>対応SNS一覧</h2>
-    <p class="lead">
+<!-- ====== SNS List ====== -->
+<section class="section alt-bg">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-num">06 / PLATFORMS</span>
+      <h2>対応SNS一覧</h2>
+    </div>
+    <p class="section-lead">
       主要8プラットフォームに対応。ヒアリング結果から「やる／やらない」を判定し、注力先を1〜3つに絞り込みます。
     </p>
     <div class="sns-grid">
-      <div class="sns-tag"><span class="icon" aria-hidden="true">📷</span>Instagram</div>
-      <div class="sns-tag"><span class="icon" aria-hidden="true">🎵</span>TikTok</div>
-      <div class="sns-tag"><span class="icon" aria-hidden="true">▶️</span>YouTube</div>
-      <div class="sns-tag"><span class="icon" aria-hidden="true">📘</span>Facebook</div>
-      <div class="sns-tag"><span class="icon" aria-hidden="true">💼</span>LinkedIn</div>
-      <div class="sns-tag"><span class="icon" aria-hidden="true">🧵</span>Threads</div>
-      <div class="sns-tag"><span class="icon" aria-hidden="true">❌</span>X（旧Twitter）</div>
-      <div class="sns-tag"><span class="icon" aria-hidden="true">📌</span>Pinterest</div>
+      <div class="sns-tag"><span class="icon">PHOTO</span>Instagram</div>
+      <div class="sns-tag"><span class="icon">SHORT</span>TikTok</div>
+      <div class="sns-tag"><span class="icon">VIDEO</span>YouTube</div>
+      <div class="sns-tag"><span class="icon">SOCIAL</span>Facebook</div>
+      <div class="sns-tag"><span class="icon">BIZ</span>LinkedIn</div>
+      <div class="sns-tag"><span class="icon">TEXT</span>Threads</div>
+      <div class="sns-tag"><span class="icon">POST</span>X（旧Twitter）</div>
+      <div class="sns-tag"><span class="icon">PIN</span>Pinterest</div>
     </div>
-    <p style="margin-top:20px;font-size:0.88rem;color:#666">
+    <p class="sns-note">
       ※ X単体の月次投稿カレンダーのみが欲しい場合は、別途「Xコンテンツカレンダー」サービスを案内します。
     </p>
-  </section>
+  </div>
+</section>
 
-  <!-- ====== FAQ ====== -->
-  <section class="section" id="faq">
-    <h2>よくある質問</h2>
+<!-- ====== FAQ ====== -->
+<section class="section" id="faq">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-num">07 / FAQ</span>
+      <h2>よくある質問</h2>
+    </div>
 
     <div class="faq-item">
       <button class="faq-q" type="button" aria-expanded="false"><span>マーケティングの知識が全くないのですが、ついていけますか？</span><span class="mark" aria-hidden="true">＋</span></button>
@@ -665,34 +845,43 @@ img{max-width:100%;display:block}
       <div class="faq-a">30分のオンライン相談で、現状ヒアリング・課題の優先順位整理・どのプランが向いているかの提案まで行います。その場で契約を迫ることはしません。</div>
     </div>
 
-  </section>
+  </div>
+</section>
 
-  <!-- ====== Contact CTA ====== -->
-  <section class="contact-box" id="contact">
-    <h2>まずは無料相談から</h2>
-    <p>
-      30分のオンライン相談で、現状の整理とおすすめプランの提案までお伝えします。<br>
-      強引な売り込みはしません。話を聞くだけでも歓迎です。
-    </p>
-    <a href="mailto:uemura@artsoul.jp?subject=【マルチSNS参謀】無料相談申込&body=会社名／お名前／ご相談したい内容を一言でご記入ください。" class="mail-link">uemura@artsoul.jp へ相談する</a>
-    <p class="note">
-      メール本文に「会社名・お名前・相談したい内容（一言）」をご記入ください。<br>
-      営業日48時間以内に折り返しの日程候補をお送りします。
-    </p>
-  </section>
+<!-- ====== Contact CTA ====== -->
+<section class="contact-box" id="contact">
+  <div class="container">
+    <div>
+      <h2>まずは無料相談から</h2>
+      <p>
+        30分のオンライン相談で、現状の整理とおすすめプランの提案までお伝えします。強引な売り込みはしません。話を聞くだけでも歓迎です。
+      </p>
+      <a href="mailto:uemura@artsoul.jp?subject=【マルチSNS参謀】無料相談申込&body=会社名／お名前／ご相談したい内容を一言でご記入ください。" class="mail-link">uemura@artsoul.jp へ相談する</a>
+      <p class="note">
+        メール本文に「会社名・お名前・相談したい内容（一言）」をご記入ください。営業日48時間以内に折り返しの日程候補をお送りします。
+      </p>
+    </div>
+    <div class="cta-side">
+      <h4>CONTACT INFO</h4>
+      <p style="margin-bottom:8px"><strong style="color:#fff">所要時間</strong>　30分／オンライン</p>
+      <p style="margin-bottom:8px"><strong style="color:#fff">対応</strong>　平日 営業日48時間以内</p>
+      <p style="margin-bottom:0"><strong style="color:#fff">費用</strong>　無料・売り込みなし</p>
+    </div>
+  </div>
+</section>
 
-  <!-- ====== Footer ====== -->
-  <footer class="footer">
+<!-- ====== Footer ====== -->
+<footer class="footer">
+  <div class="container">
     <p class="company">有限会社アートソウル</p>
     <p>
       担当：上村 桂右（うえむら けいすけ）<br>
       Mail：uemura@artsoul.jp<br>
       本ページは「マルチSNS参謀」サービスのご案内を目的としています
     </p>
-    <p style="margin-top:14px;opacity:0.6">© Art Soul Ltd. All Rights Reserved.</p>
-  </footer>
-
-</div>
+    <p class="copy">© Art Soul Ltd. All Rights Reserved.</p>
+  </div>
+</footer>
 
 <!-- ====== FAQ Toggle ====== -->
 <script>
@@ -707,3 +896,16 @@ document.querySelectorAll('.faq-item').forEach(function(item){
 
 </body>
 </html>
+
+<!--
+  このファイルは index.html（Forest Green モデル適用・デフォルト版・2026-05-31確定採用）
+  AS HTML LP のデフォルトデザインモデル。
+
+  比較バージョン：
+  - 紫系オリジナル → index-purple.html（purple_creative モデル）
+  - Corporate Navy → index-corporate.html
+  - Gentle White → index-gentle.html
+
+  デザインモデル定義：デザインスタイル/forest_green.md
+  カタログ：デザインスタイル/INDEX.md
+-->
