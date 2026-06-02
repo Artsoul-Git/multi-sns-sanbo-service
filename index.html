@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>マルチSNS参謀｜中小企業・個人クリエイター向けSNS戦略コンサル</title>
-<meta name="description" content="マーケティング素人でも、7問のヒアリングからSNS戦略・運用カレンダー・6ヶ月ロードマップが手に入る伴走型コンサルサービス。" />
+<title>マルチSNS参謀 v2.0｜DRM強化版・売れる仕組みまで作るSNS戦略コンサル</title>
+<meta name="description" content="7問のヒアリングから、SNS戦略・運用カレンダー・6ヶ月ロードマップに加え、売れる仕組み（オファー／リードマグネット／CTA／計測）まで一気通貫で設計。Dan Kennedy・Jay Abraham系譜のDRM参謀『神崎潤』が伴走する v2.0 強化版コンサル。" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -185,6 +185,26 @@ img{max-width:100%;display:block}
   box-shadow:0 2px 8px rgba(0,0,0,0.06);
   transition:box-shadow 0.2s,transform 0.2s;
   display:flex;flex-direction:column;
+  position:relative;
+}
+.phase-card.is-new{
+  border:2px solid #228B48;
+  background:#f7faf8;
+  box-shadow:0 6px 20px rgba(34,139,72,0.15);
+}
+.phase-card.is-new::before{
+  content:"v2.0 NEW";
+  position:absolute;
+  top:-10px;
+  right:16px;
+  background:#0F4A28;
+  color:#B8E5C5;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:0.08em;
+  padding:4px 10px;
+  border-radius:3px;
+  font-family:'Helvetica Neue',Arial,sans-serif;
 }
 .phase-card:hover{
   box-shadow:0 6px 20px rgba(34,139,72,0.12);
@@ -209,6 +229,37 @@ img{max-width:100%;display:block}
   font-size:14px;color:#555;line-height:1.8;
   margin-bottom:0;
 }
+.v2-tag{
+  display:inline-block;
+  padding:3px 9px;
+  background:#B8E5C5;
+  color:#0F4A28;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:0.05em;
+  border-radius:3px;
+  margin-left:8px;
+  vertical-align:middle;
+  font-family:'Helvetica Neue',Arial,sans-serif;
+}
+
+/* ====== v2 Advantages Highlight ====== */
+.v2-highlight{
+  background:linear-gradient(135deg,#f7faf8 0%,#E8F5EC 100%);
+  border:1px solid #228B48;
+  border-radius:6px;
+  padding:32px;
+  margin-top:32px;
+}
+.v2-highlight h4{
+  font-size:18px;font-weight:700;color:#0F4A28;
+  margin-bottom:18px;
+  padding-bottom:10px;
+  border-bottom:2px solid #228B48;
+}
+.v2-highlight ul{margin:0 0 0 1.4em;color:#1a3a24}
+.v2-highlight li{margin-bottom:10px;font-size:15px;line-height:1.8}
+.v2-highlight li strong{color:#0F4A28;font-weight:700}
 
 /* ====== Deliverables ====== */
 .deliver-box{
@@ -504,7 +555,7 @@ img{max-width:100%;display:block}
 </div>
 <script>
 (function(){
-  var PASS='as09052026'; /* Kei指定値（2026-05-31差し替え） */
+  var PASS='as02062026'; /* Kei指定値（2026-06-03差し替え・v2.0公開時） */
   var gate=document.getElementById('password-gate');
   var input=document.getElementById('pwd-input');
   var btn=document.getElementById('pwd-btn');
@@ -529,20 +580,20 @@ img{max-width:100%;display:block}
 <!-- ====== HERO ====== -->
 <header class="hero">
   <div class="container">
-    <span class="badge">SERVICE / マーケ素人歓迎・伴走型SNSコンサル</span>
+    <span class="badge">SERVICE v2.0 / DRM強化版・伴走型SNSコンサル</span>
     <h1>
-      「何を投稿すればいい？」を、<br>
-      <span class="accent">6ヶ月の地図</span>に変える参謀。
+      投稿カレンダーで終わらせない。<br>
+      <span class="accent">売れる仕組み</span>まで作る参謀。
     </h1>
     <p class="sub">
-      7問のヒアリングだけで、Instagram・TikTok・YouTube・Xを横断した戦略マップと月次運用カレンダーが届く。素人でも迷わず動ける伴走サービス。
+      7問のヒアリングから、SNS戦略・月次運用カレンダー・6ヶ月ロードマップに加え、<strong>オファー設計／リードマグネット／CTA文言／撤退KPIまで一気通貫</strong>で組み立てる伴走コンサル。Dan Kennedy・Jay Abraham系譜の「神崎潤」が、あなたの事業に合わせて売れる仕組みを設計します。
     </p>
     <div class="cta-group">
       <a class="cta-btn brain disabled" aria-disabled="true" title="Brain商品ページ準備中">Brainで購入する（準備中）</a>
-      <a href="https://chatgpt.com/g/g-6a1b19fb6080819195f6d0d4ebb933f7-20-shen-qi-run-marutisnscan-mou" target="_blank" rel="noopener" class="cta-btn gpt">無料でGPTを試す</a>
+      <a href="https://chatgpt.com/g/g-6a1f0eb279488191af8d32cc628c119b-20-shen-qi-run-marutisnscan-mou-v2-0" target="_blank" rel="noopener" class="cta-btn gpt">無料GPT v2.0 を試す</a>
       <a href="#contact" class="cta-btn primary">無料相談する</a>
     </div>
-    <p class="meta">無料相談：所要30分・オンライン・売り込み一切なし／カスタムGPT：会員登録不要・即体験可</p>
+    <p class="meta">無料相談：所要30分・オンライン・売り込み一切なし／カスタムGPT v2.0：会員登録不要・即体験可・Phase 1.5 オファー設計搭載</p>
   </div>
 </header>
 
@@ -600,6 +651,14 @@ img{max-width:100%;display:block}
         <div class="icon">CASE 05</div>
         <div class="q">今のSNSをやめるべきか・続けるべきか、判断の物差しを持っていない</div>
       </div>
+      <div class="pain-card">
+        <div class="icon">CASE 06</div>
+        <div class="q">フォロワーは増えてきたのに、無料プレゼント・お試し商品・本商品への導線が何もなく、売上に繋がっていない</div>
+      </div>
+      <div class="pain-card">
+        <div class="icon">CASE 07</div>
+        <div class="q">同じ投稿の使い回しで疲れている。フックや訴求軸を変えてみたいが、テストの設計方法が分からない</div>
+      </div>
     </div>
   </div>
 </section>
@@ -612,18 +671,23 @@ img{max-width:100%;display:block}
       <h2>マルチSNS参謀メソッドとは</h2>
     </div>
     <p class="section-lead">
-      ダイレクトレスポンスマーケティング（成果を測れる形で発信を設計する手法）の考え方を、SNS運用に落とし込んだ5フェーズ構成。素人でも答えられる7問のヒアリングから始まり、最後は来週月曜の朝に動ける3タスクまで届けます。
+      ダイレクトレスポンスマーケティング（成果を測れる形で発信を設計する手法）の考え方を、SNS運用に落とし込んだ <strong>v2.0 では6フェーズ構成</strong>。素人でも答えられる7問のヒアリングから始まり、最後は来週月曜の朝に動ける3タスクまで届けます。<span class="v2-tag">v2.0 Phase 1.5 追加</span>
     </p>
     <div class="phase-grid">
       <div class="phase-card">
         <span class="num">PHASE 0</span>
         <h4>ヒアリング7問</h4>
-        <p>ビジネス内容・お客様像・ゴール・使えるリソース・候補SNS・NG事項を30分で整理。マーケ用語ゼロで答えられる設計です。</p>
+        <p>ビジネス内容・お客様像・ゴール・使えるリソース・候補SNS・NG事項を30分で整理。マーケ用語ゼロ＋例示付き設計です。</p>
       </div>
       <div class="phase-card">
         <span class="num">PHASE 1</span>
         <h4>サービス設計層</h4>
         <p>コンセプト・ターゲットペルソナ（仮想の代表顧客）・USP（他社にない強み）・3C分析・北極星指標を1日で固めます。</p>
+      </div>
+      <div class="phase-card is-new">
+        <span class="num">PHASE 1.5</span>
+        <h4>オファー＆ファネル設計</h4>
+        <p>商品ピラミッド（無料→お試し→本商品→高単価）、リードマグネット3案、Irresistible Offer 5要素、CTA文言テンプレ10種、計測設計（LTV×許容CAC）まで。Kennedy/Abraham系譜のDRM中核を組み込みます。</p>
       </div>
       <div class="phase-card">
         <span class="num">PHASE 2</span>
@@ -637,14 +701,25 @@ img{max-width:100%;display:block}
       </div>
       <div class="phase-card">
         <span class="num">PHASE 4</span>
-        <h4>月次運用カレンダー</h4>
-        <p>選定SNSごとに「いつ・何を・どんな形式で投稿するか」を月16本〜の粒度で表にします。曜日・時間帯まで指定。</p>
+        <h4>月次運用カレンダー（A/Bテスト前提）</h4>
+        <p>選定SNSごとに「いつ・何を・どんな形式で投稿するか」を月16本〜の粒度で表化。<strong>各投稿にフックA/B案・サムネ2方向</strong>を組み込み、初日からテスト文化を埋め込みます。</p>
       </div>
       <div class="phase-card">
         <span class="num">PHASE 5</span>
-        <h4>実行＋振り返り設計</h4>
-        <p>今週やる3タスク・1週/1ヶ月/3ヶ月のチェックポイント・やめる判断基準まで明文化。動き続ける仕組みを残します。</p>
+        <h4>実行＋振り返り設計（撤退KPI数値化）</h4>
+        <p>今週やる3タスク・チェックポイント・撤退判断基準（CAC/LTV比30%超・登録率1%未満等の<strong>数値閾値5項目</strong>）まで明文化。動き続ける仕組みを残します。</p>
       </div>
+    </div>
+
+    <div class="v2-highlight">
+      <h4>v2.0 の進化ポイント（v1.0からの差別化）</h4>
+      <ul>
+        <li><strong>Phase 1.5 新設：</strong>SNSは「投稿を続ける場」から「お客様を獲得する装置」へ。商品ピラミッド／リードマグネット／Offer 5要素／CTA10種／計測設計まで一気通貫</li>
+        <li><strong>撤退判断を数値で：</strong>「気合で続ける／なんとなく辞める」を排除。CAC/LTV比・転換率・保存率の5閾値で客観判定</li>
+        <li><strong>A/Bテスト前提：</strong>初日からフック2案・サムネ2方向。Kennedy流テスト文化を運用カレンダーに埋め込み</li>
+        <li><strong>分割出力＋進行ゲージ：</strong>長尺出力の途中切断を防止。再現性と納品品質を担保</li>
+        <li><strong>表セル文体ルール除外・自己チェック工程：</strong>納品物の自然な日本語と品質ゲートを両立</li>
+      </ul>
     </div>
   </div>
 </section>
@@ -657,12 +732,14 @@ img{max-width:100%;display:block}
       <h2>何が手に入るか</h2>
     </div>
     <div class="deliver-box">
-      <h4>納品物リスト</h4>
+      <h4>納品物リスト（v2.0強化版）</h4>
       <ul>
-        <li>戦略設計書（PDF・20〜40ページ）：コンセプト／ペルソナ／USP／3C／KPI</li>
+        <li>戦略設計書（PDF・30〜50ページ）：コンセプト／ペルソナ／USP／3C／KPI</li>
+        <li><strong>オファー＆ファネル設計書（Phase 1.5・v2.0新規）：</strong>商品ピラミッド／リードマグネット3案／Irresistible Offer 5要素／コピーフレーム選定／CTA文言テンプレ10種／プロフィール最適化／ファネル全体図／計測設計（LTV×CAC）</li>
         <li>マルチSNS戦略マップ（プラットフォーム選定マトリクス＋導線フロー）</li>
         <li>2年戦略カレンダー＋6ヶ月詳細ロードマップ</li>
-        <li>1ヶ月分の運用カレンダー（選定SNSごと・3プラットフォームまで）</li>
+        <li><strong>1ヶ月分の運用カレンダー（A/Bテスト前提）：</strong>各投稿にフックA案／B案／サムネ2方向／CTA／狙いの数値目標を完備</li>
+        <li><strong>撤退KPI閾値表（v2.0新規）：</strong>5つの状況×数値閾値×アクションで「やめる」判定を客観化</li>
         <li>今週やる3タスクシート＋チェックポイント表</li>
         <li>レビュー会テンプレ（週次・月次・四半期）</li>
       </ul>
@@ -845,6 +922,16 @@ img{max-width:100%;display:block}
       <div class="faq-a">30分のオンライン相談で、現状ヒアリング・課題の優先順位整理・どのプランが向いているかの提案まで行います。その場で契約を迫ることはしません。</div>
     </div>
 
+    <div class="faq-item">
+      <button class="faq-q" type="button" aria-expanded="false"><span>無料カスタムGPT版と有料コンサルの違いは何ですか？</span><span class="mark" aria-hidden="true">＋</span></button>
+      <div class="faq-a">無料GPT版（マルチSNS参謀 v2.0）は、7問のヒアリングからPhase 0〜5まで自動生成する「設計の地図」を手に入れる手段です。有料コンサルは、生成された地図を実際の事業に合わせて精度を上げ、月次レビューで数字を見ながら型を改善し、A/Bテストの判定・撤退判断・オファー改修まで人が伴走します。GPTで地図を手に入れた後、伴走で実装したい方が有料プランに進む流れが王道です。</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" type="button" aria-expanded="false"><span>v1.0との違いは？既存契約者は乗り換えできますか？</span><span class="mark" aria-hidden="true">＋</span></button>
+      <div class="faq-a">v2.0の主な強化点はPhase 1.5（オファー＆ファネル設計）の新設、撤退KPIの数値化、A/Bテスト前提の月次カレンダー、自己チェック工程の追加です。既存のv1.0契約者は、次回の月次レビュー時に無償でv2.0仕様に移行します。差額請求は発生しません。</div>
+    </div>
+
   </div>
 </section>
 
@@ -898,10 +985,14 @@ document.querySelectorAll('.faq-item').forEach(function(item){
 </html>
 
 <!--
-  このファイルは index.html（Forest Green モデル適用・デフォルト版・2026-05-31確定採用）
+  このファイルは index.html（Forest Green モデル適用・デフォルト版）
   AS HTML LP のデフォルトデザインモデル。
 
-  比較バージョン：
+  更新履歴：
+  - 2026-05-31 v1.0 初版・Forest Green確定採用
+  - 2026-06-03 v2.0 DRM強化版対応。Phase 1.5訴求カード追加／撤退KPI数値化アピール／A/Bテスト前提／配布GPT v2.0誘導／v2 highlight強化セクション追加
+
+  比較バージョン（v1.0時点・v2.0未対応）：
   - 紫系オリジナル → index-purple.html（purple_creative モデル）
   - Corporate Navy → index-corporate.html
   - Gentle White → index-gentle.html

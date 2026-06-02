@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>神崎潤 マルチSNS参謀 v2.0｜7問答えるだけでSNS戦略一式が手に入る無料GPT</title>
+<meta name="description" content="マーケティング素人でも、7問のヒアリングに答えるだけで、SNS戦略・運用カレンダー・6ヶ月ロードマップ・売れる仕組み（オファー／ファネル／CTA／計測）まで一気通貫で設計する無料カスタムGPT。Dan Kennedy・Jay Abraham系譜のDRM参謀「神崎潤」が、あなたの事業に寄り添って戦略を組み立てます。" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #228B48;
+  --primary-dark: #1A6D39;
+  --primary-light: #34A85A;
+  --primary-pale: #E8F5EC;
+  --forest-deep: #0F4A28;
+  --forest-mid: #1A6D39;
+  --black: #000000;
+  --charcoal: #1a1a1a;
+  --text-main: #333333;
+  --text-sub: #555555;
+  --text-mute: #666666;
+  --text-light: #999999;
+  --bg-main: #ffffff;
+  --bg-alt: #f5f5f5;
+  --bg-green-alt: #f7faf8;
+  --border: #e5e5e5;
+  --border-light: #eeeeee;
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.15);
+  --shadow-lg: 0 6px 20px rgba(34,139,72,0.15);
+  --radius: 6px;
+  --radius-sm: 4px;
+  --container: 1200px;
+  --font-jp: 'Noto Sans JP','Yu Gothic','Meiryo',sans-serif;
+  --font-en: 'Helvetica Neue',Arial,sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-jp);
+  background: var(--bg-main);
+  color: var(--text-main);
+  line-height: 1.7;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+a { color: var(--primary); text-decoration: none; transition: color 0.2s; }
+a:hover { color: var(--primary-dark); }
+img { max-width: 100%; display: block; }
+button { font-family: inherit; }
+
+.container { max-width: var(--container); margin: 0 auto; padding: 0 24px; }
+
+.section { padding: 80px 0; border-bottom: 1px solid var(--border); }
+.section.alt-bg { background: var(--bg-alt); }
+.section.green-alt { background: var(--bg-green-alt); }
+.section-head { margin-bottom: 48px; }
+.section-num {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--primary);
+  letter-spacing: 0.15em;
+  margin-bottom: 8px;
+  font-family: var(--font-en);
+}
+.section-head h2 {
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--black);
+  line-height: 1.3;
+  padding-bottom: 12px;
+  border-bottom: 3px solid var(--primary);
+  display: inline-block;
+  padding-right: 24px;
+}
+.section-lead {
+  font-size: 16px;
+  color: var(--text-sub);
+  line-height: 1.9;
+  margin: 24px 0 32px;
+  max-width: 840px;
+}
+.section h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--charcoal);
+  margin: 32px 0 16px;
+  padding-left: 12px;
+  border-left: 3px solid var(--primary);
+}
+.section p { font-size: 15px; color: #444; margin-bottom: 14px; line-height: 1.8; }
+.section ul, .section ol { margin: 12px 0 16px 1.4em; color: #444; }
+.section li { margin-bottom: 8px; font-size: 15px; line-height: 1.8; }
+
+/* HERO */
+.hero {
+  background: linear-gradient(135deg, #0F4A28 0%, #1A6D39 50%, #228B48 100%);
+  color: #fff;
+  padding: 96px 0 80px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, transparent 100%);
+  pointer-events: none;
+}
+.hero .container { position: relative; z-index: 1; }
+.hero .badge {
+  display: inline-block;
+  padding: 6px 14px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.35);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  margin-bottom: 24px;
+  border-radius: 2px;
+}
+.hero h1 {
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 24px;
+  letter-spacing: 0.01em;
+  max-width: 920px;
+}
+.hero h1 .accent {
+  color: #B8E5C5;
+  border-bottom: 3px solid #B8E5C5;
+  padding-bottom: 2px;
+}
+.hero .sub {
+  font-size: 17px;
+  font-weight: 400;
+  opacity: 0.95;
+  margin-bottom: 40px;
+  line-height: 1.8;
+  max-width: 760px;
+}
+.hero .meta { margin-top: 24px; font-size: 13px; opacity: 0.85; line-height: 1.7; }
+
+/* CTA */
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  background: #228B48;
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background 0.2s, box-shadow 0.2s, color 0.2s;
+  text-decoration: none;
+  font-family: inherit;
+}
+.cta-btn::after { content: "→"; font-size: 16px; margin-left: 4px; }
+.cta-btn:hover {
+  background: #1A6D39;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  color: #fff;
+}
+.cta-btn.primary { background: #228B48; }
+.cta-btn.primary:hover { background: #1A6D39; }
+.cta-btn.secondary {
+  background: #fff;
+  color: #228B48;
+  border: 1px solid #228B48;
+}
+.cta-btn.secondary:hover { background: #E8F5EC; color: #1A6D39; }
+.cta-btn.ghost {
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.6);
+}
+.cta-btn.ghost:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: #fff;
+  color: #fff;
+}
+.cta-btn.primary.inverse {
+  background: #fff;
+  color: #228B48;
+}
+.cta-btn.primary.inverse:hover {
+  background: #E8F5EC;
+  color: #1A6D39;
+}
+.cta-group {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+/* バッジ for v2.0 */
+.v2-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  background: #B8E5C5;
+  color: #0F4A28;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  border-radius: 3px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+/* 課題カード */
+.issue-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  margin-top: 32px;
+}
+.issue-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--primary);
+  border-radius: 4px;
+  padding: 20px 22px;
+  font-size: 15px;
+  color: #333;
+  line-height: 1.7;
+}
+.issue-card strong {
+  display: block;
+  color: var(--primary);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
+}
+
+/* 特徴カード */
+.feature-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  margin-top: 32px;
+}
+.feature-card {
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-top: 3px solid #228B48;
+  border-radius: 6px;
+  padding: 28px 24px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+}
+.feature-card.is-new {
+  border-top: 3px solid #0F4A28;
+  background: #f7faf8;
+}
+.feature-card.is-new::before {
+  content: "v2.0 NEW";
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 10px;
+  font-weight: 700;
+  color: #0F4A28;
+  background: #B8E5C5;
+  padding: 3px 8px;
+  border-radius: 3px;
+  letter-spacing: 0.05em;
+}
+.feature-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+}
+.feature-card .feature-num {
+  font-size: 28px;
+  font-weight: 700;
+  color: #228B48;
+  font-family: var(--font-en);
+  margin-bottom: 12px;
+  line-height: 1;
+}
+.feature-card h4 {
+  font-size: 17px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+.feature-card p {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* OUTPUT リスト */
+.output-list {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  margin-top: 32px;
+}
+.output-item {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 18px 22px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.output-item .ico {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  background: var(--primary-pale);
+  color: var(--primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-family: var(--font-en);
+  font-size: 14px;
+}
+.output-item .body strong {
+  display: block;
+  color: #1a1a1a;
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.output-item .body span {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.7;
+}
+
+/* 使い方 3ステップ */
+.steps {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  margin-top: 32px;
+  counter-reset: step;
+}
+.step-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 28px 24px;
+  position: relative;
+}
+.step-card::before {
+  counter-increment: step;
+  content: "STEP " counter(step);
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: 0.1em;
+  margin-bottom: 12px;
+  font-family: var(--font-en);
+}
+.step-card h4 {
+  font-size: 17px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.step-card p { font-size: 14px; color: #555; line-height: 1.8; margin: 0; }
+
+/* 比較表 */
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 24px;
+  background: #fff;
+  font-size: 14px;
+}
+.compare-table th, .compare-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  vertical-align: top;
+}
+.compare-table th {
+  background: var(--bg-alt);
+  font-weight: 600;
+  color: #1a1a1a;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+}
+.compare-table th.v2 {
+  background: var(--primary);
+  color: #fff;
+}
+.compare-table td.v2 {
+  background: var(--primary-pale);
+  color: #1a1a1a;
+}
+.compare-table td .check {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background: var(--primary);
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 18px;
+  margin-right: 4px;
+}
+.compare-table td .cross {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background: #cccccc;
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 18px;
+  margin-right: 4px;
+}
+
+/* FAQ */
+.faq-item {
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  overflow: hidden;
+}
+.faq-item.open { border-color: #228B48; }
+.faq-q {
+  padding: 18px 24px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #1a1a1a;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 15px;
+  line-height: 1.5;
+  transition: background 0.2s;
+  width: 100%;
+  background: transparent;
+  border: none;
+  text-align: left;
+  font-family: inherit;
+}
+.faq-q:hover { background: #f5f5f5; }
+.faq-q:focus-visible { outline: 2px solid #228B48; outline-offset: -2px; }
+.faq-q .mark {
+  font-size: 18px;
+  color: #228B48;
+  flex-shrink: 0;
+  margin-left: 12px;
+  transition: transform 0.2s;
+  font-weight: 400;
+}
+.faq-item.open .faq-q .mark { transform: rotate(45deg); }
+.faq-a {
+  padding: 0 24px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s, padding 0.3s;
+  color: #555;
+  font-size: 14px;
+  line-height: 1.9;
+  background: #fafafa;
+  border-top: 1px solid transparent;
+}
+.faq-item.open .faq-a {
+  padding: 18px 24px;
+  max-height: 800px;
+  border-top: 1px solid #e5e5e5;
+}
+
+/* Author */
+.author-box {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 32px;
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 28px;
+  align-items: flex-start;
+}
+.author-avatar {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--forest-deep), var(--primary));
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.author-box h4 { font-size: 18px; color: #1a1a1a; margin-bottom: 6px; }
+.author-box .author-role { font-size: 13px; color: var(--primary); font-weight: 600; margin-bottom: 12px; letter-spacing: 0.05em; }
+.author-box p { font-size: 14px; color: #555; line-height: 1.9; margin-bottom: 8px; }
+
+/* Contact box */
+.contact-box {
+  background: linear-gradient(135deg, #1A6D39 0%, #228B48 100%);
+  color: #fff;
+  padding: 64px 0;
+  text-align: center;
+}
+.contact-box h2 {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  line-height: 1.3;
+}
+.contact-box p {
+  font-size: 16px;
+  opacity: 0.95;
+  margin-bottom: 32px;
+  line-height: 1.8;
+}
+.contact-box .cta-group { justify-content: center; }
+
+/* Footer */
+.footer {
+  background: #0F4A28;
+  color: #c8d8cc;
+  padding: 40px 0;
+  font-size: 13px;
+  line-height: 1.9;
+}
+.footer .company { font-weight: 600; font-size: 15px; color: #fff; margin-bottom: 10px; }
+.footer .copy { margin-top: 20px; opacity: 0.7; font-size: 12px; }
+.footer a { color: #B8E5C5; }
+.footer a:hover { color: #fff; }
+
+/* Note (GPT Store公開準備中) */
+.note-banner {
+  background: #FFF8E1;
+  border-left: 3px solid #F5A623;
+  padding: 12px 18px;
+  font-size: 13px;
+  color: #6E5400;
+  margin: 16px 0 0;
+  border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+  .section { padding: 56px 0; }
+  .container { padding: 0 20px; }
+  .hero { padding: 72px 0 56px; }
+  .hero h1 { font-size: 32px; }
+  .hero .sub { font-size: 15px; }
+  .section-head h2 { font-size: 24px; }
+  .section h3 { font-size: 16px; }
+  .section p, .section li { font-size: 14px; }
+  .contact-box h2 { font-size: 24px; }
+  .author-box { grid-template-columns: 1fr; text-align: center; }
+  .author-avatar { margin: 0 auto; }
+}
+@media (max-width: 480px) {
+  .section { padding: 40px 0; }
+  .hero { padding: 56px 0 40px; }
+  .hero h1 { font-size: 26px; }
+  .hero .sub { font-size: 14px; }
+  .section-head h2 { font-size: 20px; padding-right: 16px; }
+  .cta-btn { padding: 12px 24px; font-size: 14px; }
+  .contact-box h2 { font-size: 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ====== PASSWORD GATE ======
+   パスワード本体は下記 <script> 内の var PASS で管理
+============================== -->
+<div id="password-gate" style="position:fixed;inset:0;background:linear-gradient(135deg,#1A6D39 0%,#228B48 100%);color:#fff;display:flex;align-items:center;justify-content:center;z-index:9999;flex-direction:column;font-family:'Noto Sans JP','Yu Gothic','Meiryo',sans-serif;padding:20px;text-align:center">
+  <div style="background:rgba(255,255,255,0.1);padding:40px 32px;border-radius:6px;border:1px solid rgba(255,255,255,0.3);max-width:420px;width:100%">
+    <h2 style="margin-bottom:8px;font-size:20px;font-weight:700;letter-spacing:0.02em">マルチSNS参謀 v2.0 配布GPT LP</h2>
+    <p style="font-size:13px;opacity:0.9;margin-bottom:24px;line-height:1.7">閲覧にはパスワードが必要です</p>
+    <input type="password" id="pwd-input" style="padding:12px 16px;font-size:15px;border-radius:4px;border:1px solid rgba(255,255,255,0.3);background:#fff;width:100%;text-align:center;margin-bottom:12px;color:#1a1a1a;font-family:inherit;font-weight:500" placeholder="パスワード" autofocus>
+    <button id="pwd-btn" style="padding:14px 24px;background:#ffffff;color:#1A6D39;border:none;border-radius:4px;font-size:15px;cursor:pointer;font-weight:700;width:100%;font-family:inherit;transition:background 0.2s,color 0.2s" onmouseover="this.style.background='#f0f8f3';this.style.color='#228B48'" onmouseout="this.style.background='#ffffff';this.style.color='#1A6D39'">閲覧する →</button>
+    <p id="pwd-err" style="color:#ffcccc;margin-top:12px;font-size:13px;display:none">パスワードが正しくありません</p>
+  </div>
+</div>
+<script>
+(function(){
+  var PASS='as02062026'; /* Kei指定値（2026-06-03 v2.0公開時） */
+  var gate=document.getElementById('password-gate');
+  var input=document.getElementById('pwd-input');
+  var btn=document.getElementById('pwd-btn');
+  var err=document.getElementById('pwd-err');
+  if(sessionStorage.getItem('mss_gpt_auth')==='ok'){gate.style.display='none';return;}
+  document.body.style.overflow='hidden';
+  function check(){
+    if(input.value===PASS){
+      sessionStorage.setItem('mss_gpt_auth','ok');
+      gate.style.display='none';
+      document.body.style.overflow='';
+    }else{
+      err.style.display='block';
+      input.value='';input.focus();
+    }
+  }
+  btn.addEventListener('click',check);
+  input.addEventListener('keypress',function(e){if(e.key==='Enter')check();});
+})();
+</script>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="container">
+    <span class="badge">FREE CUSTOM GPT / v2.0 DRM強化版</span>
+    <h1>
+      7問答えるだけで、<br>
+      SNS戦略一式が手に入る<br>
+      <span class="accent">無料GPT。</span>
+    </h1>
+    <p class="sub">
+      マーケティング素人でも、ChatGPTで7つの質問に答えるだけ。投稿カレンダーだけじゃない。商品ピラミッド、リードマグネット、Irresistible Offer、ファネル設計、撤退KPIまで、売れる仕組み一式を「神崎潤マルチSNS参謀」が組み立てます。
+    </p>
+    <div class="cta-group">
+      <a href="https://chatgpt.com/g/g-6a1f0eb279488191af8d32cc628c119b-20-shen-qi-run-marutisnscan-mou-v2-0" target="_blank" rel="noopener" class="cta-btn primary inverse">GPTを試す（無料）</a>
+      <a href="#features" class="cta-btn ghost">何ができるか見る</a>
+    </div>
+    <p class="meta">想定読者：中小企業経営者／個人事業主／クリエイター／マーケ素人〜中級者　&nbsp;|&nbsp;　料金：無料　&nbsp;|&nbsp;　所要：7問の入力で5〜15分</p>
+  </div>
+</header>
+
+<!-- 01 / WHY -->
+<section class="section" id="why">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-num">01 / WHY</span>
+      <h2>こんなSNS運用、していませんか</h2>
+    </div>
+    <p class="section-lead">
+      多くのSNS運用は「投稿を続けること」がゴールになっています。神崎潤マルチSNS参謀が解決するのは、その先の「売れる仕組み」の設計です。
+    </p>
+    <div class="issue-grid">
+      <div class="issue-card"><strong>悩み 01</strong>投稿しても問い合わせが来ない。フォロワーは少しずつ増えるが売上に直結しない</div>
+      <div class="issue-card"><strong>悩み 02</strong>何を投稿していいかわからない。毎回ネタを絞り出すだけで疲れる</div>
+      <div class="issue-card"><strong>悩み 03</strong>Instagram／TikTok／YouTube／X、どれをやればいいか選びきれない</div>
+      <div class="issue-card"><strong>悩み 04</strong>無料プレゼントもCTAも、何をどう設計すればいいかわからない</div>
+      <div class="issue-card"><strong>悩み 05</strong>続けるべきか撤退すべきか、判断基準がない</div>
+      <div class="issue-card"><strong>悩み 06</strong>戦略本を読んでも自分の事業に落とし込めない</div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 / FEATURES -->
+<section class="section alt-bg" id="features">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-num">02 / FEATURES</span>
+      <h2>マルチSNS参謀 v2.0 の6つの特徴</h2>
+    </div>
+    <p class="section-lead">
+      Dan Kennedy（DRMの大家）と Jay Abraham（卓越の戦略の大家）の中核思想を骨格に組み込んだカスタムGPT。投稿戦略と売れる仕組みを同時に設計します。
+    </p>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="feature-num">01</div>
+        <h4>7問のヒアリングで全部設計</h4>
+        <p>マーケ用語を一切使わない7問。答えに迷ったら「おまかせ」でOK。業界平均で仮設定して、6フェーズ分の戦略を組み立てます。</p>
+      </div>
+      <div class="feature-card is-new">
+        <div class="feature-num">02</div>
+        <h4>売れる仕組みまで作る（Phase 1.5・DRM中核）</h4>
+        <p>商品ピラミッド／リードマグネット3案／Irresistible Offer 5要素／コピーフレーム選定／CTA文言10種／プロフ最適化／ファネル全体図／計測設計。SNS運用GPTで「ここまで作るのは見たことがない」レベル。</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-num">03</div>
+        <h4>2年→6ヶ月→1ヶ月の3階層ロードマップ</h4>
+        <p>長期戦略・中期計画・直近の週次タスクまで一気通貫。「今週やる3タスク」まで具体化するので、迷わず動き出せます。</p>
+      </div>
+      <div class="feature-card is-new">
+        <div class="feature-num">04</div>
+        <h4>撤退基準を数値で明示</h4>
+        <p>CAC（顧客獲得単価）が LTV（顧客生涯価値）の30%超／プロフィール訪問→リスト登録率1%未満 等、「やめる」判断を主観ではなく数値の閾値で提示します。</p>
+      </div>
+      <div class="feature-card is-new">
+        <div class="feature-num">05</div>
+        <h4>A/Bテスト前提のカレンダー</h4>
+        <p>各投稿にフックを2案（感情訴求型 vs 数値訴求型）。サムネも2方向で提案。Kennedy流のテスト文化を、初日の運用カレンダーから埋め込みます。</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-num">06</div>
+        <h4>自然な日本語（文体規範14条）</h4>
+        <p>「ぜひ参考にしてください」「いかがでしょうか」などAIっぽい定型句を排除。体言止め連発・断定表現・抽象表現も禁則。読みやすい実用文で出力します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 / OUTPUT -->
+<section class="section" id="output">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-num">03 / OUTPUT</span>
+      <h2>何が手に入るか</h2>
+    </div>
+    <p class="section-lead">
+      6フェーズ（Phase 0〜5）を順番に対話するだけで、以下が一式そろいます。
+    </p>
+
+    <h3>Phase 1：サービス設計層</h3>
+    <div class="output-list">
+      <div class="output-item"><span class="ico">A</span><div class="body"><strong>コンセプト</strong><span>500字以内で事業の存在意義を言語化</span></div></div>
+      <div class="output-item"><span class="ico">B</span><div class="body"><strong>ターゲットペルソナ</strong><span>夜眠れない不安／朝検索する単語まで具体化</span></div></div>
+      <div class="output-item"><span class="ico">C</span><div class="body"><strong>USP＋3つのベネフィット</strong><span>機能的・感情的・自己実現的の3層</span></div></div>
+      <div class="output-item"><span class="ico">D</span><div class="body"><strong>3C分析＋KPI設計</strong><span>北極星指標＋先行指標3〜5つ</span></div></div>
+    </div>
+
+    <h3>Phase 1.5：オファー＆ファネル設計 <span class="v2-badge">v2.0 NEW</span></h3>
+    <div class="output-list">
+      <div class="output-item"><span class="ico">E</span><div class="body"><strong>商品ピラミッド</strong><span>入口（無料）→フロント（〜5,000円）→本商品（1〜10万円）→バックエンド（10万円〜）</span></div></div>
+      <div class="output-item"><span class="ico">F</span><div class="body"><strong>リードマグネット3案</strong><span>PDF／動画／診断ツール／想定登録率付き</span></div></div>
+      <div class="output-item"><span class="ico">G</span><div class="body"><strong>Irresistible Offer 5要素</strong><span>コアの約束／ボーナス／保証／希少性／理由付け</span></div></div>
+      <div class="output-item"><span class="ico">H</span><div class="body"><strong>コピーフレーム選定</strong><span>HSO／PAS／PASTOR／QUEST／AIDA から心理状態に合わせて主軸を選定</span></div></div>
+      <div class="output-item"><span class="ico">I</span><div class="body"><strong>CTA文言テンプレ10種</strong><span>フォロワー獲得用／DM誘導用／LP誘導用に分類</span></div></div>
+      <div class="output-item"><span class="ico">J</span><div class="body"><strong>プロフィール最適化＋ファネル全体図</strong><span>認知→興味→リスト→フロント→本商品→バックエンドの転換率付き</span></div></div>
+      <div class="output-item"><span class="ico">K</span><div class="body"><strong>計測設計</strong><span>LTV×許容CAC の数式と運用ツールまで指定</span></div></div>
+    </div>
+
+    <h3>Phase 2〜5：戦略マップ・ロードマップ・投稿カレンダー・撤退基準</h3>
+    <div class="output-list">
+      <div class="output-item"><span class="ico">L</span><div class="body"><strong>プラットフォーム選定マトリクス</strong><span>★メイン1／○サブ1〜2／×見送りの判定理由付き</span></div></div>
+      <div class="output-item"><span class="ico">M</span><div class="body"><strong>2年→6ヶ月→1ヶ月の3階層ロードマップ</strong><span>各月の今月のゴール・週次タスク・達成チェック・今月の罠</span></div></div>
+      <div class="output-item"><span class="ico">N</span><div class="body"><strong>月次投稿カレンダー（A/Bテスト前提）</strong><span>フックA案／フックB案／CTA／狙いの数値目標</span></div></div>
+      <div class="output-item"><span class="ico">O</span><div class="body"><strong>撤退KPI閾値表</strong><span>5つの状況×数値閾値×アクションで整理</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 / HOW -->
+<section class="section alt-bg" id="how">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-num">04 / HOW</span>
+      <h2>使い方は3ステップ</h2>
+    </div>
+    <p class="section-lead">
+      ChatGPTのアカウントがあれば、所要5〜15分で戦略一式が手に入ります（分割出力モード推奨）。
+    </p>
+    <div class="steps">
+      <div class="step-card">
+        <h4>GPT Storeから起動</h4>
+        <p>ChatGPT内のGPT Storeで「マルチSNS参謀」を検索し、起動します。</p>
+      </div>
+      <div class="step-card">
+        <h4>7問に答える</h4>
+        <p>商売内容／お客様像／ライバル／ゴール／リソース／気になるSNS／NG事項。迷ったら「おまかせ」でOKです。</p>
+      </div>
+      <div class="step-card">
+        <h4>「次」で進めて完成</h4>
+        <p>Phase 0→1→1.5→2→3→4→5 を順に出力。各フェーズ末尾に進行ゲージ表示。全部出し切ったら「今週やる3タスク」から実行へ。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 / VS -->
+<section class="section" id="vs">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-num">05 / VS</span>
+      <h2>v1.0からの進化（DRM強化版 v2.0）</h2>
+    </div>
+    <p class="section-lead">
+      Kaiの社内専門家2名（DRMコンサル佐伯／プロンプト設計士・三浦）による独立評価をもとに、v1.0の弱点10ヶ所を改修しました。
+    </p>
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>項目</th>
+          <th>v1.0</th>
+          <th class="v2">v2.0（DRM強化版）</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>オファー・ファネル・CTA・計測の設計（Phase 1.5）</td>
+          <td><span class="cross">✕</span>なし（投稿カレンダーで止まる）</td>
+          <td class="v2"><span class="check">✓</span>商品ピラミッド／リードマグネット3案／Offer 5要素／CTA10種／計測設計まで</td>
+        </tr>
+        <tr>
+          <td>分割出力（再現性の確保）</td>
+          <td><span class="cross">✕</span>一括出力デフォルト（途中切断リスク）</td>
+          <td class="v2"><span class="check">✓</span>分割出力デフォルト＋進行ゲージ表示</td>
+        </tr>
+        <tr>
+          <td>ヒアリング7問の素人言い換え</td>
+          <td><span class="cross">✕</span>USP／3C／KPI が出てくる</td>
+          <td class="v2"><span class="check">✓</span>完全に平易な言葉＋例示</td>
+        </tr>
+        <tr>
+          <td>撤退判断の基準</td>
+          <td><span class="cross">✕</span>「フォロワー月10人未満」など曖昧</td>
+          <td class="v2"><span class="check">✓</span>CAC/LTV比30%超／登録率1%未満 等の数値閾値5種</td>
+        </tr>
+        <tr>
+          <td>投稿カレンダーのA/Bテスト前提</td>
+          <td><span class="cross">✕</span>1案のみ</td>
+          <td class="v2"><span class="check">✓</span>フック2案＋サムネ2方向</td>
+        </tr>
+        <tr>
+          <td>表セルでの文体ルール扱い</td>
+          <td><span class="cross">✕</span>違反が頻発（体言止め連発）</td>
+          <td class="v2"><span class="check">✓</span>表セル・コードブロックを文体ルール除外と明示</td>
+        </tr>
+        <tr>
+          <td>自己チェック工程</td>
+          <td><span class="cross">✕</span>なし</td>
+          <td class="v2"><span class="check">✓</span>出力前にPhase 5-6で5項目セルフゲート</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 06 / FAQ -->
+<section class="section alt-bg" id="faq">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-num">06 / FAQ</span>
+      <h2>よくある質問</h2>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" type="button" aria-expanded="false">
+        <span>本当に無料ですか？</span>
+        <span class="mark" aria-hidden="true">＋</span>
+      </button>
+      <div class="faq-a">はい、無料で配布しています。ただしChatGPT Plus（月額20ドル）等のサブスクリプションに加入していると、より長い対話と画像生成が利用できます。基本機能はChatGPT無料プランでも動作します。</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" type="button" aria-expanded="false">
+        <span>マーケティングの知識ゼロでも使えますか？</span>
+        <span class="mark" aria-hidden="true">＋</span>
+      </button>
+      <div class="faq-a">使えます。7問のヒアリングは「USP」「KPI」「3C」など専門用語を完全に排除しています。答えに迷ったら「おまかせ」と書けば業界平均で仮設定して進めます。商売内容（あなたが何を売っているか）だけ書ければOKです。</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" type="button" aria-expanded="false">
+        <span>BtoBサービスや士業でも使えますか？</span>
+        <span class="mark" aria-hidden="true">＋</span>
+      </button>
+      <div class="faq-a">使えます。LinkedIn／Facebook／YouTube／Threads等、BtoB寄りのプラットフォーム選定にも対応しています。Phase 2のプラットフォーム選定マトリクスでターゲット適合度を判定し、メイン1＋サブ1〜2の構成を提案します。</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" type="button" aria-expanded="false">
+        <span>X（旧Twitter）単体の月次カレンダーだけ欲しい場合は？</span>
+        <span class="mark" aria-hidden="true">＋</span>
+      </button>
+      <div class="faq-a">X単体特化なら、AS内の `/x-content-calendar` スキルがより専門的です。本GPTはInstagram／TikTok／YouTube／LinkedIn等を含むマルチSNS設計が主眼です。</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" type="button" aria-expanded="false">
+        <span>出力が途中で切れた時はどうすれば？</span>
+        <span class="mark" aria-hidden="true">＋</span>
+      </button>
+      <div class="faq-a">v2.0は分割出力をデフォルトにしており、「次のフェーズに進む」と送るたびにPhase 1→1.5→2→3→4→5と進みます。各ターン末尾に「📍 進行：Phase N / 6 完了」と表示されるので現在地が分かります。「全部一気に」と明示した時のみ一括出力です。</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" type="button" aria-expanded="false">
+        <span>1ヶ月後のKPIレビューにも使えますか？</span>
+        <span class="mark" aria-hidden="true">＋</span>
+      </button>
+      <div class="faq-a">使えます。GPTを再起動し、「{プロジェクト名} の1ヶ月後レビュー」と伝えてください。先月のKPI実績を聞いて、翌月のカレンダーを再生成します。オファーやリードマグネットだけ作り直したい時は「Phase 1.5だけ再設計」と伝えればOKです。</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" type="button" aria-expanded="false">
+        <span>有料のコンサルティングプランはありますか？</span>
+        <span class="mark" aria-hidden="true">＋</span>
+      </button>
+      <div class="faq-a">アートソウルでは、本GPTで生成した戦略を、Claude Code環境で他スキルと連動させて実装支援する「マルチSNS参謀コンサル」を提供しています。クライアント案件として伴走を希望される場合はお問い合わせください。</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- 07 / AUTHOR -->
+<section class="section" id="author">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-num">07 / AUTHOR</span>
+      <h2>制作者について</h2>
+    </div>
+    <div class="author-box">
+      <div class="author-avatar">AS</div>
+      <div>
+        <h4>有限会社アートソウル</h4>
+        <p class="author-role">AS AI導入支援事業</p>
+        <p>中小企業のAI導入・業務改革・人材マネジメントを支援する事業会社。AIエージェント「Kai」が、社内スキル化・配布化・運用設計を一気通貫で実行します。神崎潤マルチSNS参謀は、AS内スキル `/multi-sns-sanbo` の独立配布版です。</p>
+        <p>クライアント案件では、本GPTをエントリーポイントに、Claude Code環境＋他スキル（`/marketing` `/kpi-design` `/research` 等）と連動した伴走型支援も提供しています。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="contact-box" id="try">
+  <div class="container">
+    <h2>今すぐGPTを試す</h2>
+    <p>所要5〜15分。7問に答えるだけで、SNS戦略一式が手に入ります。</p>
+    <div class="cta-group">
+      <a href="https://chatgpt.com/g/g-6a1f0eb279488191af8d32cc628c119b-20-shen-qi-run-marutisnscan-mou-v2-0" target="_blank" rel="noopener" class="cta-btn primary inverse" id="gpt-link">マルチSNS参謀 v2.0 を開く</a>
+      <a href="mailto:uemura@artsoul.jp" class="cta-btn ghost">運営に問い合わせる</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <p class="company">有限会社アートソウル</p>
+    <p>
+      AS AI導入支援事業／神崎潤マルチSNS参謀 v2.0 配布元<br>
+      お問い合わせ：<a href="mailto:uemura@artsoul.jp">uemura@artsoul.jp</a>
+    </p>
+    <p class="copy">© 有限会社アートソウル All Rights Reserved.</p>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.faq-item').forEach(function(item){
+  var btn = item.querySelector('.faq-q');
+  btn.addEventListener('click', function(){
+    var isOpen = item.classList.toggle('open');
+    btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+});
+</script>
+
+</body>
+</html>
