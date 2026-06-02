@@ -1,0 +1,2269 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>【機密・社内限定】マルチSNS参謀 完全運用マニュアル v2.0 DRM強化版｜有限会社アートソウル</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0f1f;
+  --bg-2:#0f1730;
+  --panel:#141d3a;
+  --panel-2:#1a2545;
+  --line:#2a3760;
+  --text:#e8ecf7;
+  --text-soft:#b9c1d9;
+  --muted:#7e87a8;
+  --gold:#d4a541;
+  --gold-2:#f0c870;
+  --gold-soft:#3a2f15;
+  --accent:#5b8def;
+  --danger:#e8546e;
+  --danger-bg:#3a1620;
+  --ok:#3dd68c;
+  --warn:#f0b049;
+  --code-bg:#0c1124;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:'Noto Sans JP',sans-serif;line-height:1.85;-webkit-font-smoothing:antialiased;font-size:15px}
+a{color:var(--gold-2);text-decoration:none}
+a:hover{text-decoration:underline}
+code,pre{font-family:'JetBrains Mono',monospace;font-size:.9em}
+
+/* レイアウト */
+.layout{display:grid;grid-template-columns:280px 1fr;min-height:100vh}
+aside{position:sticky;top:0;height:100vh;background:linear-gradient(180deg,#0a0f1f 0%,#0d1428 100%);border-right:1px solid var(--line);padding:24px 18px;overflow-y:auto}
+main{padding:0 48px 120px;max-width:1100px}
+
+/* サイドバー */
+.sidebar-head{padding-bottom:16px;margin-bottom:16px;border-bottom:1px solid var(--line)}
+.sidebar-head .brand{font-size:11px;color:var(--gold);letter-spacing:.18em;font-weight:700;margin-bottom:6px}
+.sidebar-head h2{font-size:15px;margin:0 0 4px;color:var(--text);font-weight:700}
+.sidebar-head .ver{font-size:11px;color:var(--muted)}
+.toc{list-style:none;padding:0;margin:0}
+.toc li{margin:2px 0}
+.toc a{display:block;padding:8px 10px;color:var(--text-soft);font-size:13px;border-radius:6px;border-left:2px solid transparent;transition:all .15s}
+.toc a:hover{background:var(--panel);color:var(--gold-2);text-decoration:none;border-left-color:var(--gold)}
+.toc a.active{background:var(--panel-2);color:var(--gold-2);border-left-color:var(--gold)}
+.toc .num{display:inline-block;width:22px;color:var(--gold);font-weight:700;font-family:'JetBrains Mono',monospace}
+.search-box{margin-bottom:14px}
+.search-box input{width:100%;padding:8px 12px;background:var(--code-bg);border:1px solid var(--line);border-radius:6px;color:var(--text);font-size:12px;font-family:'Noto Sans JP',sans-serif}
+.search-box input:focus{outline:none;border-color:var(--gold)}
+.search-hits{font-size:11px;color:var(--muted);margin-top:6px;padding-left:4px}
+
+/* 機密バッジ */
+.confidential{background:linear-gradient(135deg,#7a1626 0%,#a01e35 100%);color:#fff;padding:16px 24px;border-radius:8px;margin:32px 0;display:flex;align-items:center;gap:16px;box-shadow:0 4px 16px rgba(160,30,53,.3);border:1px solid #c83258}
+.confidential-icon{font-size:28px}
+.confidential-text{flex:1}
+.confidential-text strong{display:block;font-size:15px;letter-spacing:.05em;margin-bottom:2px}
+.confidential-text span{font-size:12px;opacity:.85}
+
+/* ヒーロー */
+.hero{padding:48px 0 32px;border-bottom:1px solid var(--line);margin-bottom:40px}
+.hero .kicker{color:var(--gold);font-size:12px;letter-spacing:.2em;font-weight:700;margin-bottom:12px}
+.hero h1{font-size:34px;line-height:1.4;margin:0 0 16px;color:var(--text);font-weight:900}
+.hero h1 span{color:var(--gold-2)}
+.hero .lead{font-size:15px;color:var(--text-soft);max-width:780px}
+.hero-meta{display:flex;gap:20px;flex-wrap:wrap;margin-top:24px;font-size:12px;color:var(--muted)}
+.hero-meta span strong{color:var(--gold);font-weight:700;margin-right:6px}
+
+/* 章 */
+section.chapter{margin:64px 0;scroll-margin-top:20px}
+.chapter-head{display:flex;align-items:baseline;gap:16px;padding-bottom:14px;border-bottom:2px solid var(--gold);margin-bottom:28px}
+.chapter-no{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--gold);background:var(--gold-soft);padding:3px 10px;border-radius:4px;font-weight:700;letter-spacing:.05em}
+.chapter h2{font-size:26px;margin:0;font-weight:900;color:var(--text)}
+.chapter h3{font-size:18px;margin:36px 0 14px;color:var(--gold-2);font-weight:700;padding-left:12px;border-left:3px solid var(--gold)}
+.chapter h4{font-size:15px;margin:24px 0 10px;color:var(--text);font-weight:700}
+.chapter p{color:var(--text-soft);margin:10px 0}
+.chapter ul, .chapter ol{color:var(--text-soft);padding-left:24px}
+.chapter li{margin:6px 0}
+.chapter li strong{color:var(--text)}
+
+/* 章内ミニ目次 */
+.mini-toc{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--gold);padding:16px 22px;margin:0 0 28px;border-radius:6px}
+.mini-toc .label{font-size:11px;color:var(--gold);font-weight:700;letter-spacing:.1em;margin-bottom:8px}
+.mini-toc ul{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(2,1fr);gap:4px 18px}
+.mini-toc li{margin:0;font-size:13px}
+.mini-toc a{color:var(--text-soft)}
+.mini-toc a:hover{color:var(--gold-2)}
+
+/* 用語注釈 */
+.term{border-bottom:1px dashed var(--gold);cursor:help;color:var(--gold-2)}
+.note{background:var(--panel);border-left:3px solid var(--accent);padding:12px 18px;margin:14px 0;border-radius:4px;font-size:13px;color:var(--text-soft)}
+.note strong{color:var(--accent)}
+.warn{background:var(--panel);border-left:3px solid var(--warn);padding:12px 18px;margin:14px 0;border-radius:4px;font-size:13px;color:var(--text-soft)}
+.warn strong{color:var(--warn)}
+.danger{background:var(--danger-bg);border-left:3px solid var(--danger);padding:12px 18px;margin:14px 0;border-radius:4px;font-size:13px;color:#f4d4dc}
+.danger strong{color:var(--danger)}
+.ok-box{background:var(--panel);border-left:3px solid var(--ok);padding:12px 18px;margin:14px 0;border-radius:4px;font-size:13px;color:var(--text-soft)}
+.ok-box strong{color:var(--ok)}
+
+/* テーブル */
+table{width:100%;border-collapse:collapse;margin:18px 0;background:var(--panel);border-radius:6px;overflow:hidden;font-size:13px}
+th,td{padding:10px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top;color:var(--text-soft)}
+th{background:var(--panel-2);color:var(--gold);font-weight:700;font-size:12px;letter-spacing:.05em}
+tr:last-child td{border-bottom:none}
+td strong{color:var(--text)}
+.tbl-compact td, .tbl-compact th{padding:8px 10px;font-size:12px}
+
+/* チェックリスト */
+.checklist{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:18px 22px;margin:18px 0}
+.checklist .title{font-size:13px;color:var(--gold);font-weight:700;letter-spacing:.05em;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.checklist .title::before{content:"☑";font-size:18px}
+.checklist ul{list-style:none;padding:0;margin:0}
+.checklist li{padding:6px 0 6px 28px;position:relative;font-size:13px;color:var(--text-soft)}
+.checklist li::before{content:"☐";position:absolute;left:6px;color:var(--gold);font-size:14px}
+.checklist li strong{color:var(--text)}
+
+/* スクリプト/テンプレ */
+.template{background:var(--code-bg);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:6px;padding:18px 22px;margin:16px 0}
+.template .label{font-size:11px;color:var(--gold);font-weight:700;letter-spacing:.1em;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center}
+.template .label .badge{background:var(--gold-soft);color:var(--gold-2);padding:2px 8px;border-radius:3px;font-size:10px}
+.template pre{margin:0;color:var(--text);white-space:pre-wrap;font-size:12.5px;line-height:1.7;font-family:'Noto Sans JP',sans-serif}
+.template.script pre{font-family:'Noto Sans JP',sans-serif}
+
+/* 引用調 トーク例 */
+.dialog{background:var(--panel-2);border-radius:8px;padding:16px 20px;margin:14px 0;border-left:3px solid var(--accent)}
+.dialog .speaker{font-size:11px;color:var(--accent);font-weight:700;letter-spacing:.1em;margin-bottom:4px}
+.dialog .line{color:var(--text);font-size:13.5px;line-height:1.8}
+
+/* バッジ */
+.badge{display:inline-block;padding:2px 8px;background:var(--gold-soft);color:var(--gold-2);border-radius:3px;font-size:10px;font-weight:700;letter-spacing:.05em;margin-right:6px}
+.badge.red{background:var(--danger-bg);color:var(--danger)}
+.badge.green{background:#0f3a26;color:var(--ok)}
+.badge.blue{background:#152545;color:var(--accent)}
+
+/* カード */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin:18px 0}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:18px 20px}
+.card .head{font-size:11px;color:var(--gold);font-weight:700;letter-spacing:.1em;margin-bottom:6px}
+.card h4{margin:0 0 8px;font-size:15px;color:var(--text)}
+.card p{font-size:13px;color:var(--text-soft);margin:0}
+
+/* フッター */
+footer{margin-top:80px;padding:32px 0;border-top:1px solid var(--line);color:var(--muted);font-size:12px;text-align:center}
+
+/* ハイライト（検索用） */
+mark{background:var(--gold);color:var(--bg);padding:0 2px;border-radius:2px}
+
+/* 印刷対応 */
+@media print{
+  body{background:#fff;color:#000;font-size:11pt}
+  aside{display:none}
+  .layout{grid-template-columns:1fr}
+  main{padding:0;max-width:none}
+  .confidential{background:#fff;color:#7a1626;border:2px solid #7a1626}
+  .chapter h2{color:#000;break-after:avoid}
+  .chapter h3{color:#7a1626}
+  section.chapter{page-break-before:always}
+  .template,.checklist,.note,.warn,.danger{background:#fafafa;color:#000;border-color:#ccc}
+  table{font-size:9pt}
+  .toc,.search-box{display:none}
+}
+
+/* レスポンシブ */
+@media (max-width:900px){
+  .layout{grid-template-columns:1fr}
+  aside{position:relative;height:auto;border-right:none;border-bottom:1px solid var(--line)}
+  main{padding:0 20px 80px}
+  .hero h1{font-size:24px}
+  .mini-toc ul{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ====== PASSWORD GATE ======
+   機密マニュアル。パスワードは Kei指定値（as05092026）
+   想定読者：提携パートナー・規模拡大要員
+============================== -->
+<div id="password-gate" style="position:fixed;inset:0;background:linear-gradient(135deg,#0a0a0a 0%,#1a1a1a 50%,#252525 100%);color:#e8c674;display:flex;align-items:center;justify-content:center;z-index:9999;flex-direction:column;font-family:'Noto Sans JP','Yu Gothic','Meiryo',sans-serif;padding:20px;text-align:center">
+  <div style="background:rgba(232,198,116,0.05);padding:40px 32px;border-radius:6px;border:1px solid rgba(232,198,116,0.35);max-width:440px;width:100%">
+    <div style="font-size:11px;letter-spacing:0.2em;color:#e8c674;font-weight:600;margin-bottom:12px;font-family:'JetBrains Mono',monospace">⚠️ CONFIDENTIAL · INTERNAL</div>
+    <h2 style="margin-bottom:8px;font-size:20px;font-weight:700;letter-spacing:0.02em;color:#fff">マルチSNS参謀 完全運用マニュアル v2.0</h2>
+    <p style="font-size:13px;opacity:0.85;margin-bottom:24px;line-height:1.7;color:#ccc">機密扱い。提携パートナー・規模拡大要員のみ閲覧可。</p>
+    <input type="password" id="pwd-input" style="padding:12px 16px;font-size:15px;border-radius:4px;border:1px solid rgba(232,198,116,0.4);background:#1a1a1a;width:100%;text-align:center;margin-bottom:12px;color:#fff;font-family:inherit;font-weight:500" placeholder="パスワード" autofocus>
+    <button id="pwd-btn" style="padding:14px 24px;background:#e8c674;color:#1a1a1a;border:none;border-radius:4px;font-size:15px;cursor:pointer;font-weight:700;width:100%;font-family:inherit;transition:background 0.2s,color 0.2s" onmouseover="this.style.background='#d4af56';" onmouseout="this.style.background='#e8c674';">閲覧する →</button>
+    <p id="pwd-err" style="color:#ff8c8c;margin-top:12px;font-size:13px;display:none">パスワードが正しくありません</p>
+    <p style="font-size:11px;opacity:0.6;margin-top:20px;line-height:1.6;color:#888">本書の転送・共有・スクリーンショット撮影禁止。配布元：有限会社アートソウル 上村桂右</p>
+  </div>
+</div>
+<script>
+(function(){
+  var PASS='as05092026'; /* Kei指定値（2026-06-03 v2.0公開時・提携パートナー用） */
+  var gate=document.getElementById('password-gate');
+  var input=document.getElementById('pwd-input');
+  var btn=document.getElementById('pwd-btn');
+  var err=document.getElementById('pwd-err');
+  if(sessionStorage.getItem('mss_manual_auth')==='ok'){gate.style.display='none';return;}
+  document.body.style.overflow='hidden';
+  function check(){
+    if(input.value===PASS){
+      sessionStorage.setItem('mss_manual_auth','ok');
+      gate.style.display='none';
+      document.body.style.overflow='';
+    }else{
+      err.style.display='block';
+      input.value='';input.focus();
+    }
+  }
+  btn.addEventListener('click',check);
+  input.addEventListener('keypress',function(e){if(e.key==='Enter')check();});
+})();
+</script>
+
+<div class="layout">
+
+<aside>
+  <div class="sidebar-head">
+    <div class="brand">CONFIDENTIAL · INTERNAL</div>
+    <h2>マルチSNS参謀<br>完全運用マニュアル</h2>
+    <div class="ver">v2.0 · 2026-06-03 · DRM強化版 · AS内限</div>
+  </div>
+
+  <div class="search-box">
+    <input type="text" id="search" placeholder="🔍 マニュアル内検索…" autocomplete="off">
+    <div class="search-hits" id="searchHits"></div>
+  </div>
+
+  <ul class="toc" id="toc">
+    <li><a href="#ch1"><span class="num">01</span>イントロ</a></li>
+    <li><a href="#ch2"><span class="num">02</span>認知獲得フェーズ</a></li>
+    <li><a href="#ch3"><span class="num">03</span>セールスフェーズ</a></li>
+    <li><a href="#ch4"><span class="num">04</span>クロージング手法</a></li>
+    <li><a href="#ch5"><span class="num">05</span>ヒアリング深掘り</a></li>
+    <li><a href="#ch6"><span class="num">06</span>課題発見＆施策立案</a></li>
+    <li><a href="#ch7"><span class="num">07</span>伴走支援フェーズ</a></li>
+    <li><a href="#ch8"><span class="num">08</span>運用代行受注</a></li>
+    <li><a href="#ch9"><span class="num">09</span>新人対応マニュアル</a></li>
+    <li><a href="#ch10"><span class="num">10</span>FAQ／トラブル</a></li>
+    <li><a href="#ch11"><span class="num">11</span>エキスパート監修</a></li>
+    <li style="margin-top:8px;padding-top:8px;border-top:1px dashed rgba(255,255,255,0.15)"><a href="#ch12"><span class="num">12</span>Phase 1.5 実務 <span style="font-size:9px;background:#B8E5C5;color:#0F4A28;padding:1px 5px;border-radius:2px;margin-left:4px">v2.0</span></a></li>
+    <li><a href="#ch13"><span class="num">13</span>撤退KPI判定 <span style="font-size:9px;background:#B8E5C5;color:#0F4A28;padding:1px 5px;border-radius:2px;margin-left:4px">v2.0</span></a></li>
+    <li><a href="#ch14"><span class="num">14</span>A/Bテスト運用 <span style="font-size:9px;background:#B8E5C5;color:#0F4A28;padding:1px 5px;border-radius:2px;margin-left:4px">v2.0</span></a></li>
+    <li><a href="#ch15"><span class="num">15</span>配布GPT連携 <span style="font-size:9px;background:#B8E5C5;color:#0F4A28;padding:1px 5px;border-radius:2px;margin-left:4px">v2.0</span></a></li>
+  </ul>
+</aside>
+
+<main>
+
+<div class="confidential">
+  <div class="confidential-icon">⚠️</div>
+  <div class="confidential-text">
+    <strong>機密 — 社内限定・顧客非公開</strong>
+    <span>本マニュアルはAS（有限会社アートソウル）内部スタッフ専用。クライアント・外部関係者への閲覧・転送・共有を禁ずる。配布元：上村桂右</span>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="kicker">INTERNAL OPERATIONS MANUAL · MULTI-SNS SANBO</div>
+  <h1>マルチSNS参謀<br><span>完全運用マニュアル</span></h1>
+  <p class="lead">SNS初心者の新人スタッフが本書1冊でセールス→契約→伴走運用まで一人で回せるレベルに到達するための、AS内部専用オペレーションガイド。神崎潤メソッド・DRMフレーム・5フェーズ設計を新人視点で完全分解した。</p>
+  <div class="hero-meta">
+    <span><strong>対象</strong>新人〜中堅スタッフ</span>
+    <span><strong>読了目安</strong>3〜4時間（通読）／辞書引き運用も可</span>
+    <span><strong>サービス本体</strong>/multi-sns-sanbo v2.0（DRM強化版）</span>
+    <span><strong>関連スキル</strong>/x-content-calendar /marketing /kpi-design</span>
+    <span><strong>v2.0 追加章</strong>Ch12 Phase 1.5実務／Ch13 撤退KPI／Ch14 A/Bテスト／Ch15 配布GPT連携</span>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- 第1章 -->
+<!-- ============================================ -->
+<section class="chapter" id="ch1">
+  <div class="chapter-head">
+    <span class="chapter-no">CH 01</span>
+    <h2>イントロ — なぜマルチSNS参謀メソッドが効くのか</h2>
+  </div>
+
+  <div class="mini-toc">
+    <div class="label">本章の構成</div>
+    <ul>
+      <li><a href="#ch1-1">1-1. 市場機会</a></li>
+      <li><a href="#ch1-2">1-2. 競合分析</a></li>
+      <li><a href="#ch1-3">1-3. ASの独自性</a></li>
+      <li><a href="#ch1-4">1-4. 想定顧客プロファイル3パターン</a></li>
+    </ul>
+  </div>
+
+  <h3 id="ch1-1">1-1. 市場機会</h3>
+  <p>国内のSNS広告市場は2025年時点で約1.2兆円規模、年成長率は約10〜15％で推移している（電通「日本の広告費」2024年データ）。広告予算が増える一方、運用代行を担う事業者は東京・大阪の大手代理店に集中し、地方の中小企業は「頼める先がない」状態にある。AS が拠点を置く関西圏でも、月額10万円〜30万円帯のスモール運用代行は供給が薄い。新人スタッフはまずここを理解する。</p>
+  <ul>
+    <li><strong>市場規模：</strong>国内SNS広告 約1.2兆円／SNS運用代行（広告以外の投稿制作・分析含む）は推定3,000〜4,000億円</li>
+    <li><strong>成長余地：</strong>中小企業のSNS活用率は約45％（総務省「通信利用動向調査」）。残り55％が未着手＝潜在市場</li>
+    <li><strong>関西圏の事業者数：</strong>商工会議所登録ベースで約12万社。うちSNS運用を外注している事業者は推定15％以下</li>
+  </ul>
+
+  <div class="note">
+    <strong>新人へのひと言：</strong>「市場が大きい」だけで動かない。本当に効くのは「中小企業はSNS運用代行を頼める先を知らない」という供給不足。営業先で困っている経営者に届ける、と捉えて動く。
+  </div>
+
+  <h3 id="ch1-2">1-2. 競合分析</h3>
+  <p>既存のSNS運用代行会社は3つの典型的な弱みを抱えている。新人はこの3つを暗記する。営業時の差別化トークの根拠になる。</p>
+
+  <table>
+    <thead><tr><th>競合タイプ</th><th>弱み</th><th>ASの差別化ポイント</th></tr></thead>
+    <tbody>
+      <tr><td><strong>大手代理店</strong>（電通・博報堂系列）</td><td>最低契約100万円〜／中小企業を相手にしない／担当者の入れ替わりが激しい</td><td>月10万円〜の中小特化／代表が窓口／3年継続率の高さ</td></tr>
+      <tr><td><strong>ベンチャー代行</strong>（投稿制作中心）</td><td>戦略設計が浅い／投稿数だけ追う／KPIが曖昧</td><td>DRM理論で戦略から設計／神崎潤メソッドで全フェーズ網羅</td></tr>
+      <tr><td><strong>フリーランス</strong>（個人）</td><td>属人化／病気・繁忙期に止まる／法人契約に弱い</td><td>有限会社の法人体制／契約書・請求書・継続支援が整備済み</td></tr>
+      <tr><td><strong>ツールベンダー</strong>（Buffer等）</td><td>ツール提供のみ／使いこなせず放置／戦略支援なし</td><td>戦略＋カスタムGPT＋月次レビュー会の三位一体</td></tr>
+    </tbody>
+  </table>
+
+  <h3 id="ch1-3">1-3. マルチSNS参謀の独自性（4つの差別化）</h3>
+  <div class="cards">
+    <div class="card">
+      <div class="head">DIFFERENTIATOR 1</div>
+      <h4>DRMペルソナ起点設計</h4>
+      <p>Dan Kennedy・Jay Abrahamのダイレクトレスポンスマーケティング理論をベースに、ペルソナの「夜眠れない不安」「朝検索する単語」まで掘る。投稿1本ごとに「誰の何を動かすか」が定義される。</p>
+    </div>
+    <div class="card">
+      <div class="head">DIFFERENTIATOR 2</div>
+      <h4>5フェーズ一気通貫</h4>
+      <p>ヒアリング→サービス設計→戦略マップ→ロードマップ→運用カレンダーを1案件で全部提供する。他社は「戦略だけ」「投稿だけ」と分断するが、ASは1社で全部回す。</p>
+    </div>
+    <div class="card">
+      <div class="head">DIFFERENTIATOR 3</div>
+      <h4>カスタムGPT配布モデル</h4>
+      <p>クライアント専用のカスタムGPT（神崎潤AI）を納品物として渡す。代行契約終了後もクライアントが自走できる。「囲い込まない」姿勢が3年継続率につながる。</p>
+    </div>
+    <div class="card">
+      <div class="head">DIFFERENTIATOR 4</div>
+      <h4>マルチプラットフォーム横断</h4>
+      <p>Instagram・TikTok・YouTube・X・LinkedIn・Threads・Facebook・Pinterestの全領域に対応。クロスSNS導線（認知→興味→信頼→購買）を1枚絵で示す。</p>
+    </div>
+  </div>
+
+  <h3 id="ch1-4">1-4. 想定顧客プロファイル3パターン</h3>
+  <p>新人は営業初日からこの3パターンを見分けられるよう暗記する。ヒアリング前に「どのパターンか」を仮置きしておくと、後の提案精度が上がる。</p>
+
+  <table>
+    <thead><tr><th>パターン</th><th>典型像</th><th>予算感</th><th>狙うべき提案</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>パターンA<br>「やってない経営者」</strong></td>
+        <td>50代社長、SNS未着手、紹介経由で来る。「とにかく何かやらないと」と焦っている</td>
+        <td>月10〜20万円</td>
+        <td>戦略設計＋伴走支援（投稿は自社）。3ヶ月で型を作り、社内に内製化引き渡し</td>
+      </tr>
+      <tr>
+        <td><strong>パターンB<br>「やってるけど伸びない経営者」</strong></td>
+        <td>40代経営者、Instagram運用1年経過、フォロワー500人で停滞。1人で投稿、疲れている</td>
+        <td>月20〜40万円</td>
+        <td>診断→戦略再設計＋運用代行（投稿制作肩代わり）。3ヶ月でフォロワー2倍を狙う</td>
+      </tr>
+      <tr>
+        <td><strong>パターンC<br>「複数SNSを連携したい中堅企業」</strong></td>
+        <td>30〜40代マーケ責任者、社員10〜100名、既にYouTube／Instagramを別担当で運用。横串が通っていない</td>
+        <td>月40〜80万円</td>
+        <td>クロスSNS戦略設計＋月次レビュー＋一部運用代行。半年で導線統合・売上連動指標化</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="checklist">
+    <div class="title">第1章 理解度チェック</div>
+    <ul>
+      <li>国内SNS広告市場の規模を一言で答えられる</li>
+      <li>競合3タイプの弱みを各1つずつ言える</li>
+      <li>ASの差別化4点を諳んじられる</li>
+      <li>想定顧客3パターンを見分ける質問が思い浮かぶ</li>
+      <li>「なぜマルチSNS参謀メソッドが効くのか」を30秒で説明できる</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- 第2章 -->
+<!-- ============================================ -->
+<section class="chapter" id="ch2">
+  <div class="chapter-head">
+    <span class="chapter-no">CH 02</span>
+    <h2>認知獲得フェーズ — リード獲得装置の作り方</h2>
+  </div>
+
+  <div class="mini-toc">
+    <div class="label">本章の構成</div>
+    <ul>
+      <li><a href="#ch2-1">2-1. ターゲット顧客の発掘ルート5つ</a></li>
+      <li><a href="#ch2-2">2-2. リードマグネット案</a></li>
+      <li><a href="#ch2-3">2-3. リード判別基準（ホット/ウォーム/コールド）</a></li>
+      <li><a href="#ch2-4">2-4. CRM管理の最小構成</a></li>
+    </ul>
+  </div>
+
+  <p>営業の前段に必要なのは「リード（見込み客）の流れ」をつくる装置。本章は新人が初月から動けるレベルで5つの獲得ルートを示す。</p>
+
+  <h3 id="ch2-1">2-1. ターゲット顧客の発掘ルート5つ</h3>
+
+  <table>
+    <thead><tr><th>ルート</th><th>具体アクション</th><th>頻度／工数</th><th>初月の目標</th></tr></thead>
+    <tbody>
+      <tr><td><strong>① 既存クライアント紹介</strong></td><td>四半期ごとに既存3社へ「SNSで困っている経営者仲間いませんか」と直接依頼。紹介者には謝礼3万円</td><td>四半期1回／1時間×3社</td><td>紹介リード2件</td></tr>
+      <tr><td><strong>② SEO（検索流入）</strong></td><td>サービスLP（multi-sns-sanbo）にロングテールキーワード10本で記事を流す。例「Instagram運用代行 大阪」「TikTok 中小企業 始め方」</td><td>月4記事／1記事3時間</td><td>月100セッション・問い合わせ1件</td></tr>
+      <tr><td><strong>③ X発信</strong></td><td>神崎潤名義で週4投稿。SNS運用ノウハウ・事例・失敗談を分割発信。月1回ライブ配信</td><td>週4投稿／20分×4</td><td>フォロワー月+50・DM相談1件</td></tr>
+      <tr><td><strong>④ 業界団体・勉強会</strong></td><td>商工会議所セミナー登壇／関西の中小企業向けSNS勉強会で講師。1回登壇で名刺30枚目標</td><td>月1回／半日</td><td>登壇1回・名刺30枚</td></tr>
+      <tr><td><strong>⑤ 既存クライアント横展開</strong></td><td>SNS運用以外の既存契約（AI導入・コンサル）顧客へ「SNSもやりませんか」と追加提案</td><td>月3社訪問</td><td>追加契約1件</td></tr>
+    </tbody>
+  </table>
+
+  <div class="note"><strong>新人の優先順位：</strong>入社1ヶ月目は①と⑤を最優先。②③④は3ヶ月目以降に巻き取る。最初から全ルートを回そうとして倒れる新人が多い。</div>
+
+  <h3 id="ch2-2">2-2. リードマグネット案（無料で配って関心客を集める道具）</h3>
+  <p><span class="term">リードマグネット</span>とは、無料で配布する価値ある資料・ツールのこと。連絡先と引き換えに渡し、見込み客リストを作る。ASでは以下3種を運用する。</p>
+
+  <div class="cards">
+    <div class="card">
+      <div class="head">マグネット A</div>
+      <h4>SNS健康診断シート（無料）</h4>
+      <p>20項目チェック式。プロフィール・投稿頻度・型・KPIの4軸で自社のSNS運用を採点。LPで配布。提出後に診断結果メールを返す動線。</p>
+    </div>
+    <div class="card">
+      <div class="head">マグネット B</div>
+      <h4>SNS戦略セミナー（無料・月1）</h4>
+      <p>90分オンラインセミナー。前半60分で神崎潤メソッド解説、後半30分で個別相談。1回20名上限。終了後にカスタムGPT配布。</p>
+    </div>
+    <div class="card">
+      <div class="head">マグネット C</div>
+      <h4>カスタムGPT「マルチSNS参謀」無料配布</h4>
+      <p>ChatGPT版を完全無料で配布（02_営業・マーケティング/カスタムGPT/）。試して「やっぱり伴走が欲しい」となった層が有料契約に流れる導線。</p>
+    </div>
+  </div>
+
+  <h3 id="ch2-3">2-3. リード判別基準（ホット／ウォーム／コールド）</h3>
+
+  <table>
+    <thead><tr><th>区分</th><th>定義</th><th>対応スピード</th><th>送るもの</th></tr></thead>
+    <tbody>
+      <tr><td><span class="badge red">HOT</span></td><td>具体的な悩みあり・予算感あり・時期が決まっている（3ヶ月以内に着手希望）</td><td><strong>当日中に1次返信</strong>／48時間以内に面談打診</td><td>面談日程提案メール＋会社概要1枚</td></tr>
+      <tr><td><span class="badge" style="background:#3a2e15;color:#f0c870">WARM</span></td><td>関心はあるが時期未定／情報収集段階／予算感未確定</td><td>48時間以内に返信／2週間以内に追加情報送付</td><td>事例集PDF＋無料セミナー案内</td></tr>
+      <tr><td><span class="badge blue">COLD</span></td><td>無料マグネットのみDL／問い合わせなし／興味の有無不明</td><td>メルマガで月2回接触</td><td>事例紹介メルマガ・トレンドニュース</td></tr>
+    </tbody>
+  </table>
+
+  <h3 id="ch2-4">2-4. CRM（顧客管理）の最小構成</h3>
+  <p>新人はNotionで以下5列のデータベースを作り、リードを全件管理する。ツールに迷ったら別表ではなくこれを使う。</p>
+
+  <div class="template">
+    <div class="label">テンプレート：Notion CRM最小構成<span class="badge">COPY</span></div>
+<pre>列1: 会社名／個人名
+列2: 区分（HOT／WARM／COLD）
+列3: 接触日（最終接触の日付）
+列4: 次アクション（具体的に：例「6/10までに事例集送付」）
+列5: メモ（業種・課題・予算感・キーマン情報）
+
+ビュー：
+  - 区分別ボード（カンバン）
+  - 今週の次アクション一覧
+  - 30日以上未接触リスト（リテンション用）</pre>
+  </div>
+
+  <div class="checklist">
+    <div class="title">第2章 実行チェック</div>
+    <ul>
+      <li>5つの発掘ルートのうち、自分が今月どれを担当するか決めた</li>
+      <li>NotionでCRMの5列を作成した</li>
+      <li>既存クライアント3社の紹介依頼アポを取った</li>
+      <li>SNS健康診断シートのLPリンクを暗記した</li>
+      <li>HOTリード対応の24時間ルールを理解した</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- 第3章 -->
+<!-- ============================================ -->
+<section class="chapter" id="ch3">
+  <div class="chapter-head">
+    <span class="chapter-no">CH 03</span>
+    <h2>セールスフェーズ — 初回接触→面談→提案</h2>
+  </div>
+
+  <div class="mini-toc">
+    <div class="label">本章の構成</div>
+    <ul>
+      <li><a href="#ch3-1">3-1. 初回連絡メールテンプレ3パターン</a></li>
+      <li><a href="#ch3-2">3-2. 1次面談の進め方（45分構成）</a></li>
+      <li><a href="#ch3-3">3-3. ヒアリングシート（7問＋深掘り）</a></li>
+      <li><a href="#ch3-4">3-4. 課題発見の3層モデル</a></li>
+      <li><a href="#ch3-5">3-5. 仮説提案の作り方</a></li>
+    </ul>
+  </div>
+
+  <h3 id="ch3-1">3-1. 初回連絡メールテンプレ3パターン</h3>
+
+  <h4>パターン1：紹介経由（紹介者の名前を冒頭に出す）</h4>
+  <div class="template script">
+    <div class="label">メールテンプレ：紹介経由<span class="badge">SCRIPT</span></div>
+<pre>件名：【ご紹介】〇〇様より／SNS運用のご相談について
+
+〇〇株式会社 △△様
+
+突然のご連絡失礼いたします。
+〇〇株式会社の××様よりご紹介いただきました、
+有限会社アートソウルの▲▲と申します。
+
+××様より「△△様がSNS運用で困っていらっしゃる」と伺い、
+ご連絡させていただきました。
+
+私たちはマルチSNS参謀という独自メソッドで、
+Instagram／TikTok／YouTube等の戦略設計から
+月次運用までを一気通貫でご支援しています。
+事例：飲食業A社（3ヶ月でフォロワー4倍）など
+
+まずは現状を伺うお時間を45分ほどいただけませんでしょうか。
+オンライン・対面どちらでも対応可能です。
+
+以下から候補日をお選びいただければ幸いです。
+・6/3（月）14:00〜
+・6/5（水）10:00〜
+・6/7（金）16:00〜
+
+ご検討よろしくお願いいたします。
+
+------
+有限会社アートソウル
+▲▲▲▲（担当）
+TEL：06-xxxx-xxxx
+Mail：xxx@artsoul.jp</pre>
+  </div>
+
+  <h4>パターン2：問い合わせフォーム経由</h4>
+  <div class="template script">
+    <div class="label">メールテンプレ：問い合わせ経由<span class="badge">SCRIPT</span></div>
+<pre>件名：【ご返信】SNS運用のご相談ありがとうございます／有限会社アートソウル
+
+〇〇株式会社 △△様
+
+お問い合わせいただきありがとうございます。
+有限会社アートソウルの▲▲と申します。
+
+いただいたご相談内容を拝見しました。
+「{相手が書いてきた課題を1文で要約}」とのこと、
+同じお悩みを月10件ほど伺っています。
+
+弊社では7問のヒアリングをもとに、
+御社専用の3ヶ月ロードマップを無料で1枚お渡ししています。
+（その場で作成・押し売りなし）
+
+まずは45分のオンライン面談を設定させていただけますか。
+以下のリンクからご都合の良い時間をお選びください。
+{Calendly等のリンク}
+
+▲▲</pre>
+  </div>
+
+  <h4>パターン3：自社発信からのDM経由（X／Instagramから）</h4>
+  <div class="template script">
+    <div class="label">メールテンプレ：DM経由<span class="badge">SCRIPT</span></div>
+<pre>{DMで先方が反応してきた直後に送る}
+
+{先方の名前}様
+
+DMありがとうございます。神崎潤と申します。
+{相手の投稿や発言}を拝見し、こちらこそ嬉しいです。
+
+もしよろしければ、Zoomで45分ほど
+SNS戦略の壁打ちをさせていただけませんか。
+押し売りは一切なく、現状を伺って
+すぐ使えるヒントを2〜3個お持ち帰りいただく場にします。
+
+以下から日程選択をどうぞ。
+{予約リンク}</pre>
+  </div>
+
+  <h3 id="ch3-2">3-2. 1次面談の進め方（45分構成・話す比率 自分2：相手8）</h3>
+
+  <table>
+    <thead><tr><th>時間</th><th>パート</th><th>やること</th><th>注意点</th></tr></thead>
+    <tbody>
+      <tr><td>0〜5分</td><td>アイスブレイク</td><td>天候・移動・最近の業界トピックで会話。緊張をほぐす</td><td>営業色を出さない／メモは取らない</td></tr>
+      <tr><td>5〜10分</td><td>自己紹介・実績</td><td>会社概要1分／自分の役割30秒／事例3つ（業種を相手と近いものに合わせる）</td><td>3分以内で切り上げる</td></tr>
+      <tr><td>10〜35分</td><td>ヒアリング（7問）</td><td>3-3節の7問を順番に聞く。各問の後で30秒以上沈黙して相手に話させる</td><td>相手の発言を遮らない／自分の話を被せない</td></tr>
+      <tr><td>35〜40分</td><td>仮説提案</td><td>その場で「私ならこう設計します」と3つ程度の方向性を口頭で示す</td><td>完成度より速度／「正式提案は1週間後」と添える</td></tr>
+      <tr><td>40〜45分</td><td>次アクション合意</td><td>次回面談日 or 提案書送付日を確定。「いつ・誰が・何を」をその場で文字化</td><td>「また連絡します」で終わらせない</td></tr>
+    </tbody>
+  </table>
+
+  <h3 id="ch3-3">3-3. ヒアリングシート（7問＋深掘り副質問）</h3>
+  <p>マルチSNS参謀の基本7問（rules/skills/multi-sns-sanbo.md）に、新人が現場で迷わないよう副質問を付けた拡張版。</p>
+
+  <div class="template">
+    <div class="label">ヒアリングシート（拡張版）<span class="badge">FIELD USE</span></div>
+<pre>①【ビジネス紹介】何を売っていますか？／誰に何を提供していますか？
+   副①: 売上構成比トップ3商材は？
+   副②: 一番粗利の高い商材は？
+   副③: 「これが一番おすすめ」と言いたいのに売れていないものは？
+
+②【お客様】一番来てほしいお客様は？
+   副①: 直近1年で一番嬉しかった成約客の特徴は？
+   副②: その人はどこから知って来ましたか？
+   副③: 逆に「来てほしくない客」の特徴は？（時間泥棒・値切り・クレーマー）
+
+③【ライバル】参考にしている／競合しそうな同業者は？
+   副①: そこを参考にする理由は？（投稿頻度／世界観／実績）
+   副②: そこと自社を比べたとき、勝てる点は？負ける点は？
+   副③: 「これは真似したくない」競合の特徴は？
+
+④【ゴール】SNSで何を達成したい？
+   副①: 「達成した」とわかる数字は？（問い合わせ月N件／フォロワーN人）
+   副②: いつまでに？（3ヶ月／6ヶ月／1年）
+   副③: 達成したら次に何をしたいですか？（事業展開のヒント）
+
+⑤【リソース】使える時間・人手・予算・既存コンテンツは？
+   副①: 投稿担当者は決まっていますか？／その方の経験は？
+   副②: 月の予算上限は？（運用代行費＋広告費の合算）
+   副③: 過去の写真・動画・ブログ記事の在庫は？
+
+⑥【SNS候補】やりたい／気になっているSNSは？
+   副①: その理由は？（誰かに言われた／競合がやっている／お客様が使っている）
+   副②: 過去にやってみて挫折したSNSは？／その理由は？
+   副③: 絶対にやりたくないSNSと理由は？
+
+⑦【NG事項】出したくない／避けたいテーマや表現は？
+   副①: 業界の規制・コンプライアンス上の禁止事項は？
+   副②: 経営者として個人露出はどこまでOKか？（顔出し／本名）
+   副③: 過去に炎上・苦情を経験したテーマは？</pre>
+  </div>
+
+  <h3 id="ch3-4">3-4. 課題発見の3層モデル</h3>
+  <p>ヒアリング中に相手が話す課題は3層に分かれる。新人は3層全部を引き出さないと「浅い提案」になる。</p>
+
+  <table>
+    <thead><tr><th>層</th><th>定義</th><th>引き出し方</th><th>例</th></tr></thead>
+    <tbody>
+      <tr><td><strong>① 顕在課題</strong></td><td>本人が言葉にして自覚している悩み</td><td>「最近の悩みは？」と直接聞く</td><td>「Instagramのフォロワーが増えない」</td></tr>
+      <tr><td><strong>② 潜在課題</strong></td><td>本人がうすうす感じているが言語化していない悩み</td><td>「もし制約がなければ何をしたい？」と聞く</td><td>「投稿の世界観が定まっておらず、何を出すか毎回迷う」</td></tr>
+      <tr><td><strong>③ 無自覚課題</strong></td><td>本人が問題と認識していない盲点</td><td>こちらが質問で気づかせる「ところで、御社のお客様が一番不安に思うことって何でしょう？」</td><td>「自社の強みを言語化できていないため、競合と差別化できる接客があるのに発信に乗っていない」</td></tr>
+    </tbody>
+  </table>
+
+  <h3 id="ch3-5">3-5. 仮説提案の作り方（面談35〜40分）</h3>
+  <p>ヒアリングが終わったら、その場で3つの方向性を口頭提示する。完成度より速度を優先。「持ち帰って検討」で終わらせない。</p>
+
+  <div class="template">
+    <div class="label">仮説提案 口頭スクリプト<span class="badge">SCRIPT</span></div>
+<pre>「お話を伺って、私が今思いついた方向性を3つお伝えします。
+ もちろん正式な提案書は1週間後にお持ちしますが、
+ 今の段階で『どれが一番ピンと来るか』だけ教えていただけますか？
+
+ 【方向性A】メインをInstagramに絞る案
+   理由：御社のお客様像（30〜40代女性）と最も親和性が高い
+   3ヶ月で：フォロワー1,000人＋月10件の問い合わせを狙う
+
+ 【方向性B】TikTokで認知を爆発させる案
+   理由：競合がほぼ手をつけておらず、先行者利益が取れる
+   3ヶ月で：再生10万回1本＋認知度2倍を狙う
+
+ 【方向性C】既存YouTubeを軸にマルチ展開する案
+   理由：既存資産を活かしてゼロからの投稿を減らせる
+   3ヶ月で：YouTube切り抜きでInstagram／TikTokを同時運用
+
+ どれが一番ピンと来ますか？」</pre>
+  </div>
+
+  <div class="warn"><strong>新人がやりがちな失敗：</strong>「持ち帰って考えます」と言って面談を閉じる。相手の熱量は面談直後がピーク。仮説でいいから口頭で出すこと。間違っていたら「すみません、外しました」で訂正すればよい。</div>
+
+  <div class="checklist">
+    <div class="title">第3章 セルフチェック</div>
+    <ul>
+      <li>3パターンのメールテンプレを暗記し、自分の手で1通書ける</li>
+      <li>45分面談のタイムテーブルを諳んじている</li>
+      <li>7問＋副質問21問を全部覚えた</li>
+      <li>「顕在／潜在／無自覚」の3層モデルを説明できる</li>
+      <li>仮説3案を10分で組み立てる訓練を3回した</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- 第4章 -->
+<!-- ============================================ -->
+<section class="chapter" id="ch4">
+  <div class="chapter-head">
+    <span class="chapter-no">CH 04</span>
+    <h2>クロージング手法</h2>
+  </div>
+
+  <div class="mini-toc">
+    <div class="label">本章の構成</div>
+    <ul>
+      <li><a href="#ch4-1">4-1. 料金提示のタイミング</a></li>
+      <li><a href="#ch4-2">4-2. 3プラン提示の心理学</a></li>
+      <li><a href="#ch4-3">4-3. 反論処理10パターン</a></li>
+      <li><a href="#ch4-4">4-4. 決済までの導線</a></li>
+    </ul>
+  </div>
+
+  <h3 id="ch4-1">4-1. 料金提示のタイミング</h3>
+  <p>新人が最も失敗するのが料金提示のタイミング。早すぎても遅すぎても契約に至らない。判断軸は2つ。</p>
+
+  <table>
+    <thead><tr><th>NGタイミング</th><th>理由</th><th>正しいタイミング</th></tr></thead>
+    <tbody>
+      <tr><td><strong>1次面談の前半</strong>（自己紹介直後など）</td><td>相手が価値を理解する前に金額を見ると「高い」しか残らない</td><td>仮説提案で「ピンと来た方向性」を確認してから</td></tr>
+      <tr><td><strong>正式提案書の最終ページに小さく</strong></td><td>金額を「隠す」姿勢は不信感を生む</td><td>提案書冒頭で「投資イメージ」として3プラン提示</td></tr>
+      <tr><td><strong>面談後にメールで通知</strong></td><td>説明なしの金額は誤解を生む</td><td>対面・オンラインで口頭説明＋資料併用を原則とする</td></tr>
+    </tbody>
+  </table>
+
+  <h3 id="ch4-2">4-2. 3プラン提示の心理学（松竹梅・推奨枠の見せ方）</h3>
+  <p>ASのマルチSNS参謀は3プラン構成で提示する。「松竹梅効果」により、中央の「竹」を選びやすくする心理設計。</p>
+
+  <table>
+    <thead><tr><th>プラン</th><th>月額</th><th>含むもの</th><th>狙い</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>松（プレミアム）</strong><br>運用フル代行</td>
+        <td>月60万円<br>（最低6ヶ月）</td>
+        <td>戦略設計＋投稿制作30本／月＋投稿実行＋コメント返信＋月次レビュー＋カスタムGPT＋広告運用</td>
+        <td>「これが一番手厚い」と提示することで、竹が割安に見える</td>
+      </tr>
+      <tr style="background:rgba(212,165,65,.05)">
+        <td><strong>竹（推奨）</strong><br>戦略＋制作支援</td>
+        <td>月25万円<br>（最低3ヶ月）</td>
+        <td>戦略設計＋投稿制作15本／月＋月次レビュー＋カスタムGPT</td>
+        <td>★推奨。ほぼ全てのクライアントがここを選ぶ</td>
+      </tr>
+      <tr>
+        <td><strong>梅（ライト）</strong><br>戦略＋伴走</td>
+        <td>月10万円<br>（最低3ヶ月）</td>
+        <td>戦略設計＋月次レビュー＋カスタムGPT配布（投稿制作はクライアント自社）</td>
+        <td>「予算がない」客のための受け皿。これがあると「松竹」の決断が早まる</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="note"><strong>推奨枠の見せ方：</strong>口頭では「多くの方が真ん中の竹を選ばれます」と一言添える。社会的証明（みんなが選んでいる）の力学で迷いが減る。</div>
+
+  <h3 id="ch4-3">4-3. 反論処理リスト10パターン</h3>
+  <p>クロージング時に頻出する10の反論と、その切り返しスクリプトを暗記する。新人は3回声に出して練習する。</p>
+
+  <table class="tbl-compact">
+    <thead><tr><th>#</th><th>反論</th><th>切り返しスクリプト</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>「高い」</td><td>「ご予算感、率直に教えていただけますか？竹プラン以外にも梅プランがあり、まず3ヶ月だけ試す形も可能です。投資対効果でいうと、月1件の新規問い合わせで採算が合う設計です」</td></tr>
+      <tr><td>2</td><td>「効果が出るか不安」</td><td>「同じご不安、ほぼ全てのお客様が最初に持たれます。だから3ヶ月単位で区切り、1ヶ月目末に第1次レビューを実施します。そこで方向性が違えば軌道修正します」</td></tr>
+      <tr><td>3</td><td>「他社と比較したい」</td><td>「ぜひ比較してください。比較ポイントを5つお伝えします。①月額固定か成果報酬か ②契約期間 ③担当者の経験年数 ④継続率 ⑤戦略設計の有無。この5つで他社と並べてみてください」</td></tr>
+      <tr><td>4</td><td>「社内で検討します」</td><td>「もちろんです。どなたが意思決定に関わりますか？よろしければ、その方向けの追加資料を1枚お作りします。何が一番気にされそうか、伺ってもいいですか？」</td></tr>
+      <tr><td>5</td><td>「まずは自分でやってみます」</td><td>「素晴らしいです。実は弊社のカスタムGPTを無料で配布しています。これで2ヶ月試して、それでも壁にぶつかったらまたご相談ください。私たちは『囲い込まない』方針です」</td></tr>
+      <tr><td>6</td><td>「契約期間が長い（6ヶ月は不安）」</td><td>「3ヶ月の梅プラン・竹プランから始められます。3ヶ月後に継続判断する建付けです。途中解約条項も明記しますのでご安心ください」</td></tr>
+      <tr><td>7</td><td>「フォロワー保証してくれるか？」</td><td>「保証はしていません。理由は、保証してくれる会社は数字合わせのために購入フォロワーを使う傾向があり、結局売上につながらないからです。代わりに『売上連動KPI』で進捗報告します」</td></tr>
+      <tr><td>8</td><td>「今は時期じゃない」</td><td>「いつ頃でしたら検討タイミングになりますか？その時期に向けて、今から3ヶ月で社内体制を整える準備プランもご用意できます」</td></tr>
+      <tr><td>9</td><td>「投稿のネタが続くか心配」</td><td>「ネタ切れ対策にカスタムGPTでネタ100本を1時間で生成します。実際にデモをお見せしましょうか？」</td></tr>
+      <tr><td>10</td><td>「炎上が怖い」</td><td>「炎上リスク管理プロトコル（10項目チェック）を契約前にお渡しします。投稿前のダブルチェック体制と、万一の対応マニュアルも標準装備です」</td></tr>
+    </tbody>
+  </table>
+
+  <h3 id="ch4-4">4-4. 決済までの導線</h3>
+  <p>「やります」と返事が来てから入金確認までを5ステップで管理。各ステップで遅延しがちな箇所を新人は把握しておく。</p>
+
+  <table>
+    <thead><tr><th>ステップ</th><th>やること</th><th>目標日数</th><th>遅延しやすい原因と対策</th></tr></thead>
+    <tbody>
+      <tr><td>1. 内諾</td><td>面談後、メールで「ご依頼ありがとうございます」と一報＋契約書ドラフト送付予定日を明記</td><td>当日中</td><td>—</td></tr>
+      <tr><td>2. 契約書ドラフト送付</td><td>/biz-contract スキルで業務委託契約書を生成し、PDF＋Word両方を送付</td><td>3営業日以内</td><td>原因：契約条件の社内確認に時間。対策：「修正のキャッチボール最大2往復」と最初に伝える</td></tr>
+      <tr><td>3. 契約締結</td><td>クラウドサイン等で双方署名</td><td>1週間以内</td><td>原因：先方法務チェック。対策：先方の決裁プロセスを事前ヒアリング</td></tr>
+      <tr><td>4. 請求書発行・入金</td><td>/billing-docs スキルで請求書発行（初月＋6ヶ月分一括 or 月次）</td><td>締結後3営業日以内に発行／月末締め翌月末払い</td><td>原因：振込忘れ。対策：入金予定日3日前にリマインド</td></tr>
+      <tr><td>5. キックオフ予約</td><td>入金確認後、キックオフ会議（90分・第7章参照）の日程をその場で確定</td><td>入金確認後5営業日以内</td><td>原因：先方多忙で延期。対策：契約時にキックオフ日を仮押さえ</td></tr>
+    </tbody>
+  </table>
+
+  <div class="checklist">
+    <div class="title">第4章 セルフチェック</div>
+    <ul>
+      <li>3プランの金額・含む内容を口頭で言える</li>
+      <li>反論処理10パターンを暗唱できる（3回声に出した）</li>
+      <li>松竹梅の「推奨枠の見せ方」を理解した</li>
+      <li>契約締結から入金までの5ステップを把握した</li>
+      <li>/biz-contract と /billing-docs を実際に1回ずつ動かした</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- 第5章 -->
+<!-- ============================================ -->
+<section class="chapter" id="ch5">
+  <div class="chapter-head">
+    <span class="chapter-no">CH 05</span>
+    <h2>ヒアリング深掘りマニュアル</h2>
+  </div>
+
+  <div class="mini-toc">
+    <div class="label">本章の構成</div>
+    <ul>
+      <li><a href="#ch5-1">5-1. 7問の本当の意図とNGワード</a></li>
+      <li><a href="#ch5-2">5-2. 業種別ヒアリングポイント</a></li>
+      <li><a href="#ch5-3">5-3. 「おまかせ」対応テクニック</a></li>
+      <li><a href="#ch5-4">5-4. 隠れた本音を引き出す傾聴技法</a></li>
+    </ul>
+  </div>
+
+  <h3 id="ch5-1">5-1. 7問の本当の意図とNGワード集</h3>
+  <p>新人が「文字通り」7問を聞いても表層しか拾えない。各問の裏側にある本当の意図と、絶対に使ってはいけないNGワードを示す。</p>
+
+  <table>
+    <thead><tr><th>問</th><th>表の質問</th><th>本当の意図</th><th>NGワード</th></tr></thead>
+    <tbody>
+      <tr><td>①</td><td>何を売っていますか？</td><td>「売上構成の偏り」と「経営者が本当に売りたいもののギャップ」を見抜く</td><td>「事業内容」「業務内容」（堅苦しい・本音を引き出せない）</td></tr>
+      <tr><td>②</td><td>一番来てほしいお客様は？</td><td>顧客像の解像度を測る。曖昧な答えなら「ペルソナ未確立」と判断</td><td>「ターゲット」「セグメント」（マーケ用語で相手を委縮させる）</td></tr>
+      <tr><td>③</td><td>参考にしている同業者は？</td><td>競合認識の深さ＋憧れポジションを掴む</td><td>「ベンチマーク」「競合分析」（横文字で距離を作る）</td></tr>
+      <tr><td>④</td><td>SNSで何を達成したい？</td><td>本気度と数値感覚を測る。「とりあえず認知」は要注意サイン</td><td>「KPI」「KGI」「ROAS」（用語のハードルが高い）</td></tr>
+      <tr><td>⑤</td><td>使えるリソースは？</td><td>提案の現実解像度を決める。リソースを聞かない提案は絵に描いた餅</td><td>「リソース」より「使える時間・人手・予算」と平易に</td></tr>
+      <tr><td>⑥</td><td>やりたいSNSは？</td><td>選好バイアスを把握。「TikTokやりたい」の裏に「若い感じを出したい」がある</td><td>「プラットフォーム」「チャネル」（カタカナ排除）</td></tr>
+      <tr><td>⑦</td><td>NG事項は？</td><td>過去の炎上・社内政治・コンプラ事情を引き出す保険</td><td>「リスク」「コンプライアンス」（身構えさせる）</td></tr>
+    </tbody>
+  </table>
+
+  <h3 id="ch5-2">5-2. 業種別ヒアリングポイント</h3>
+
+  <h4>飲食業</h4>
+  <ul>
+    <li><strong>追加で聞く：</strong>客単価／回転率／予約と当日客の比率／インバウンド客の有無</li>
+    <li><strong>地雷：</strong>料理写真の権利所在（カメラマン契約の有無）／レシピ公開可否</li>
+    <li><strong>提案の勘所：</strong>Instagram軸＋ハッシュタグ地域名＋食べログ等の外部口コミと連動</li>
+  </ul>
+
+  <h4>士業（弁護士・税理士・社労士）</h4>
+  <ul>
+    <li><strong>追加で聞く：</strong>所属会の広告規制／顧客紹介比率／専門分野の細分化</li>
+    <li><strong>地雷：</strong>個別案件の詳細公開禁止／同業批判禁止／報酬目安の表記ルール</li>
+    <li><strong>提案の勘所：</strong>X発信＋LinkedIn＋YouTube解説。教育コンテンツで信頼構築</li>
+  </ul>
+
+  <h4>クリニック・歯科</h4>
+  <ul>
+    <li><strong>追加で聞く：</strong>自由診療と保険診療の比率／院長の露出意向／患者の顔出し可否</li>
+    <li><strong>地雷：</strong>医療広告ガイドライン（ビフォーアフター・体験談・最大級表現の規制）</li>
+    <li><strong>提案の勘所：</strong>Instagram＋YouTube。医療法人特有の表現規制を熟知した投稿設計</li>
+  </ul>
+
+  <h4>BtoB（IT・コンサル等）</h4>
+  <ul>
+    <li><strong>追加で聞く：</strong>商談リードタイム／決裁単価／キーマンの所属部署／導入事例公開可否</li>
+    <li><strong>地雷：</strong>顧客名公開の社外秘扱い／競合情報の取扱い</li>
+    <li><strong>提案の勘所：</strong>LinkedIn＋X＋YouTube長尺。意思決定者層に届く専門性発信</li>
+  </ul>
+
+  <h4>個人クリエイター（イラストレーター・カメラマン等）</h4>
+  <ul>
+    <li><strong>追加で聞く：</strong>収入源の内訳（受注／販売／講師業）／作品公開のサイクル</li>
+    <li><strong>地雷：</strong>クライアント作品の二次利用権／無断転載対応</li>
+    <li><strong>提案の勘所：</strong>Instagram＋Pinterest＋X。世界観の統一とポートフォリオ動線</li>
+  </ul>
+
+  <h3 id="ch5-3">5-3. 「おまかせ」と言われたときの仮説提示テクニック</h3>
+  <p>「おまかせします」は相手が考えるのを放棄しているか、こちらの腕を試しているか、本当に判断材料がないかのどれか。新人は3手順で対応する。</p>
+
+  <ol>
+    <li><strong>仮置きを宣言：</strong>「では業界平均値で仮設定します。後で違和感があれば修正します」と一言添える</li>
+    <li><strong>2案提示：</strong>「A案／B案」で比較構造を作る。1案だと反応が薄い</li>
+    <li><strong>選択肢で返球：</strong>「どちらが近いですか？／どちらも違うなら、どこが違いそうですか？」で相手を会話に戻す</li>
+  </ol>
+
+  <div class="template script">
+    <div class="label">「おまかせ」対応スクリプト<span class="badge">SCRIPT</span></div>
+<pre>「ありがとうございます。
+ では仮にこう設定させてください。
+
+ ▶ ターゲット仮設定：40代女性・関西在住・世帯年収600万円・
+   インスタを毎日30分見る、共働きで時短意識が高い
+ ▶ ゴール仮設定：3ヶ月でInstagramフォロワー1,000人＋
+   月間問い合わせ5件
+
+ この仮設定で違和感はありますか？
+ 『もう少し若い方／もっと富裕層／問い合わせ数の数字感』など、
+ ピンと来ない部分があれば教えてください」</pre>
+  </div>
+
+  <h3 id="ch5-4">5-4. 隠れた本音を引き出す傾聴技法</h3>
+
+  <h4>① 沈黙の活用（最重要）</h4>
+  <p>質問した後、相手が答え始めるまで最低5秒待つ。続きを話し終わってからさらに3秒待つ。新人は焦って次の質問を被せるが、沈黙が一番情報を引き出す。</p>
+
+  <h4>② 反復（オウム返し）</h4>
+  <p>相手のキーワードをそのまま返す。「フォロワーが停滞している」と言われたら「停滞している、というのは月どれくらいの増加でしょう？」と返す。解釈せずに反復する。</p>
+
+  <h4>③ 要約確認</h4>
+  <p>3〜4問聞いたら一旦「いま伺った内容を一度整理させてください」と要約する。誤解を防ぎ、相手に「ちゃんと聞いてくれている」安心感を与える。</p>
+
+  <div class="template">
+    <div class="label">要約確認スクリプト<span class="badge">SCRIPT</span></div>
+<pre>「いったん整理させてください。
+ ・〇〇様の事業は{要約}
+ ・狙うお客様は{要約}
+ ・課題は{要約}
+ ・SNSで達成したいゴールは{要約}
+
+ ここまでで間違いや補足はありますか？」</pre>
+  </div>
+
+  <h4>④ 仮想敵を作る</h4>
+  <p>「正直に言って、他のSNS運用代行で嫌な思いをしたことはありますか？」と聞く。過去の不満を引き出すと、本人の本音と「絶対避けたいこと」が見える。</p>
+
+  <h4>⑤ 「もし制約がなければ」質問</h4>
+  <p>「もし時間も予算も無制限だったら、SNSで何を実現したいですか？」と聞く。潜在課題と本音の願望が浮かぶ。</p>
+
+  <div class="checklist">
+    <div class="title">第5章 セルフチェック</div>
+    <ul>
+      <li>7問それぞれの「本当の意図」を説明できる</li>
+      <li>NGワード7個を見たらすぐ言い換えられる</li>
+      <li>業種別ポイント5業種を暗記した</li>
+      <li>「おまかせ」対応3手順を1回ロープレした</li>
+      <li>傾聴技法5つを次の面談で1つ以上試した</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- 第6章 -->
+<!-- ============================================ -->
+<section class="chapter" id="ch6">
+  <div class="chapter-head">
+    <span class="chapter-no">CH 06</span>
+    <h2>課題発見＆解決施策立案</h2>
+  </div>
+
+  <div class="mini-toc">
+    <div class="label">本章の構成</div>
+    <ul>
+      <li><a href="#ch6-1">6-1. 課題20×施策マッピング</a></li>
+      <li><a href="#ch6-2">6-2. ペルソナ設計の業種別実例</a></li>
+      <li><a href="#ch6-3">6-3. USP発見ワークフロー</a></li>
+      <li><a href="#ch6-4">6-4. KPI設計の落とし穴</a></li>
+    </ul>
+  </div>
+
+  <h3 id="ch6-1">6-1. 課題パターン20 × 解決施策マッピング表</h3>
+
+  <table class="tbl-compact">
+    <thead><tr><th>#</th><th>課題パターン</th><th>解決施策</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>フォロワーが増えない</td><td>プロフィール再設計＋ハッシュタグ戦略＋週4本ペース確立</td></tr>
+      <tr><td>2</td><td>投稿のネタが続かない</td><td>カスタムGPTでネタ100本生成＋月初に30本ストック</td></tr>
+      <tr><td>3</td><td>世界観がバラバラ</td><td>テンプレート3種に統一＋色・フォント・トーン規定書作成</td></tr>
+      <tr><td>4</td><td>エンゲージメント率が低い</td><td>問いかけ投稿を週1本／コメント返信24時間以内ルール</td></tr>
+      <tr><td>5</td><td>フォロワーは増えても売上に繋がらない</td><td>プロフィールリンクをLPに統一＋ハイライトに事例集を常設</td></tr>
+      <tr><td>6</td><td>投稿時間が定まらない</td><td>ゴールデンタイム分析＋予約投稿ツール導入（Buffer等）</td></tr>
+      <tr><td>7</td><td>動画が作れない</td><td>iPhone撮影テンプレ3種＋CapCutテンプレ提供</td></tr>
+      <tr><td>8</td><td>競合と差別化できない</td><td>USP発見ワークショップ（6-3節）＋業界外ベンチマーク導入</td></tr>
+      <tr><td>9</td><td>炎上が怖くて踏み込めない</td><td>炎上リスク10項目チェック＋ダブルチェック体制構築</td></tr>
+      <tr><td>10</td><td>複数SNSの運用工数が回らない</td><td>マスター動画1本→各SNS転用テンプレ確立</td></tr>
+      <tr><td>11</td><td>広告を回しても売上が伸びない</td><td>オーガニック投稿の型確立後に広告ブースト＋LP改善</td></tr>
+      <tr><td>12</td><td>担当者の入れ替わりが激しい</td><td>運用マニュアル化＋カスタムGPT配布で属人化排除</td></tr>
+      <tr><td>13</td><td>古い投稿が放置されている</td><td>ハイライト整理＋固定投稿の月次見直し</td></tr>
+      <tr><td>14</td><td>競合をフォローしすぎてマネだけになる</td><td>競合観察は週1回30分のみに制限＋業界外3社をベンチマーク</td></tr>
+      <tr><td>15</td><td>分析データを見ていない</td><td>月次レビュー会で必修3指標のみ追う（保存率／プロフィールアクセス／LPクリック）</td></tr>
+      <tr><td>16</td><td>採用に活かしたいが応募が来ない</td><td>採用専用アカウント or タグ運用＋スタッフ紹介投稿月2本</td></tr>
+      <tr><td>17</td><td>BtoBで個人感を出すべきか迷う</td><td>会社アカウント＋個人アカウントの2軸運用＋役割分担</td></tr>
+      <tr><td>18</td><td>カスタマーから否定的コメントが来た</td><td>否定対応スクリプト3パターン暗記＋24時間以内に誠意ある返信</td></tr>
+      <tr><td>19</td><td>インフルエンサーに頼るべきか迷う</td><td>マイクロインフルエンサー（1万〜5万フォロワー）3名と単発契約から</td></tr>
+      <tr><td>20</td><td>3ヶ月続けても結果が出ない</td><td>戦略再設計（Phase 1に戻る）＋ピボット判断（5-4節）</td></tr>
+    </tbody>
+  </table>
+
+  <h3 id="ch6-2">6-2. ペルソナ設計の実例（業種別3例）</h3>
+
+  <h4>実例A：個人サロン（エステ・関西・客単価1.5万円）</h4>
+  <div class="template">
+    <div class="label">ペルソナA<span class="badge">SAMPLE</span></div>
+<pre>名前（仮）：鈴木 真奈美（38歳）
+職業：医療事務、世帯年収750万円、子ども1人
+ライフスタイル：朝6時起床、保育園送り、勤務、夜は子と過ごす
+情報源：Instagram（毎日30分）、Voicy、Podcast
+よく使うアプリ：Instagram／LINE／Yahoo乗換／PayPay
+顕在課題：肩こり・腰痛が慢性化
+潜在課題：自分のためにお金を使うことに罪悪感
+無自覚課題：「働き方を変えたい」という本音
+朝起きてすぐ検索する単語：「肩こり 解消 自宅」「リフレッシュ 1人時間」
+夜眠れない不安：「このまま体力が落ちて働けなくなったら」
+トリガーワード10個：時短／自分時間／頑張ったご褒美／40代の体／
+  ママ友／産後ケア／免疫力／姿勢／睡眠／集中力</pre>
+  </div>
+
+  <h4>実例B：BtoB SaaS（中堅IT企業・関東・契約単価300万円/年）</h4>
+  <div class="template">
+    <div class="label">ペルソナB<span class="badge">SAMPLE</span></div>
+<pre>名前（仮）：田中 良平（45歳）
+職業：製造業 情報システム部長、世帯年収1,100万円
+ライフスタイル：通勤1時間、夜は経営層との会食週2回
+情報源：日経新聞／X（業界アカウント中心）／LinkedIn／YouTube解説
+よく使うアプリ：Outlook／Teams／Slack／LinkedIn／日経電子版
+顕在課題：DX推進の社内合意形成が進まない
+潜在課題：自分の専門性が古びていく不安
+無自覚課題：「経営層に説明する言語」を持っていない
+朝検索する単語：「DX 中堅企業 事例」「情報システム部 役割 変化」
+夜の不安：「定年まであと15年、この立場で居続けられるか」
+トリガーワード10個：DX／生産性／ROI／経営報告／属人化／
+  内製化／伴走支援／伴走型コンサル／PoC／導入事例</pre>
+  </div>
+
+  <h4>実例C：飲食店（個人経営イタリアン・大阪・客単価6,000円）</h4>
+  <div class="template">
+    <div class="label">ペルソナC<span class="badge">SAMPLE</span></div>
+<pre>名前（仮）：山本 美咲（32歳）
+職業：金融機関営業、未婚、年収550万円
+ライフスタイル：金土に友人と外食、自炊は週2回
+情報源：Instagram（毎日1時間）／食べログ／TikTok
+よく使うアプリ：Instagram／TikTok／食べログ／OZmall
+顕在課題：「映えるお店」が知りたい
+潜在課題：「ハズれない」確実な店選びをしたい
+無自覚課題：「自分のセンスを見せたい」承認欲求
+朝検索する単語：「大阪 ディナー おしゃれ」「梅田 個室 デート」
+夜の不安：「友達と行って失敗したくない」
+トリガーワード10個：穴場／隠れ家／コース／ワインペアリング／
+  記念日／個室／予約困難／シェフ／産地直送／本場の味</pre>
+  </div>
+
+  <h3 id="ch6-3">6-3. USP発見ワークフロー（4ステップ）</h3>
+  <p>USP（独自の売り）は経営者本人が一番気づいていない。新人がワークショップで引き出す手順。</p>
+
+  <ol>
+    <li><strong>ステップ1：3つの強み列挙</strong>「お客様から褒められること3つを教えてください」と聞く</li>
+    <li><strong>ステップ2：競合との差分検証</strong>「その3つ、競合A・B・C社もやっていますか？」と聞き、競合がやっていないものを残す</li>
+    <li><strong>ステップ3：定量化</strong>残った強みを「数字・期間・実績」で具体化（「20年で1,000件の施工実績」など）</li>
+    <li><strong>ステップ4：USP一文化</strong>「{独自の強み}を{数字}で実現する、{業種}の{ターゲット}向け{サービス}」テンプレで1文にまとめる</li>
+  </ol>
+
+  <div class="template">
+    <div class="label">USP一文化テンプレ<span class="badge">FORMULA</span></div>
+<pre>「{独自の強み}を{数字や期間}で実現する、
+ {業種}の{ターゲット}向け{サービス}」
+
+例1：「内装デザインから内製化までを3ヶ月で実現する、
+      関西の中小企業向けDX支援サービス」
+
+例2：「アレルギー対応コース料理を全38品から選べる、
+      0歳児連れOKの大阪イタリアン」</pre>
+  </div>
+
+  <h3 id="ch6-4">6-4. KPI設計の落とし穴（追ってはいけない指標）</h3>
+  <p>新人は「数字が多いほうが管理した気になる」が、実は逆効果。追うべきは3つだけ。</p>
+
+  <table>
+    <thead><tr><th>追ってはいけない指標</th><th>理由</th><th>代わりに追う指標</th></tr></thead>
+    <tbody>
+      <tr><td><strong>フォロワー数のみ</strong></td><td>購入フォロワーで盛れる／売上と無関係なケース多発</td><td>プロフィールアクセス数（実質的な関心の指標）</td></tr>
+      <tr><td><strong>「いいね」数のみ</strong></td><td>アルゴリズム変動で乱高下／保存・シェアの方が深い指標</td><td>保存率（投稿が後で見返される=価値が高い）</td></tr>
+      <tr><td><strong>リーチ数のみ</strong></td><td>アルゴリズムにブーストされても売上に繋がらない</td><td>LP（ランディングページ）クリック数（CV直前指標）</td></tr>
+      <tr><td><strong>投稿本数</strong></td><td>本数を追うと質が落ちる</td><td>1投稿あたりの保存率（質指標）</td></tr>
+    </tbody>
+  </table>
+
+  <div class="ok-box"><strong>必修3指標：</strong>①プロフィールアクセス数 ②保存率 ③LPクリック数。月次レビュー会ではこの3つだけ追う。それ以上は新人を混乱させる。</div>
+
+  <div class="checklist">
+    <div class="title">第6章 セルフチェック</div>
+    <ul>
+      <li>課題20パターンから自分の現クライアントの該当課題を3つ選べた</li>
+      <li>ペルソナ実例3つを参考に1社分作成した</li>
+      <li>USP発見4ステップを1社で実行した</li>
+      <li>必修3指標を即答できる</li>
+      <li>追ってはいけない指標と理由を説明できる</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- 第7章 -->
+<!-- ============================================ -->
+<section class="chapter" id="ch7">
+  <div class="chapter-head">
+    <span class="chapter-no">CH 07</span>
+    <h2>伴走支援フェーズ（月次運用）</h2>
+  </div>
+
+  <div class="mini-toc">
+    <div class="label">本章の構成</div>
+    <ul>
+      <li><a href="#ch7-1">7-1. キックオフミーティング進行表</a></li>
+      <li><a href="#ch7-2">7-2. 月次レビュー会の進め方</a></li>
+      <li><a href="#ch7-3">7-3. 投稿カレンダー納品サイクル</a></li>
+      <li><a href="#ch7-4">7-4. コミュニケーション頻度・チャネル</a></li>
+      <li><a href="#ch7-5">7-5. 成果が出ないときの対処フロー</a></li>
+    </ul>
+  </div>
+
+  <h3 id="ch7-1">7-1. キックオフミーティング進行表（90分構成）</h3>
+
+  <table>
+    <thead><tr><th>時間</th><th>パート</th><th>やること</th><th>持参・準備物</th></tr></thead>
+    <tbody>
+      <tr><td>0〜10分</td><td>アジェンダ共有・自己紹介</td><td>90分の流れを口頭＋資料で示す／チーム全員の自己紹介30秒ずつ</td><td>アジェンダ印刷物</td></tr>
+      <tr><td>10〜30分</td><td>戦略マップ・ペルソナの再確認</td><td>提案書の戦略マップとペルソナをクライアントと一緒に読み直し、認識合わせ</td><td>提案書最終版／ペルソナシート</td></tr>
+      <tr><td>30〜50分</td><td>3ヶ月ロードマップの精緻化</td><td>月別タスクをカレンダーに落とし、担当者と期日を確定</td><td>Notionプロジェクトボード</td></tr>
+      <tr><td>50〜70分</td><td>投稿カレンダー1ヶ月目の確定</td><td>16〜20本の投稿テーマと投稿日時を1本ずつ承認</td><td>投稿カレンダーExcel</td></tr>
+      <tr><td>70〜80分</td><td>コミュニケーションルール合意</td><td>定例日／Slack使い方／緊急連絡先／返信ルール（24時間以内等）</td><td>運用ルール1枚</td></tr>
+      <tr><td>80〜90分</td><td>次回月次レビュー会の予約</td><td>翌月の月次レビュー会日時をその場で確定</td><td>Googleカレンダー</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:0.85rem;color:#666;margin-top:8px"><strong>補足：</strong>キックオフ承認本数（16〜20本）は「クライアント側で投稿可能な確定本数」。松プラン月30本（Q12）は「AS側が制作・運用代行する全SNS横断の総本数」であり、別カウント。両者は競合しない。</p>
+
+  <h3 id="ch7-2">7-2. 月次レビュー会の進め方（30分構成・テンプレ付き）</h3>
+
+  <table>
+    <thead><tr><th>時間</th><th>パート</th><th>テンプレ／資料</th></tr></thead>
+    <tbody>
+      <tr><td>0〜5分</td><td>前月KPI実績の共有</td><td>3指標（プロフィールアクセス／保存率／LPクリック）を表で見せる</td></tr>
+      <tr><td>5〜15分</td><td>トップ3投稿／ワースト3投稿の振り返り</td><td>共通点・差分を仮説で言語化</td></tr>
+      <tr><td>15〜25分</td><td>翌月カレンダーの確認・修正</td><td>16〜20本の投稿テーマと投稿日時を1本ずつ承認</td></tr>
+      <tr><td>25〜30分</td><td>次の宿題確定</td><td>クライアント側／AS側の宿題を文字化し、Slackに即時送付</td></tr>
+    </tbody>
+  </table>
+
+  <div class="template">
+    <div class="label">月次レビュー会 議事録テンプレ<span class="badge">COPY</span></div>
+<pre># {クライアント名} 月次レビュー会 議事録（{YYYY-MM-DD}）
+
+## 1. 前月KPI実績
+| 指標 | 目標 | 実績 | 達成率 |
+|---|---|---|---|
+| プロフィールアクセス | XXX | XXX | XX% |
+| 平均保存率 | X.X% | X.X% | XX% |
+| LPクリック数 | XX | XX | XX% |
+
+## 2. トップ3投稿
+1. {投稿テーマ} — 保存数XX・LPクリックX
+2. ...
+3. ...
+
+## 3. ワースト3投稿（学びの宝庫）
+1. {投稿テーマ} — 反応薄／仮説：...
+2. ...
+3. ...
+
+## 4. 翌月カレンダー承認状況
+- 全16本のうち16本承認済
+- 修正：第3週の告知投稿のCTA文言
+
+## 5. 宿題
+【クライアント側】6/10までに：撮影素材10カット提供
+【AS側】6/8までに：カスタムGPTに新規ペルソナ追記
+
+## 6. 次回月次レビュー会
+日時：YYYY-MM-DD HH:MM〜
+場所：Zoom</pre>
+  </div>
+
+  <h3 id="ch7-3">7-3. 投稿カレンダー納品サイクル</h3>
+  <p>毎月25日に翌月分カレンダーを納品し、月末までに承認、翌月1日から実行。これを毎月繰り返す。新人は曜日感覚を体に染み込ませる。</p>
+
+  <table>
+    <thead><tr><th>日付</th><th>担当</th><th>やること</th></tr></thead>
+    <tbody>
+      <tr><td>毎月15日</td><td>AS</td><td>翌月カレンダードラフト作成開始</td></tr>
+      <tr><td>毎月20日</td><td>AS</td><td>カレンダードラフト社内チェック（ダブルチェック）</td></tr>
+      <tr><td>毎月25日</td><td>AS→クライアント</td><td>翌月カレンダー納品（メール＋Slack）</td></tr>
+      <tr><td>毎月末日</td><td>クライアント→AS</td><td>承認 or 修正依頼</td></tr>
+      <tr><td>翌月1日</td><td>AS</td><td>承認分の予約投稿登録（Buffer等）</td></tr>
+      <tr><td>翌月の各投稿日</td><td>AS or クライアント</td><td>投稿実行＋コメント返信</td></tr>
+    </tbody>
+  </table>
+
+  <h3 id="ch7-4">7-4. コミュニケーション頻度・チャネル使い分け</h3>
+
+  <table>
+    <thead><tr><th>用途</th><th>チャネル</th><th>頻度／返信ルール</th></tr></thead>
+    <tbody>
+      <tr><td>定例会議</td><td>Zoom（オンライン）／対面（四半期1回）</td><td>月1回30分／四半期1回90分</td></tr>
+      <tr><td>日々の質問・連絡</td><td>Slack（クライアント専用チャンネル）</td><td>24時間以内に返信（土日除く）</td></tr>
+      <tr><td>緊急時（炎上等）</td><td>電話＋Slack DM</td><td>1時間以内に折り返し</td></tr>
+      <tr><td>正式書類・契約</td><td>メール</td><td>3営業日以内に返信</td></tr>
+      <tr><td>素材授受</td><td>Googleドライブ／Dropbox共有フォルダ</td><td>即時アップロード</td></tr>
+    </tbody>
+  </table>
+
+  <div class="warn"><strong>新人が壊れる失敗：</strong>Slackを24時間張り付いて即レスする。これをやると3ヶ月で疲弊する。「24時間以内」と契約時に明文化し、土日は返信しない。緊急時のみ電話可、と最初に線引きする。</div>
+
+  <h3 id="ch7-5">7-5. 成果が出ないときの対処フロー</h3>
+
+  <table>
+    <thead><tr><th>経過月数</th><th>判断軸</th><th>取るべき行動</th></tr></thead>
+    <tbody>
+      <tr><td>1ヶ月後</td><td>KPI達成率 30%未満</td><td>翌月の投稿型を1つ追加してA/Bテスト。戦略は変えない</td></tr>
+      <tr><td>2ヶ月後</td><td>KPI達成率 30%未満が継続</td><td>ペルソナ仮説の検証会議を設定。ターゲット見直しの可能性を提起</td></tr>
+      <tr><td>3ヶ月後</td><td>KPI達成率 50%未満</td><td>戦略再設計会議（90分）。Phase 1に戻り、USP・ペルソナ・プラットフォーム選定をやり直す</td></tr>
+      <tr><td>6ヶ月後</td><td>KPI達成率 50%未満が継続</td><td>クライアントに3つの選択肢を提示：①継続条件の変更 ②プラン変更 ③契約終了の選択</td></tr>
+    </tbody>
+  </table>
+
+  <div class="note"><strong>解約の覚悟を持つ：</strong>6ヶ月で結果が出ないなら誠実に契約終了を提案するのがプロ。続けて売上を取りに行くと信用を失う。長期で他のクライアントを紹介してもらえる関係性が崩れる。</div>
+
+  <div class="checklist">
+    <div class="title">第7章 セルフチェック</div>
+    <ul>
+      <li>キックオフ90分の各パート時間配分を諳んじている</li>
+      <li>月次レビュー30分の議事録テンプレを1回書いた</li>
+      <li>納品サイクル6ステップを毎月実行した</li>
+      <li>Slack返信24時間ルールを契約書に明記した</li>
+      <li>3ヶ月後・6ヶ月後の判断基準を理解した</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- 第8章 -->
+<!-- ============================================ -->
+<section class="chapter" id="ch8">
+  <div class="chapter-head">
+    <span class="chapter-no">CH 08</span>
+    <h2>運用代行受注（請負契約）</h2>
+  </div>
+
+  <div class="mini-toc">
+    <div class="label">本章の構成</div>
+    <ul>
+      <li><a href="#ch8-1">8-1. 運用代行と伴走支援の違い</a></li>
+      <li><a href="#ch8-2">8-2. 運用代行プラン設計</a></li>
+      <li><a href="#ch8-3">8-3. 制作品質ガイドライン</a></li>
+      <li><a href="#ch8-4">8-4. 著作権・肖像権チェックリスト</a></li>
+      <li><a href="#ch8-5">8-5. 炎上リスク管理プロトコル</a></li>
+    </ul>
+  </div>
+
+  <h3 id="ch8-1">8-1. 運用代行と伴走支援の違い・料金差</h3>
+
+  <table>
+    <thead><tr><th>項目</th><th>伴走支援（梅・竹プラン）</th><th>運用代行（松プラン）</th></tr></thead>
+    <tbody>
+      <tr><td>戦略設計</td><td>○（AS）</td><td>○（AS）</td></tr>
+      <tr><td>投稿企画</td><td>○（AS）</td><td>○（AS）</td></tr>
+      <tr><td>投稿制作（撮影・編集・コピー）</td><td>×（クライアント）</td><td>○（AS）</td></tr>
+      <tr><td>投稿実行（予約登録・投稿）</td><td>×（クライアント）</td><td>○（AS）</td></tr>
+      <tr><td>コメント返信</td><td>×（クライアント）</td><td>○（AS）／1次返信のみ</td></tr>
+      <tr><td>月次レポート</td><td>○（AS）</td><td>○（AS／詳細版）</td></tr>
+      <tr><td>月額料金</td><td>10〜25万円</td><td>60万円〜</td></tr>
+      <tr><td>クライアントの工数</td><td>月5〜10時間</td><td>月1〜2時間</td></tr>
+    </tbody>
+  </table>
+
+  <h3 id="ch8-2">8-2. 運用代行プラン設計（投稿制作／投稿実行／コメント返信／レポート）</h3>
+
+  <h4>投稿制作の標準工数（1本あたり）</h4>
+  <table class="tbl-compact">
+    <thead><tr><th>フォーマット</th><th>企画</th><th>撮影/素材調達</th><th>編集</th><th>コピー</th><th>合計</th></tr></thead>
+    <tbody>
+      <tr><td>Instagram フィード画像</td><td>15分</td><td>30分</td><td>45分</td><td>15分</td><td>1時間45分</td></tr>
+      <tr><td>Instagram リール（15〜30秒）</td><td>20分</td><td>60分</td><td>90分</td><td>20分</td><td>3時間10分</td></tr>
+      <tr><td>TikTok 動画（30〜60秒）</td><td>20分</td><td>60分</td><td>90分</td><td>15分</td><td>3時間05分</td></tr>
+      <tr><td>YouTube ショート（60秒）</td><td>20分</td><td>60分</td><td>90分</td><td>15分</td><td>3時間05分</td></tr>
+      <tr><td>YouTube 長尺（10分）</td><td>60分</td><td>180分</td><td>240分</td><td>30分</td><td>8時間30分</td></tr>
+      <tr><td>X 投稿（テキスト）</td><td>10分</td><td>—</td><td>—</td><td>20分</td><td>30分</td></tr>
+    </tbody>
+  </table>
+
+  <h4>コメント返信の標準ルール</h4>
+  <ul>
+    <li><strong>1次返信：</strong>24時間以内（土日除く）</li>
+    <li><strong>否定的コメント：</strong>クライアントに即時共有後、48時間以内に対応方針合意</li>
+    <li><strong>個別相談コメント：</strong>「DMでお話ししましょう」と誘導</li>
+    <li><strong>スパム：</strong>削除＋ブロック</li>
+  </ul>
+
+  <h4>月次レポート構成</h4>
+  <div class="template">
+    <div class="label">月次レポート（運用代行版）構成テンプレ<span class="badge">REPORT</span></div>
+<pre>1. エグゼクティブサマリー（1ページ）
+   - KPI達成率3指標
+   - 今月のハイライト3点
+   - 翌月の重点課題
+
+2. KPI詳細データ（2ページ）
+   - 3指標の月次推移グラフ
+   - プラットフォーム別の比較
+   - 投稿タイプ別の反応分析
+
+3. トップ投稿分析（2ページ）
+   - トップ3投稿のスクリーンショット
+   - 共通点の仮説
+   - 横展開可能な学び
+
+4. ワースト投稿分析（2ページ）
+   - ワースト3投稿のスクリーンショット
+   - 仮説と改善案
+
+5. 翌月の戦略提案（1ページ）
+   - 注力する投稿タイプ
+   - 新規テスト施策1〜2件
+   - 必要なクライアント協力事項</pre>
+  </div>
+
+  <h3 id="ch8-3">8-3. 制作品質ガイドライン</h3>
+
+  <h4>撮影</h4>
+  <ul>
+    <li>解像度：1080×1920px以上（縦動画）／1080×1080px以上（正方形）</li>
+    <li>明るさ：自然光が基本。室内は3点照明（メイン／フィル／バックライト）</li>
+    <li>手ブレ：三脚 or ジンバル使用。手持ちは禁止</li>
+    <li>音声：外付けマイク（RODE等）を必須化。スマホ内蔵マイクは使わない</li>
+  </ul>
+
+  <h4>編集</h4>
+  <ul>
+    <li>カット間隔：3秒以内（ショート動画）</li>
+    <li>テロップ：常時表示。音声OFFでも内容が伝わる設計</li>
+    <li>テロップフォント：和文ゴシック1種＋英文1種に統一。色は2色まで</li>
+    <li>BGM：商用利用可素材のみ。Epidemic Sound・Artlist等の有料ライブラリ推奨</li>
+  </ul>
+
+  <h4>コピー（投稿文）</h4>
+  <ul>
+    <li>1行目に必ずフック（数字・悩み・驚き）を入れる</li>
+    <li>絵文字は3個以内</li>
+    <li>ハッシュタグは目的があるとき1〜3個（乱用禁止）</li>
+    <li>CTA（行動を促す呼びかけ）は1投稿1つに絞る</li>
+  </ul>
+
+  <h4>画像</h4>
+  <ul>
+    <li>色調統一：彩度・コントラスト・ホワイトバランスをLightroomプリセットで統一</li>
+    <li>サイズ：Instagram（1080×1080 or 1080×1350）／TikTok・リール（1080×1920）</li>
+    <li>余白：被写体周囲に20%以上の余白を確保</li>
+  </ul>
+
+  <h3 id="ch8-4">8-4. 著作権・肖像権チェックリスト</h3>
+
+  <div class="checklist">
+    <div class="title">投稿前 著作権・肖像権チェック</div>
+    <ul>
+      <li>使用画像はクライアントが撮影したもの／契約済みストック素材／自社撮影のいずれか</li>
+      <li>第三者が写り込んでいる場合は本人の許諾（書面）を取得済み</li>
+      <li>店舗の外観撮影はオーナー許諾済み（公道からの撮影でも念のため）</li>
+      <li>BGMは商用利用可ライセンスを保有</li>
+      <li>引用するテキストは出典明記＋引用元の承諾を確認</li>
+      <li>競合他社のロゴ・商品・サービス名を比較目的で出していない</li>
+      <li>未成年が写る場合は保護者許諾（書面）を取得済み</li>
+      <li>従業員が写る場合は雇用契約に「写真・動画の業務利用」条項あり</li>
+    </ul>
+  </div>
+
+  <h3 id="ch8-5">8-5. 炎上リスク管理プロトコル</h3>
+
+  <h4>投稿前チェック10項目</h4>
+  <ol>
+    <li>政治・宗教・性別・人種・年齢・体型などへの言及がないか</li>
+    <li>過激な断定表現（「絶対」「100%」「日本一」）を使っていないか</li>
+    <li>競合他社批判・暗喩がないか</li>
+    <li>差別的・侮蔑的に解釈される表現がないか</li>
+    <li>誤情報・古い情報を流していないか（出典確認）</li>
+    <li>個人情報・社内機密が映り込んでいないか</li>
+    <li>季節・社会情勢的にデリケートな話題に触れていないか（震災記念日等）</li>
+    <li>法令違反（医療広告・景表法・薬機法・著作権）の可能性はないか</li>
+    <li>過去に炎上した類似投稿パターンに該当しないか</li>
+    <li>クライアント側ダブルチェック完了</li>
+  </ol>
+
+  <h4>炎上発生時の対応フロー（24時間以内）</h4>
+  <table>
+    <thead><tr><th>時間</th><th>アクション</th></tr></thead>
+    <tbody>
+      <tr><td>0〜1時間</td><td>クライアントへ即時連絡（電話）／投稿の一時非表示判断／拡散状況のスクリーンショット保全</td></tr>
+      <tr><td>1〜4時間</td><td>事実関係の整理／対応方針案3つ作成（削除＋謝罪／訂正＋継続／無対応）</td></tr>
+      <tr><td>4〜12時間</td><td>クライアントと対応方針確定／公式声明文作成</td></tr>
+      <tr><td>12〜24時間</td><td>公式声明発表／コメント返信方針徹底／メディア問い合わせ対応</td></tr>
+      <tr><td>翌週以降</td><td>再発防止策の社内共有／投稿前チェック項目の追加</td></tr>
+    </tbody>
+  </table>
+
+  <div class="danger"><strong>禁則：</strong>炎上時にクライアントに無断で投稿を削除しない。証拠隠滅と取られて炎上が拡大する。電話で連絡し、判断を仰ぐ。</div>
+
+  <div class="checklist">
+    <div class="title">第8章 セルフチェック</div>
+    <ul>
+      <li>運用代行と伴走支援の違いを1分で説明できる</li>
+      <li>各フォーマットの制作工数を諳んじている</li>
+      <li>著作権チェックリスト8項目を投稿前に通している</li>
+      <li>炎上時24時間対応フローを暗記した</li>
+      <li>クライアント無断削除の禁則を理解した</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- 第9章 -->
+<!-- ============================================ -->
+<section class="chapter" id="ch9">
+  <div class="chapter-head">
+    <span class="chapter-no">CH 09</span>
+    <h2>各フェーズ別 新人対応マニュアル</h2>
+  </div>
+
+  <div class="mini-toc">
+    <div class="label">本章の構成</div>
+    <ul>
+      <li><a href="#ch9-1">9-1. 新人が初日にやること10</a></li>
+      <li><a href="#ch9-2">9-2. 1/3/6ヶ月目の到達目標</a></li>
+      <li><a href="#ch9-3">9-3. よくあるミス15選＋対処法</a></li>
+      <li><a href="#ch9-4">9-4. 上司エスカレーション基準</a></li>
+    </ul>
+  </div>
+
+  <h3 id="ch9-1">9-1. 新人が初日にやること10</h3>
+
+  <div class="checklist">
+    <div class="title">初日 必修10項目</div>
+    <ul>
+      <li>本マニュアル（本書）を1章〜11章まで通読する（3時間目安）</li>
+      <li>サービスLP（02_営業・マーケティング/サービスLP/multi-sns-sanbo/index.html）を読む</li>
+      <li>カスタムGPT「マルチSNS参謀」を自分のChatGPTにインストールし、自社の例で1回回す</li>
+      <li>既存クライアント3社の公開SNSアカウントを全部見る（投稿傾向・型を把握）</li>
+      <li>CLAUDE.md と CONSTITUTION.md を読む（AS全体ルールを把握）</li>
+      <li>rules/writing-style-rules.md の11ヶ条を暗記する</li>
+      <li>Notionで自分専用のCRMボードを作る（第2章テンプレ参照）</li>
+      <li>SlackのASワークスペースに参加し、クライアント専用チャンネルを確認する</li>
+      <li>/biz-contract /billing-docs スキルを試運転する（架空案件で1回）</li>
+      <li>上司との1on1で「3ヶ月後の目標」を文字化する</li>
+    </ul>
+  </div>
+
+  <h3 id="ch9-2">9-2. 1ヶ月目／3ヶ月目／6ヶ月目の到達目標</h3>
+
+  <table>
+    <thead><tr><th>時期</th><th>到達目標</th><th>判定方法</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>1ヶ月目</strong></td>
+        <td>
+          ・本マニュアル全章を読破<br>
+          ・ヒアリング7問＋副質問21問を暗唱<br>
+          ・先輩同行で面談に3回参加<br>
+          ・既存クライアント1社の月次レビュー会を見学
+        </td>
+        <td>口頭テスト＋同行記録</td>
+      </tr>
+      <tr>
+        <td><strong>3ヶ月目</strong></td>
+        <td>
+          ・自分主導で1次面談を5回実施<br>
+          ・仮説提案3案を10分で組み立てられる<br>
+          ・反論処理10パターンを暗唱<br>
+          ・契約締結1件（金額不問）
+        </td>
+        <td>面談録画レビュー＋契約実績</td>
+      </tr>
+      <tr>
+        <td><strong>6ヶ月目</strong></td>
+        <td>
+          ・自分主導でクライアント2社を回す<br>
+          ・月次レビュー会を1人で進行<br>
+          ・カスタムGPTを使った独自提案を3案出した<br>
+          ・先輩なしで新規契約を1件獲得
+        </td>
+        <td>担当クライアントの満足度＋新規契約実績</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 id="ch9-3">9-3. よくあるミス15選＋対処法</h3>
+
+  <table class="tbl-compact">
+    <thead><tr><th>#</th><th>ミス</th><th>対処法</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>ヒアリングで自分が話しすぎる</td><td>「話す比率 自分2：相手8」をスマホメモに貼って毎回確認</td></tr>
+      <tr><td>2</td><td>専門用語を多用して相手を委縮させる</td><td>面談中は「KPI」→「成果を測る数字」と即時言い換える訓練</td></tr>
+      <tr><td>3</td><td>仮説提案を出さずに「持ち帰り検討」で終わる</td><td>面談35〜40分の枠で3案出す。準備時間を10分前倒し</td></tr>
+      <tr><td>4</td><td>料金提示を早すぎる</td><td>仮説提案で「ピンと来た方向性」を聞いてから出すと決める</td></tr>
+      <tr><td>5</td><td>反論処理で論破しようとする</td><td>「ご不安、ほぼ全てのお客様が持たれます」で受け止めから入る</td></tr>
+      <tr><td>6</td><td>Slack24時間張り付き</td><td>契約書に「24時間以内返信・土日除く」を明記し、自分にも守らせる</td></tr>
+      <tr><td>7</td><td>1人で抱え込む</td><td>週1で先輩と15分の壁打ち時間を固定枠で取る</td></tr>
+      <tr><td>8</td><td>投稿のネタ切れで毎回深夜作業</td><td>カスタムGPTで月初に30本ストック生成</td></tr>
+      <tr><td>9</td><td>クライアントの「おまかせ」に困る</td><td>第5章の対応スクリプトを2案提示で返す</td></tr>
+      <tr><td>10</td><td>KPI数字を追いすぎて疲弊</td><td>必修3指標（プロフィールアクセス／保存率／LPクリック）のみに絞る</td></tr>
+      <tr><td>11</td><td>炎上時に焦って自己判断削除</td><td>「無断削除は絶対禁止」をマニュアル巻末に貼って毎日見る</td></tr>
+      <tr><td>12</td><td>競合の投稿を真似しすぎる</td><td>競合観察は週1回30分のみ。業界外3社をベンチマークに加える</td></tr>
+      <tr><td>13</td><td>提案書が冗長で読まれない</td><td>1ページサマリーを冒頭に置く運用を徹底</td></tr>
+      <tr><td>14</td><td>月次レポートが数字の羅列で終わる</td><td>「翌月の重点課題」を1ページ追加する</td></tr>
+      <tr><td>15</td><td>解約時に焦って引き留める</td><td>「6ヶ月で結果が出ないなら誠実に終わる」を信条にする</td></tr>
+    </tbody>
+  </table>
+
+  <h3 id="ch9-4">9-4. 上司エスカレーション基準</h3>
+  <p>新人は「自己判断していい範囲」と「上司に相談すべき範囲」を明確に分ける。曖昧にすると大事故につながる。</p>
+
+  <table>
+    <thead><tr><th>事象</th><th>判定</th><th>連絡方法</th></tr></thead>
+    <tbody>
+      <tr><td>クライアントから値引き要求（10%以内）</td><td>上司確認後 自己判断可</td><td>Slackで報告</td></tr>
+      <tr><td>クライアントから値引き要求（10%超）</td><td>上司決裁要</td><td>電話＋Slack</td></tr>
+      <tr><td>契約条件の変更依頼</td><td>上司決裁要</td><td>電話＋メール</td></tr>
+      <tr><td>炎上の兆候</td><td>即時報告</td><td>電話必須</td></tr>
+      <tr><td>クライアントからクレーム</td><td>即時報告</td><td>電話必須</td></tr>
+      <tr><td>解約申し出</td><td>即時報告</td><td>電話必須</td></tr>
+      <tr><td>新規問い合わせ（紹介経由）</td><td>自己判断で1次対応可</td><td>Slack共有</td></tr>
+      <tr><td>SNSアカウントの乗っ取り疑惑</td><td>即時報告</td><td>電話必須</td></tr>
+      <tr><td>請求書発行・入金トラブル</td><td>上司決裁要</td><td>メール＋Slack</td></tr>
+      <tr><td>クライアント企業の経営陣交代情報</td><td>翌営業日までに報告</td><td>Slack</td></tr>
+    </tbody>
+  </table>
+
+  <div class="checklist">
+    <div class="title">第9章 セルフチェック</div>
+    <ul>
+      <li>初日10項目を全部完了した</li>
+      <li>1/3/6ヶ月の到達目標を月初に書き出した</li>
+      <li>よくあるミス15選を週1回見返している</li>
+      <li>エスカレーション基準を諳んじている</li>
+      <li>先輩との週1壁打ち時間を固定枠で取った</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- 第10章 -->
+<!-- ============================================ -->
+<section class="chapter" id="ch10">
+  <div class="chapter-head">
+    <span class="chapter-no">CH 10</span>
+    <h2>FAQ／トラブルシューティング</h2>
+  </div>
+
+  <div class="mini-toc">
+    <div class="label">本章の構成</div>
+    <ul>
+      <li><a href="#ch10-1">10-1. クライアント想定質問30</a></li>
+      <li><a href="#ch10-2">10-2. カスタムGPTトラブル対応</a></li>
+      <li><a href="#ch10-3">10-3. 期待値ギャップの対処</a></li>
+      <li><a href="#ch10-4">10-4. 解約申し出時のスクリプト</a></li>
+    </ul>
+  </div>
+
+  <h3 id="ch10-1">10-1. クライアントからの想定質問30</h3>
+
+  <h4>料金・契約系（Q1〜Q10）</h4>
+  <table class="tbl-compact">
+    <thead><tr><th>#</th><th>Q</th><th>A（要点）</th></tr></thead>
+    <tbody>
+      <tr><td>Q1</td><td>料金体系を教えて</td><td>月額固定。3プラン（梅10万／竹25万／松60万）。最低3ヶ月から</td></tr>
+      <tr><td>Q2</td><td>初期費用は？</td><td>キックオフ費用5万円（戦略設計＋ペルソナ＋カレンダー1ヶ月分）</td></tr>
+      <tr><td>Q3</td><td>契約期間は？</td><td>3ヶ月単位の自動更新。1ヶ月前までの申出で解約可</td></tr>
+      <tr><td>Q4</td><td>成果報酬型はないの？</td><td>原則なし。理由：短期的な数字合わせに陥り、本質的な改善ができないため</td></tr>
+      <tr><td>Q5</td><td>途中解約できる？</td><td>3ヶ月の最低契約期間を満了後、1ヶ月前申出で解約可</td></tr>
+      <tr><td>Q6</td><td>支払い方法は？</td><td>月末締め翌月末払い（銀行振込）。年払いは5%割引</td></tr>
+      <tr><td>Q7</td><td>消費税は別？</td><td>提示金額は税別。請求時に10%加算</td></tr>
+      <tr><td>Q8</td><td>追加費用が発生するケースは？</td><td>広告運用代行（実費15%）／撮影出張（実費＋日当）／緊急対応（時間単価1.5倍）</td></tr>
+      <tr><td>Q9</td><td>請求書の宛名は変更できる？</td><td>可能。グループ会社・関連会社宛も対応</td></tr>
+      <tr><td>Q10</td><td>インボイス登録番号は？</td><td>有限会社アートソウル：T-XXXXXXXXXXXXX</td></tr>
+    </tbody>
+  </table>
+
+  <h4>サービス内容系（Q11〜Q20）</h4>
+  <table class="tbl-compact">
+    <thead><tr><th>#</th><th>Q</th><th>A（要点）</th></tr></thead>
+    <tbody>
+      <tr><td>Q11</td><td>何のSNSに対応？</td><td>Instagram／TikTok／YouTube／X／Facebook／LinkedIn／Threads／Pinterest全対応</td></tr>
+      <tr><td>Q12</td><td>投稿本数は？</td><td>竹プラン：月15本／松プラン：月30本（複数SNS横断）</td></tr>
+      <tr><td>Q13</td><td>動画も作ってくれる？</td><td>松プランは制作含む。竹プランは企画＋台本まで（撮影はクライアント）</td></tr>
+      <tr><td>Q14</td><td>広告運用も依頼できる？</td><td>松プランに含む。竹・梅プランはオプション（実費15%）</td></tr>
+      <tr><td>Q15</td><td>競合分析もやってくれる？</td><td>初回キックオフで3社徹底分析。以降は四半期に1回更新</td></tr>
+      <tr><td>Q16</td><td>レポートはどんな内容？</td><td>第8章8-2の月次レポート構成参照。8ページ前後のPDF</td></tr>
+      <tr><td>Q17</td><td>担当者は誰？</td><td>戦略担当1名＋制作担当1〜2名。原則変更なし</td></tr>
+      <tr><td>Q18</td><td>連絡はどうやって？</td><td>Slackクライアント専用チャンネル＋月1のZoom会議</td></tr>
+      <tr><td>Q19</td><td>緊急時の連絡は？</td><td>電話＋Slack DM。1時間以内に折り返し</td></tr>
+      <tr><td>Q20</td><td>解約後もカスタムGPTは使える？</td><td>使える。「囲い込まない」方針</td></tr>
+    </tbody>
+  </table>
+
+  <h4>効果・期待値系（Q21〜Q30）</h4>
+  <table class="tbl-compact">
+    <thead><tr><th>#</th><th>Q</th><th>A（要点）</th></tr></thead>
+    <tbody>
+      <tr><td>Q21</td><td>どれくらいでフォロワー増える？</td><td>業種・初期状態により異なる。事例として3ヶ月で2〜4倍の傾向あり</td></tr>
+      <tr><td>Q22</td><td>フォロワー数の保証は？</td><td>保証は行わない。理由：購入フォロワーによる数字合わせは売上に繋がらないため</td></tr>
+      <tr><td>Q23</td><td>売上は上がる？</td><td>SNSが直接売上に繋がる業種と、認知→他チャネル経由で繋がる業種がある。3ヶ月目に判定</td></tr>
+      <tr><td>Q24</td><td>炎上したらどうする？</td><td>24時間以内対応フロー（第8章）に沿って対応。クライアントとの即時連携必須</td></tr>
+      <tr><td>Q25</td><td>競合に勝てる？</td><td>USP設計（第6章）で差別化軸を作る。「全競合に勝つ」ではなく「特定ターゲットに勝つ」</td></tr>
+      <tr><td>Q26</td><td>1人で運用しているが代行できる？</td><td>対応可。むしろ1人運用で疲弊している方の方が成果が出やすい</td></tr>
+      <tr><td>Q27</td><td>本部の意向と現場の意向が違うが？</td><td>キーマン整理を初回キックオフで実施。意思決定者を明確化する</td></tr>
+      <tr><td>Q28</td><td>業界規制があるが大丈夫？</td><td>士業・医療・金融等の規制業種は事前ヒアリングで該当ガイドラインを確認</td></tr>
+      <tr><td>Q29</td><td>結果が出なかった場合どうなる？</td><td>3ヶ月目に判定。50%未満なら戦略再設計／6ヶ月目で50%未満なら3つの選択肢を提示</td></tr>
+      <tr><td>Q30</td><td>他のSNS運用代行と何が違う？</td><td>第1章1-2の競合分析参照。①月額10万円〜の中小特化 ②DRM戦略起点 ③カスタムGPT配布</td></tr>
+    </tbody>
+  </table>
+
+  <h3 id="ch10-2">10-2. カスタムGPTのトラブル対応</h3>
+
+  <table>
+    <thead><tr><th>症状</th><th>原因</th><th>対処</th></tr></thead>
+    <tbody>
+      <tr><td>カスタムGPTが起動しない</td><td>ChatGPTプランがFreeの可能性</td><td>クライアントにPlus（月額20ドル）以上のプラン契約を案内</td></tr>
+      <tr><td>「神崎潤」と名乗らない</td><td>セッション切れ／指示文の冒頭忘れ</td><td>新規チャットで再起動／「神崎潤として再起動して」と入力</td></tr>
+      <tr><td>抽象的な回答しか出ない</td><td>ヒアリング7問の回答が不足</td><td>「業界平均値で仮設定」と仕様で対応可能。具体回答を促す</td></tr>
+      <tr><td>出力が途中で切れる</td><td>トークン上限</td><td>「続きを出して」と入力／Phase毎に分割出力依頼</td></tr>
+      <tr><td>専門用語が多すぎる</td><td>クライアント業種の文脈不足</td><td>業界用語の補足入力を促す</td></tr>
+      <tr><td>競合分析が不正確</td><td>カスタムGPTのKnowledgeが古い</td><td>競合3社の最新情報をその場で入力し直す</td></tr>
+    </tbody>
+  </table>
+
+  <h3 id="ch10-3">10-3. 期待値ギャップが発生したときの対処</h3>
+
+  <p>「思っていたのと違う」とクライアントから言われた瞬間に対応する3手順。</p>
+
+  <ol>
+    <li><strong>受け止め：</strong>「率直に教えていただきありがとうございます」と一旦受ける。反論しない</li>
+    <li><strong>具体化：</strong>「具体的にどの部分が違うと感じましたか？」と質問で深掘り</li>
+    <li><strong>選択肢提示：</strong>「3つの対応案をお出しします」と選択肢を示し、相手に選ばせる</li>
+  </ol>
+
+  <div class="template script">
+    <div class="label">期待値ギャップ対応スクリプト<span class="badge">SCRIPT</span></div>
+<pre>「率直なフィードバックをありがとうございます。
+ 思っていたのと違う、というのは具体的にどの部分でしょうか？
+ ……（傾聴）……
+
+ なるほど、{相手の言葉を要約}ということですね。
+ では3つの対応案をお出しします。
+
+ 案A：このまま続けつつ、{具体的な改善}を翌月から追加
+ 案B：戦略を一度見直し、Phase 1のペルソナ設計から再構築（追加費用なし）
+ 案C：プランを変更（松→竹／竹→梅 等）
+
+ どれが今のお気持ちに近いですか？」</pre>
+  </div>
+
+  <h3 id="ch10-4">10-4. 解約申し出時の対応スクリプト</h3>
+
+  <div class="template script">
+    <div class="label">解約申し出 対応スクリプト<span class="badge">SCRIPT</span></div>
+<pre>「ご連絡ありがとうございます。
+ まず、これまでお取り組みいただいたこと、心から感謝します。
+
+ 確認させてください。
+ 解約をお考えに至った一番の理由は何でしょうか？
+ ……（傾聴）……
+
+ 理解しました。{相手の理由を要約}ということですね。
+
+ 解約は{解約希望日}付けで承ります。
+ 申し送りとして、以下をお渡しします：
+
+ ① 過去のカレンダーアーカイブ（Notion共有）
+ ② カスタムGPT（解約後も使用可・無料）
+ ③ 投稿の型ファイル一式
+ ④ KPI推移データ
+ ⑤ 引き継ぎ用の戦略サマリー1ページ
+
+ また、半年後にもう一度お話しできれば嬉しいです。
+ SNS運用以外でも、AI導入・業務改善でお力になれます。
+
+ これまで本当にありがとうございました」</pre>
+  </div>
+
+  <div class="note"><strong>解約時の原則：</strong>引き留めない。誠実に終わる。半年〜1年後に「あの時の対応がよかった」と再契約・紹介に繋がる事例が多い。</div>
+
+  <div class="checklist">
+    <div class="title">第10章 セルフチェック</div>
+    <ul>
+      <li>想定質問30を全部目を通した</li>
+      <li>カスタムGPTのトラブル対応6パターンを理解した</li>
+      <li>期待値ギャップ対応3手順を暗記した</li>
+      <li>解約スクリプトを1回声に出して練習した</li>
+      <li>「解約時に引き留めない」原則を理解した</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- 第11章 -->
+<!-- ============================================ -->
+<section class="chapter" id="ch11">
+  <div class="chapter-head">
+    <span class="chapter-no">CH 11</span>
+    <h2>超一流エキスパートからの監修ポイント</h2>
+  </div>
+
+  <div class="mini-toc">
+    <div class="label">本章の構成</div>
+    <ul>
+      <li><a href="#ch11-1">11-1. やってはいけないこと10戒</a></li>
+      <li><a href="#ch11-2">11-2. プロが守る品質基準</a></li>
+      <li><a href="#ch11-3">11-3. 中長期で勝つ戦略思考</a></li>
+      <li><a href="#ch11-4">11-4. 1〜3年でステップアップする学習リソース</a></li>
+    </ul>
+  </div>
+
+  <h3 id="ch11-1">11-1. やってはいけないこと10戒</h3>
+
+  <table>
+    <thead><tr><th>#</th><th>戒め</th><th>背景</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td><strong>購入フォロワーを買う／勧める</strong></td><td>短期的な数字合わせで信用を失う。アルゴリズムも検知する</td></tr>
+      <tr><td>2</td><td><strong>競合他社の悪口を言う</strong></td><td>業界内で評判が悪くなる／クライアントが「自分も言われる」と警戒する</td></tr>
+      <tr><td>3</td><td><strong>フォロワー数を保証する</strong></td><td>達成のために購入に走る／達成できなければ訴訟リスク</td></tr>
+      <tr><td>4</td><td><strong>クライアント無断で投稿を削除する</strong></td><td>炎上時の証拠隠滅と取られる／信頼関係が崩れる</td></tr>
+      <tr><td>5</td><td><strong>個人情報をスタッフ間で雑談する</strong></td><td>守秘義務違反。契約条項違反の可能性</td></tr>
+      <tr><td>6</td><td><strong>「絶対」「100%」「日本一」を使う</strong></td><td>景表法・薬機法違反の可能性／実態と異なれば訴訟リスク</td></tr>
+      <tr><td>7</td><td><strong>引き継ぎを口頭で済ませる</strong></td><td>担当変更時に情報が失われる／クライアントが何度も同じ説明をさせられる</td></tr>
+      <tr><td>8</td><td><strong>他社事例を匿名加工せず話す</strong></td><td>守秘義務違反／同業者ネットワークで噂が広がる</td></tr>
+      <tr><td>9</td><td><strong>炎上時にSNS上で反論する</strong></td><td>火に油／公式声明文以外の個別対応は禁止</td></tr>
+      <tr><td>10</td><td><strong>クライアントの愚痴をSNSで言う</strong></td><td>業界が狭く誰かに伝わる。一発で信用がゼロになる</td></tr>
+    </tbody>
+  </table>
+
+  <h3 id="ch11-2">11-2. プロが守る品質基準</h3>
+
+  <h4>戦略品質</h4>
+  <ul>
+    <li>すべての提案に「数字・期間・行動」が入っていること</li>
+    <li>USPは「他社にできない理由」が明確であること</li>
+    <li>KPIは追える指標であること（測定方法が定義されている）</li>
+    <li>ペルソナは1人の実在しそうな人物まで具体化されていること</li>
+  </ul>
+
+  <h4>制作品質</h4>
+  <ul>
+    <li>誤字脱字ゼロ（投稿前にダブルチェック）</li>
+    <li>画像・動画は色調・トーンが統一されていること</li>
+    <li>BGM・素材は商用ライセンスを保有していること</li>
+    <li>CTAは1投稿1つに絞られていること</li>
+  </ul>
+
+  <h4>運用品質</h4>
+  <ul>
+    <li>Slack返信は24時間以内（土日除く）</li>
+    <li>月次レポートは月初5営業日以内に納品</li>
+    <li>翌月カレンダーは毎月25日に納品</li>
+    <li>炎上時は1時間以内にクライアント連絡</li>
+  </ul>
+
+  <h4>関係性品質</h4>
+  <ul>
+    <li>クライアントの企業秘密を守る</li>
+    <li>担当者の入れ替わりを最小化する</li>
+    <li>解約時にも誠実に対応する</li>
+    <li>結果が出ないときは正直に伝える</li>
+  </ul>
+
+  <h3 id="ch11-3">11-3. 中長期で勝つための戦略思考</h3>
+
+  <h4>① 「3年継続率」を最重要KPIにする</h4>
+  <p>新規獲得のコストは継続維持の5倍と言われる（DRMの定説）。新規契約数を追うより、既存3年継続率を追う方が利益率が高い。営業時間の30%は既存クライアントのために使う。</p>
+
+  <h4>② 「囲い込まない」姿勢で信頼を作る</h4>
+  <p>カスタムGPTを無料配布、解約後もデータを渡すなど、「いつでも離れられる」状態を作る。それでも継続される会社が本当のプロ。</p>
+
+  <h4>③ 「業界ナレッジ」を蓄積する</h4>
+  <p>1社の経験を10社に展開できるのがコンサルの強み。クライアント案件ごとに学んだことを社内ナレッジ（rules/_internal_source_meta/等）に蓄積し、横展開する。</p>
+
+  <h4>④ 「自分の業務を陳腐化させる」発想</h4>
+  <p>カスタムGPT配布のように、「自分の仕事を奪うツール」を自分で作って配る。短期的には案件単価が下がるが、長期的には「あの会社はAIに置き換わってもなお必要」と思われる存在になる。</p>
+
+  <h4>⑤ 「経営者の人生」を見る視座</h4>
+  <p>SNS運用は手段。経営者が何を実現したいのか（事業承継・上場・地域貢献・引退準備）を理解した上で支援する。手段の話だけのコンサルは3年で飽きられる。</p>
+
+  <h3 id="ch11-4">11-4. 1〜3年でステップアップする学習リソース</h3>
+
+  <h4>1年目（基礎固め）</h4>
+  <ul>
+    <li><strong>書籍：</strong>『億万長者の不況に強いビジネス戦略』ダン・ケネディ／『あらゆる仕事に役立つ「人を動かす力」』ジェイ・エイブラハム</li>
+    <li><strong>セミナー：</strong>Meta公式（Instagram Business）の月次ウェビナー／TikTok for Business 公式講座</li>
+    <li><strong>SNSアカウント：</strong>Adam Mosseri（Instagram CEO）／Mr.Beast（YouTube）／業界トップ10名をリスト化してX/Instagramで追う</li>
+    <li><strong>AS内部：</strong>本マニュアル全章＋カスタムGPT実運用</li>
+  </ul>
+
+  <h4>2年目（応用）</h4>
+  <ul>
+    <li><strong>書籍：</strong>『マーケティング・パラドックス』フィリップ・コトラー／『Influence』ロバート・チャルディーニ</li>
+    <li><strong>勉強会：</strong>関西SNS研究会（月1）／海外マーケカンファレンス（オンライン参加可）</li>
+    <li><strong>実践：</strong>自分でも個人SNSアカウントを立ち上げて運用する（経験値の蓄積）</li>
+    <li><strong>AS内部：</strong>/marketing /kpi-design /finance スキルとの連携</li>
+  </ul>
+
+  <h4>3年目（独自性確立）</h4>
+  <ul>
+    <li><strong>書籍：</strong>『StoryBrand』ドナルド・ミラー／『Building a StoryBrand』</li>
+    <li><strong>登壇：</strong>商工会議所・業界団体で自分の事例を発表（年4回以上）</li>
+    <li><strong>執筆：</strong>note／Brain記事で自分のメソッドを言語化（月1本）</li>
+    <li><strong>AS内部：</strong>自分独自のスキル化を提案（/skill-craft の発動）</li>
+  </ul>
+
+  <div class="ok-box"><strong>結びの言葉：</strong>本マニュアルはあくまで出発点。3年後には自分なりの「神崎潤メソッド v2」を作り上げているのが理想。日々の現場で気づいたことを kai-style-guide.md に蓄積し、次世代の新人に渡せる遺産を残してほしい。— 上村桂右</div>
+
+  <div class="checklist">
+    <div class="title">第11章 セルフチェック</div>
+    <ul>
+      <li>10戒すべてを暗唱できる</li>
+      <li>4つの品質基準（戦略／制作／運用／関係性）を諳んじている</li>
+      <li>5つの戦略思考を理解し、自分の働き方に落とし込んだ</li>
+      <li>1年目の書籍2冊を購入した</li>
+      <li>3年後の自分の姿を文字化した</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- 第12章 v2.0 -->
+<!-- ============================================ -->
+<section class="chapter" id="ch12">
+  <div class="chapter-head">
+    <span class="chapter-no">CH 12</span>
+    <h2>Phase 1.5 オファー＆ファネル設計 完全運用ガイド <span style="font-size:13px;background:#B8E5C5;color:#0F4A28;padding:3px 8px;border-radius:3px;margin-left:8px;vertical-align:middle">v2.0 NEW</span></h2>
+  </div>
+
+  <div class="mini-toc">
+    <div class="label">CHAPTER MAP</div>
+    <ul>
+      <li><a href="#ch12-1">12-1. なぜPhase 1.5が決定打になるのか</a></li>
+      <li><a href="#ch12-2">12-2. 商品ピラミッド業種別テンプレ5種</a></li>
+      <li><a href="#ch12-3">12-3. リードマグネット制作の実務</a></li>
+      <li><a href="#ch12-4">12-4. Irresistible Offer 設計の業種実例3つ</a></li>
+      <li><a href="#ch12-5">12-5. CTAコピー量産ノウハウ</a></li>
+      <li><a href="#ch12-6">12-6. 計測設計（UTM／LTV／許容CAC）</a></li>
+    </ul>
+  </div>
+
+  <h3 id="ch12-1">12-1. なぜPhase 1.5が決定打になるのか</h3>
+  <p>v1.0の最大の弱点は「投稿カレンダーを納品して終わり」だった。クライアントは投稿を続けてフォロワーが増えても、その先の「お客様を獲得する装置」が無いため売上に繋がらず、3ヶ月で撤退判断を迫られるケースが多発した。社内DRMコンサル佐伯の独立評価で「Kennedy/Abraham師事を名乗るなら、オファー設計／リードマグネット／ファネル三層／リスト構築／LTV×CAC が骨格に入っていないとダメ。看板倒れ」と指摘され、Phase 1.5を新設してv2.0でこの溝を埋めた。</p>
+  <p>新人スタッフは「Phase 1.5 = サービスの売上に直結する最重要フェーズ」と理解すること。Phase 2以降の戦略マップ・カレンダー設計は、Phase 1.5で組んだファネルを「どう運ぶか」の戦術に過ぎない。Phase 1.5を飛ばして納品すると、3ヶ月後の月次レビューで「フォロワー増えたけど売上は変わらない」と詰められる。</p>
+
+  <h3 id="ch12-2">12-2. 商品ピラミッド業種別テンプレ5種</h3>
+  <p>業種ごとに「入口・フロント・本商品・バックエンド」の価格帯と商品例を覚える。クライアントから業種が出てきた瞬間に頭の中で当てはめて、初回面談で「あなたの業界だとこういう構造になります」と即提示できると信頼が一気に上がる。</p>
+
+  <table class="ba-table">
+    <thead><tr><th>業種</th><th>入口（無料）</th><th>フロント（〜5,000円）</th><th>本商品（1〜10万円）</th><th>バックエンド（10万円〜）</th></tr></thead>
+    <tbody>
+      <tr><td>サロン／治療院</td><td>セルフチェックPDF／LINE診断</td><td>初回体験（1,500〜3,000円）</td><td>回数券／月額メンバー</td><td>年間パッケージ／プライベートコース</td></tr>
+      <tr><td>士業（行政書士／税理士）</td><td>業種別チェックリストPDF</td><td>30分相談（3,000〜5,000円）</td><td>単発業務／月額顧問</td><td>年間顧問＋スポット対応</td></tr>
+      <tr><td>EC物販（自然食品等）</td><td>レシピ集／お試しサンプル無料</td><td>初回購入30%OFF</td><td>サブスク定期便</td><td>年間お任せ便／法人ギフト</td></tr>
+      <tr><td>BtoBコンサル</td><td>業界レポートPDF／無料診断</td><td>1万円ワークショップ</td><td>3〜6ヶ月コンサル</td><td>顧問契約／研修プログラム</td></tr>
+      <tr><td>個人クリエイター</td><td>無料テンプレ集／メルマガ</td><td>note単発記事（500〜2,000円）</td><td>有料コミュニティ／講座</td><td>マンツーマンメンタリング</td></tr>
+    </tbody>
+  </table>
+
+  <h3 id="ch12-3">12-3. リードマグネット制作の実務</h3>
+  <p>「3案提示→1案を選ばせる→3時間で完成」が黄金ルート。最初から完璧を狙うと半年動かないので、Canvaで15ページのPDFを作る前提でクライアントに見せる。</p>
+  <ul>
+    <li><strong>タイトル設計：</strong>「○○の△△ガイド」「××で困っているあなたへ」よりも「【3分で診断】あなたの□□タイプ」「初回限定：あなたが知らない7つの□□」のように<strong>数値＋固有性＋緊急性</strong>で組む</li>
+    <li><strong>ボリューム：</strong>PDF 10〜15ページが最適。3ページは軽すぎ、30ページは読まれない</li>
+    <li><strong>配布手段：</strong>LINE公式アカウント＞メアド登録＞SNS DM の順で推奨。LINEは開封率80%超、メアドは20〜30%、DMは即時性高いが拡張性なし</li>
+    <li><strong>制作工数：</strong>初回3時間／2回目以降1時間／量産フェーズで1時間以下に短縮可</li>
+    <li><strong>NG事例：</strong>「ノウハウを出し惜しみする」が最大の失敗。出し惜しみすると登録後の信頼が育たず、フロント購入率が10%を切る</li>
+  </ul>
+
+  <h3 id="ch12-4">12-4. Irresistible Offer 設計の業種実例3つ</h3>
+  <div class="deliver-box">
+    <h4>実例A：オンラインヨガ（B2C個人事業主）</h4>
+    <ul>
+      <li><strong>コアの約束：</strong>30日で「子を寝かしつけた後の10分」だけで肩こり・腰痛を和らげる</li>
+      <li><strong>ボーナス：</strong>①7型ポーズ集PDF ②育児中の食事ガイド ③LINE個別質問権1ヶ月</li>
+      <li><strong>保証：</strong>1ヶ月効果実感なければ全額返金</li>
+      <li><strong>希少性：</strong>月20名限定（マンツーマン質問対応の物理制約）</li>
+      <li><strong>理由付け：</strong>サブスク移行キャンペーンにつき初月50%OFF</li>
+    </ul>
+  </div>
+  <div class="deliver-box">
+    <h4>実例B：行政書士（士業BtoC）</h4>
+    <ul>
+      <li><strong>コアの約束：</strong>建設業許可を最短2週間で取得。要件診断から書類提出まで丸投げOK</li>
+      <li><strong>ボーナス：</strong>①更新時期通知サービス ②変更届の無料相談1回 ③同業者ネットワーク紹介</li>
+      <li><strong>保証：</strong>不許可の場合は手数料全額返金（実費を除く）</li>
+      <li><strong>希少性：</strong>月3件限定（深く伴走するため）</li>
+      <li><strong>理由付け：</strong>新規開拓キャンペーンにつき申請書作成費5万円OFF</li>
+    </ul>
+  </div>
+  <div class="deliver-box">
+    <h4>実例C：BtoBコンサル</h4>
+    <ul>
+      <li><strong>コアの約束：</strong>3ヶ月で営業プロセスをCRM化し、商談化率を1.5倍にする</li>
+      <li><strong>ボーナス：</strong>①SFAテンプレート ②商談スクリプト30種 ③営業メンバー研修2回</li>
+      <li><strong>保証：</strong>3ヶ月で商談化率が改善しない場合、4ヶ月目を無償延長</li>
+      <li><strong>希少性：</strong>四半期で2社のみ受託</li>
+      <li><strong>理由付け：</strong>導入事例公開を許諾いただける企業に限り、初月30%OFF</li>
+    </ul>
+  </div>
+
+  <h3 id="ch12-5">12-5. CTAコピー量産ノウハウ</h3>
+  <p>10種のCTA文言を「目的×心理状態」マトリクスで量産する。クライアントには「最低10種類は持っておかないと、3週目には全部使い切る」と説明する。</p>
+  <table class="ba-table">
+    <thead><tr><th>目的</th><th>顕在ニーズ向け</th><th>潜在ニーズ向け</th></tr></thead>
+    <tbody>
+      <tr><td>リスト獲得</td><td>「プロフィールのリンクから【○○ガイドPDF】を受け取ってください」</td><td>「タイプ診断で自分の□□が分かります。プロフィールから1分でチェック」</td></tr>
+      <tr><td>DM誘導</td><td>「『気になる』とコメントしてくれた方にDMで詳細をお送りします」</td><td>「あなたに似たケースの体験談、DMでお送りしますか？コメントでお返事ください」</td></tr>
+      <tr><td>LP誘導</td><td>「料金や詳細はプロフィールリンクのページから確認できます」</td><td>「同じ悩みを乗り越えた人の事例、こちらにまとめています（プロフリンク）」</td></tr>
+      <tr><td>保存促進</td><td>「保存して、次回の□□時に見返してください」</td><td>「いつか必要になったとき、思い出せるように保存推奨」</td></tr>
+      <tr><td>シェア促進</td><td>「同じ悩みの友人に共有してあげてください」</td><td>「これを知らない人がまだまだ多いです。気になる人にシェアを」</td></tr>
+    </tbody>
+  </table>
+  <p class="ba-note">※ AIっぽい定型句「ぜひ参考にしてください」「いかがでしょうか」は厳禁。クライアントの納品物にこれが混ざっていたら即修正。</p>
+
+  <h3 id="ch12-6">12-6. 計測設計（UTM／LTV／許容CAC）</h3>
+  <div class="deliver-box">
+    <h4>UTMパラメータの基本構造</h4>
+    <ul>
+      <li><strong>utm_source</strong>：プラットフォーム名（instagram／tiktok／youtube／x）</li>
+      <li><strong>utm_medium</strong>：投稿種別（reel／feed／story／bio_link）</li>
+      <li><strong>utm_campaign</strong>：キャンペーン名（leadmagnet_a／front_test_2026q2）</li>
+      <li><strong>utm_content</strong>：投稿の識別子（post_001／fork_a／hook_b）</li>
+    </ul>
+    <p>例：<code>https://example.com/?utm_source=instagram&utm_medium=reel&utm_campaign=leadmagnet_a&utm_content=hook_b</code></p>
+  </div>
+  <div class="deliver-box">
+    <h4>LTV×許容CAC 計算式（必修暗記）</h4>
+    <ul>
+      <li><strong>LTV（顧客生涯価値）</strong>＝ 平均購入単価 × 平均購入頻度 × 平均継続期間</li>
+      <li><strong>許容CAC（許容顧客獲得単価）</strong>＝ LTV × 30% を上限の目安</li>
+      <li>例：月額3,000円×平均継続8ヶ月 = LTV 24,000円　→ 許容CAC = 7,200円以下が健全</li>
+      <li><strong>CACが許容CACを超え始めたら即アラート。</strong>3ヶ月放置すると黒字化が無理になる</li>
+    </ul>
+  </div>
+
+  <div class="ok-box"><strong>Chapter 12の核心：</strong>SNSは「投稿する場」ではなく「ファネルを運ぶ装置」。Phase 1.5を組み込めば、クライアントの3ヶ月後の月次レビューで「フォロワーは○人増えました」だけでなく「リスト○件・フロント購入○件・本商品引上○件」まで報告できる。これが有料コンサルとして選ばれ続ける理由。</div>
+
+  <div class="checklist">
+    <div class="title">第12章 セルフチェック</div>
+    <ul>
+      <li>業種別商品ピラミッド5種をすべて諳んじている</li>
+      <li>Irresistible Offer 5要素を口頭で説明できる</li>
+      <li>リードマグネットを3時間で完成させた実績がある</li>
+      <li>LTV×許容CACの計算式を暗記している</li>
+      <li>UTMパラメータの4要素を諳んじている</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- 第13章 v2.0 -->
+<!-- ============================================ -->
+<section class="chapter" id="ch13">
+  <div class="chapter-head">
+    <span class="chapter-no">CH 13</span>
+    <h2>撤退KPI判定 実務ガイド <span style="font-size:13px;background:#B8E5C5;color:#0F4A28;padding:3px 8px;border-radius:3px;margin-left:8px;vertical-align:middle">v2.0 NEW</span></h2>
+  </div>
+
+  <div class="mini-toc">
+    <div class="label">CHAPTER MAP</div>
+    <ul>
+      <li><a href="#ch13-1">13-1. 5閾値の業種別調整値</a></li>
+      <li><a href="#ch13-2">13-2. 月次レビューでの判定フロー</a></li>
+      <li><a href="#ch13-3">13-3. クライアントへの撤退提案スクリプト</a></li>
+      <li><a href="#ch13-4">13-4. 判定後のピボット選択肢</a></li>
+    </ul>
+  </div>
+
+  <h3 id="ch13-1">13-1. 5閾値の業種別調整値</h3>
+  <p>v2.0の撤退KPIは標準値で5項目を提示するが、業種によって閾値の調整が必要。クライアントへ提示する前に、業種特性を踏まえた数値に調整して納品する。</p>
+  <table class="ba-table">
+    <thead><tr><th>状況</th><th>標準閾値</th><th>BtoB調整</th><th>士業調整</th><th>EC物販調整</th></tr></thead>
+    <tbody>
+      <tr><td>フォロワー伸び停滞</td><td>3ヶ月で月10人未満</td><td>月5人未満（質重視）</td><td>月10人未満</td><td>月30人未満（量勝負）</td></tr>
+      <tr><td>時間対効果</td><td>週10時間で問合せ0件×2ヶ月</td><td>同左</td><td>週5時間で同左</td><td>週10時間で売上0×1ヶ月</td></tr>
+      <tr><td>CAC/LTV比</td><td>30%超</td><td>40%超（高単価許容）</td><td>30%超</td><td>20%超（薄利）</td></tr>
+      <tr><td>転換率（プロフ→リスト）</td><td>1%未満</td><td>0.5%未満（ロング購買）</td><td>1%未満</td><td>2%未満（即購買）</td></tr>
+      <tr><td>保存率</td><td>1%未満×2週連続</td><td>0.5%未満</td><td>1%未満</td><td>1.5%未満</td></tr>
+    </tbody>
+  </table>
+
+  <h3 id="ch13-2">13-2. 月次レビューでの判定フロー</h3>
+  <div class="deliver-box">
+    <h4>判定3段階</h4>
+    <ul>
+      <li><strong>緑（継続）：</strong>5項目すべて閾値クリア → 今の型を継続。投稿頻度や時間帯の微調整のみ</li>
+      <li><strong>黄（改修）：</strong>1〜2項目が閾値割れ → ピボット候補3案を提示し、翌月に1案を試す</li>
+      <li><strong>赤（撤退検討）：</strong>3項目以上が閾値割れ、または2ヶ月連続で同じ項目が割れる → 撤退提案ミーティングを開く</li>
+    </ul>
+  </div>
+
+  <h3 id="ch13-3">13-3. クライアントへの撤退提案スクリプト</h3>
+  <div class="deliver-box">
+    <h4>切り出し方（NG例 → OK例）</h4>
+    <p><strong>NG：</strong>「結果が出ていないので一旦やめましょう」（クライアントの自尊心を傷つける）</p>
+    <p><strong>OK：</strong>「3項目が2ヶ月連続で閾値割れしています。続けるよりも、リソースを別チャネルに移した方が同じ予算で2倍のリターンが見込めます。撤退ではなく『チャネル組み換え』として整理しましょう」</p>
+  </div>
+  <div class="deliver-box">
+    <h4>提案セットの3点</h4>
+    <ul>
+      <li>① 撤退理由の数値根拠（5項目中3項目の閾値割れデータ）</li>
+      <li>② 撤退で得られる時間／予算の試算（週○時間×4週＝月○時間、月○万円）</li>
+      <li>③ 別チャネルでの予想ROI（同じリソースを移した場合のシミュレーション）</li>
+    </ul>
+  </div>
+
+  <h3 id="ch13-4">13-4. 判定後のピボット選択肢</h3>
+  <ul>
+    <li><strong>ペルソナ再設計：</strong>反応する層が想定と違った場合 → Phase 1に戻る</li>
+    <li><strong>型の主軸変更：</strong>バズった投稿の型が固有 → その型を主軸にPhase 4の比率を変更</li>
+    <li><strong>USP再定義：</strong>競合の動きで差別化が崩れた → Phase 1のUSP定義に戻る</li>
+    <li><strong>リードマグネット作り直し：</strong>登録率が想定の半分以下 → Phase 1.5-2 でA→B→Cと総入れ替え</li>
+    <li><strong>オファー改修：</strong>フロント→本商品の引上率が5%未満 → Phase 1.5-3のOffer 5要素を見直し</li>
+    <li><strong>プラットフォーム削減：</strong>SNS過剰拡散による疲弊 → メイン1チャネルに集中、サブは停止</li>
+  </ul>
+
+  <div class="checklist">
+    <div class="title">第13章 セルフチェック</div>
+    <ul>
+      <li>業種別調整値表を見ずに3業種分言える</li>
+      <li>緑／黄／赤の判定基準を諳んじている</li>
+      <li>撤退提案スクリプトのNG例とOK例を区別できる</li>
+      <li>ピボット選択肢6種をすべて挙げられる</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- 第14章 v2.0 -->
+<!-- ============================================ -->
+<section class="chapter" id="ch14">
+  <div class="chapter-head">
+    <span class="chapter-no">CH 14</span>
+    <h2>A/Bテスト運用ガイド <span style="font-size:13px;background:#B8E5C5;color:#0F4A28;padding:3px 8px;border-radius:3px;margin-left:8px;vertical-align:middle">v2.0 NEW</span></h2>
+  </div>
+
+  <div class="mini-toc">
+    <div class="label">CHAPTER MAP</div>
+    <ul>
+      <li><a href="#ch14-1">14-1. フック2案の作り方</a></li>
+      <li><a href="#ch14-2">14-2. サムネ判定の実務</a></li>
+      <li><a href="#ch14-3">14-3. テスト期間と判定基準</a></li>
+      <li><a href="#ch14-4">14-4. 翌月カレンダーへの反映フロー</a></li>
+    </ul>
+  </div>
+
+  <h3 id="ch14-1">14-1. フック2案の作り方（感情訴求型 vs 数値訴求型）</h3>
+  <p>v2.0のPhase 4では、各投稿に2案のフックを必修で提示する。「感情訴求型 vs 数値訴求型」の対比が最も判定しやすい。</p>
+  <table class="ba-table">
+    <thead><tr><th>テーマ</th><th>感情訴求型（A案）</th><th>数値訴求型（B案）</th></tr></thead>
+    <tbody>
+      <tr><td>自宅ヨガ</td><td>「子どもが寝た後、自分の時間どこ行った？」</td><td>「10分×30日で-3kgが現実になる7型」</td></tr>
+      <tr><td>BtoB営業</td><td>「『また失注…』そろそろ卒業しませんか」</td><td>「商談化率を1.5倍にする5ステップ」</td></tr>
+      <tr><td>自然食品</td><td>「家族の朝食に、罪悪感は要らない」</td><td>「無添加で1食398円、月8,000円で続く方法」</td></tr>
+    </tbody>
+  </table>
+  <p class="ba-note">※ 業種により「数値訴求が刺さらない層」（高級・芸術系等）があるので、その場合は「感情訴求 vs 物語訴求」で対比を組む。</p>
+
+  <h3 id="ch14-2">14-2. サムネ判定の実務</h3>
+  <ul>
+    <li><strong>2方向：</strong>「テキスト大・人物なし」 vs 「人物大・テキスト小」を試す</li>
+    <li><strong>判定指標：</strong>クリック率（CTR）／保存率／再生時間</li>
+    <li><strong>テスト本数：</strong>同一テーマで最低6投稿（A型3本＋B型3本）。3本ずつ未満は誤差の範囲</li>
+    <li><strong>判定タイミング：</strong>各投稿から72時間経過後に集計。72時間以内は伸びる途中</li>
+  </ul>
+
+  <h3 id="ch14-3">14-3. テスト期間と判定基準</h3>
+  <div class="deliver-box">
+    <h4>判定の閾値（実務目安）</h4>
+    <ul>
+      <li><strong>明確な勝ち：</strong>A型平均がB型平均の1.5倍以上 → 翌月はA型に寄せる</li>
+      <li><strong>引き分け：</strong>A型・B型が±20%以内 → サンプル不足。さらに6投稿テストを継続</li>
+      <li><strong>明確な負け：</strong>A型平均がB型平均の0.5倍以下 → 翌月はB型に寄せる</li>
+    </ul>
+    <p>厳密な統計検定は不要。SNSのアルゴリズム変動が大きいので、月次でざっくり判定で十分。</p>
+  </div>
+
+  <h3 id="ch14-4">14-4. 結果を翌月カレンダーに反映するフロー</h3>
+  <ul>
+    <li><strong>Step 1：</strong>月末の月次レビュー前に、当月の投稿20本のうちA型／B型の勝敗を集計</li>
+    <li><strong>Step 2：</strong>月次レビューでクライアントに「今月の勝ち型」を共有（数字つき）</li>
+    <li><strong>Step 3：</strong>翌月のPhase 4カレンダーで、勝ち型の比率を70%まで上げる（残り30%は新しいA/Bテスト枠）</li>
+    <li><strong>Step 4：</strong>3ヶ月連続で同じ型が勝ち続けたら、その型を「シグネチャ型」として固定化。クライアントの代名詞投稿パターンに昇格</li>
+  </ul>
+
+  <div class="ok-box"><strong>Chapter 14の核心：</strong>A/Bテストは「結果を見て勝ち型に寄せる」のが本質。クライアントの「センス」や「直感」に頼る運用は、3ヶ月で限界が来る。数字で勝ち型を発見して再現性を作る運用こそが、有料コンサルが提供する価値の中核。</div>
+
+  <div class="checklist">
+    <div class="title">第14章 セルフチェック</div>
+    <ul>
+      <li>感情訴求型／数値訴求型のフックを業種別に5例以上書ける</li>
+      <li>サムネ判定の2方向対比を実施した経験がある</li>
+      <li>勝ち負けの閾値（1.5倍／0.5倍）を諳んじている</li>
+      <li>翌月カレンダーへの反映4ステップを口頭で説明できる</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- 第15章 v2.0 -->
+<!-- ============================================ -->
+<section class="chapter" id="ch15">
+  <div class="chapter-head">
+    <span class="chapter-no">CH 15</span>
+    <h2>v2.0 配布GPT クライアント案内＆運用フロー <span style="font-size:13px;background:#B8E5C5;color:#0F4A28;padding:3px 8px;border-radius:3px;margin-left:8px;vertical-align:middle">v2.0 NEW</span></h2>
+  </div>
+
+  <div class="mini-toc">
+    <div class="label">CHAPTER MAP</div>
+    <ul>
+      <li><a href="#ch15-1">15-1. 配布GPT→有料コンサルの導線設計</a></li>
+      <li><a href="#ch15-2">15-2. クライアント紹介スクリプト</a></li>
+      <li><a href="#ch15-3">15-3. GPT生成→人がブラッシュアップの工程</a></li>
+      <li><a href="#ch15-4">15-4. 初回面談でのGPT出力の見せ方</a></li>
+    </ul>
+  </div>
+
+  <h3 id="ch15-1">15-1. 配布GPT→有料コンサルの導線設計</h3>
+  <p>カスタムGPT v2.0は「リード獲得装置」かつ「品質保証の証明書」として機能する。3点セット（無料GPT＋公開LP＋裏マニュアル）の中で、GPTは最初の接点。GPTで価値を体験させた上で、有料コンサルへ誘導する導線が王道。</p>
+  <div class="deliver-box">
+    <h4>導線の4ステップ</h4>
+    <ul>
+      <li><strong>① GPT体験：</strong>無料配布で7問→6フェーズ出力を体験。「ここまで作れるのか」と驚かせる</li>
+      <li><strong>② LP訪問：</strong>GPT内CTAから公開LPへ誘導。料金プラン3種を提示</li>
+      <li><strong>③ 無料相談：</strong>30分オンライン。GPT出力を持参してもらい、人が深掘り＆カスタマイズ提案</li>
+      <li><strong>④ 契約：</strong>月次伴走プラン（5〜10万円）または研修プラン（30〜50万円）へ。GPT出力を初月の土台として使う</li>
+    </ul>
+  </div>
+
+  <h3 id="ch15-2">15-2. クライアント紹介スクリプト</h3>
+  <div class="deliver-box">
+    <h4>初回問い合わせメール返信テンプレ</h4>
+    <pre style="background:var(--panel);padding:14px;border-radius:6px;font-size:13px;line-height:1.7;overflow-x:auto;white-space:pre-wrap">○○様
+
+無料相談のお申し込みありがとうございます。
+
+面談前にお試しいただけるカスタムGPT「神崎潤マルチSNS参謀 v2.0」を
+ご案内します（無料・5〜15分）。
+
+▶ https://chatgpt.com/g/g-6a1b19fb6080819195f6d0d4ebb933f7
+
+7問に答えるだけで、御社のSNS戦略の「たたき台」が手に入ります。
+出力結果を面談時にお持ちいただけると、より深い議論ができます。
+
+面談日程は別途調整させてください。
+よろしくお願いいたします。
+
+有限会社アートソウル
+上村 桂右</pre>
+  </div>
+  <div class="deliver-box">
+    <h4>面談時の口頭スクリプト（GPT出力ありの場合）</h4>
+    <p>「GPTの出力、見させていただきました。Phase 1.5のオファー設計が業界一般のテンプレで止まっているので、ここを御社の競合状況と顧客特性に合わせて作り込むと、初月のフロントエンド購入率が2〜3倍変わります。具体的には……」</p>
+    <p class="ba-note">※「GPTは便利だが、最後の1割の作り込みは人が必要」というメッセージで有料化に繋ぐ。GPTを否定しない。</p>
+  </div>
+
+  <h3 id="ch15-3">15-3. GPT生成→人がブラッシュアップの工程</h3>
+  <ul>
+    <li><strong>Step 1：GPT初回生成（クライアント or 自社）</strong>　7問入力→Phase 0〜5を一通り出力</li>
+    <li><strong>Step 2：1次レビュー（自社・1時間）</strong>　業種・地域・競合状況に応じた違和感を5〜10箇所マークアップ</li>
+    <li><strong>Step 3：クライアント面談（60分）</strong>　マークアップ箇所を中心に深掘り。1.5倍カスタマイズ</li>
+    <li><strong>Step 4：最終納品（PDF）</strong>　GPTの自動生成では到達できない「業界の暗黙知」「クライアント固有の事情」を反映した完成版</li>
+  </ul>
+
+  <h3 id="ch15-4">15-4. 初回面談でのGPT出力の見せ方（NG例も明示）</h3>
+  <div class="ng-box">
+    <strong>NG例：</strong>GPT出力をそのままスクリーンに映して「ここに書いてある通りです」と説明する。クライアントは「これGPTがやったやつでしょ？お金払う価値あるの？」と思う。GPTで完結できる印象を与えると有料化が頓挫する。
+  </div>
+  <div class="ok-box">
+    <strong>OK例：</strong>GPT出力を一旦印刷し、赤ペンで5〜10箇所マークアップした「修正提案バージョン」を見せる。「GPTはここまでやってくれます。ただ、ここの3箇所は御社の競合状況だと違う打ち手の方が当たります。具体的には……」と話を始める。<strong>修正の量＝有料化の根拠</strong>と見せる。
+  </div>
+
+  <div class="ok-box"><strong>Chapter 15の核心：</strong>配布GPTは「敵」ではなく「最高の営業マン」。GPTで顧客を体験させ、品質基準を上げ、最後の作り込みを人が担当する。GPTを使わない競合は3年で淘汰される。GPTを使いこなして「人が必要な1割」に絞った仕事を提供するのが、これからのコンサルの形。</div>
+
+  <div class="checklist">
+    <div class="title">第15章 セルフチェック</div>
+    <ul>
+      <li>4ステップ導線（GPT体験→LP→相談→契約）を諳んじている</li>
+      <li>初回返信メールテンプレを使った実績がある</li>
+      <li>GPT出力の1次レビュー（5〜10箇所マークアップ）を実施できる</li>
+      <li>面談でのNG例／OK例の違いを口頭で説明できる</li>
+    </ul>
+  </div>
+
+  <div style="margin-top:48px;padding:32px;background:var(--panel-2);border-radius:8px;border-left:4px solid var(--gold)">
+    <h3 style="border-bottom:none;margin-top:0">v2.0 完全運用マニュアル 修了の宣言</h3>
+    <p>15章を読み切ったあなたは、神崎潤マルチSNS参謀 v2.0 のすべての武器を手にした。</p>
+    <p>Phase 1.5を組み込めるコンサルは、現時点で日本にほとんどいない。撤退判断を数値でできるコンサルも稀。A/Bテストを月次の運用に埋め込めるコンサルは、もっと少ない。配布GPTを「敵」ではなく「営業マン」として使いこなせるコンサルは、まだ数えるほどしかいない。</p>
+    <p>このマニュアルで身につけたものを武器に、3ヶ月後にはAS内のエースとして案件を回し、1年後には自分の弟子に同じ知識を渡してほしい。— 上村桂右・Kai</p>
+  </div>
+</section>
+
+<footer>
+  <p>有限会社アートソウル｜マルチSNS参謀 完全運用マニュアル v2.0 DRM強化版｜2026-06-03<br>
+  本書は機密扱い。社内限定・顧客非公開。配布元：上村桂右<br>
+  Powered by Kai（AS内部AIパートナー）｜rules/skills/multi-sns-sanbo.md v2.0 準拠｜更新履歴：2026-05-31 v1.0初版／2026-06-03 v2.0（Ch12-15新章追加：Phase 1.5実務・撤退KPI判定・A/Bテスト運用・配布GPT連携）</p>
+</footer>
+
+</main>
+</div>
+
+<script>
+// TOC アクティブ表示
+const tocLinks = document.querySelectorAll('.toc a');
+const sections = document.querySelectorAll('section.chapter');
+const observerOptions = {rootMargin:'-30% 0px -60% 0px',threshold:0};
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      const id = entry.target.getAttribute('id');
+      tocLinks.forEach(l=>l.classList.remove('active'));
+      const active = document.querySelector(`.toc a[href="#${id}"]`);
+      if(active)active.classList.add('active');
+    }
+  });
+},observerOptions);
+sections.forEach(s=>observer.observe(s));
+
+// 検索機能
+const searchInput = document.getElementById('search');
+const searchHits = document.getElementById('searchHits');
+
+function clearHighlights(){
+  document.querySelectorAll('main mark').forEach(m=>{
+    const parent = m.parentNode;
+    parent.replaceChild(document.createTextNode(m.textContent), m);
+    parent.normalize();
+  });
+}
+
+function highlight(node, query){
+  if(!query) return 0;
+  let count = 0;
+  const walker = document.createTreeWalker(node, NodeFilter.SHOW_TEXT, {
+    acceptNode: function(n){
+      if(n.parentNode.tagName === 'SCRIPT' || n.parentNode.tagName === 'STYLE') return NodeFilter.FILTER_REJECT;
+      if(n.parentNode.tagName === 'MARK') return NodeFilter.FILTER_REJECT;
+      return n.nodeValue.toLowerCase().includes(query.toLowerCase()) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+    }
+  });
+  const nodes = [];
+  while(walker.nextNode()) nodes.push(walker.currentNode);
+  nodes.forEach(n=>{
+    const text = n.nodeValue;
+    const lower = text.toLowerCase();
+    const q = query.toLowerCase();
+    let idx = lower.indexOf(q);
+    if(idx === -1) return;
+    const frag = document.createDocumentFragment();
+    let last = 0;
+    while(idx !== -1){
+      if(idx > last) frag.appendChild(document.createTextNode(text.slice(last, idx)));
+      const mark = document.createElement('mark');
+      mark.textContent = text.slice(idx, idx + query.length);
+      frag.appendChild(mark);
+      count++;
+      last = idx + query.length;
+      idx = lower.indexOf(q, last);
+    }
+    if(last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+    n.parentNode.replaceChild(frag, n);
+  });
+  return count;
+}
+
+let searchTimer;
+searchInput.addEventListener('input', (e)=>{
+  clearTimeout(searchTimer);
+  searchTimer = setTimeout(()=>{
+    clearHighlights();
+    const q = e.target.value.trim();
+    if(q.length < 2){
+      searchHits.textContent = '';
+      return;
+    }
+    const main = document.querySelector('main');
+    const hits = highlight(main, q);
+    searchHits.textContent = hits > 0 ? `${hits}件ヒット` : '0件ヒット';
+    if(hits > 0){
+      const first = document.querySelector('main mark');
+      if(first) first.scrollIntoView({behavior:'smooth', block:'center'});
+    }
+  }, 300);
+});
+</script>
+
+</body>
+</html>
